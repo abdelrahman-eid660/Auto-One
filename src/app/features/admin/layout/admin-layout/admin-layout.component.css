@@ -1,0 +1,59 @@
+.admin-dashboard {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--bg, #f8f9fa);
+  color: var(--text, #222);
+}
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #111827, #0b1220);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.nav-link {
+  color: #ddd;
+  padding: 8px 12px;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nav-link:hover, .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffb703;
+}
+
+.submenu {
+  list-style: none;
+  padding-right: 1rem;
+  margin-top: 5px;
+}
+.submenu li a {
+  color: #bbb;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.submenu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffb703;
+}
+
+.content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background-color: var(--content-bg, #fff);
+  transition: all 0.3s;
+  padding: 20px;
+}
+
+/* سهم الدوران عند فتح القائمة */
+.rotate {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}

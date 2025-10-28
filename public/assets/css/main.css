@@ -1,0 +1,203 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --p-color: rgb(146, 146, 146);
+  --main-bg: #ffffff;
+  --main-font-family: "El Messiri";
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* start header  */
+.nav-user {
+  background-color: var(--main-bg);
+  direction: rtl;
+  padding: 20px 10px;
+  position: sticky;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.logo a {
+  color: var(--main-color);
+  font-family: var(--main-font-family);
+  font-size: 24px;
+}
+button.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+.navbar-nav li {
+  margin: 0 10px;
+}
+.navbar-nav li a.dashboard{
+  color: var(--main-bg);
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.navbar-nav li a.dashboard:hover{
+  color: var(--main-bg);
+  background-color: var(--main-color);
+}
+.dropdown-menu {
+  background-color: var(--main-color);
+  text-align: right;
+  min-width: unset;
+  border-radius: 0;
+  left: -10px !important;
+  margin-top: 15px !important;
+  width: 120px !important;
+}
+.nav-link i {
+  transform: rotate(0deg);
+  transition: all 0.3s;
+}
+.nav-link.show i {
+  transform: rotate(180deg);
+}
+.dropdown-menu li a {
+  color: gray;
+  font-size: 13px;
+  position: relative;
+  display: inline-block;
+  margin: 5px 0;
+  padding: 5px 0;
+}
+.dropdown-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: all 0.3s;
+}
+.dropdown-menu li a.active {
+  background-color: transparent !important;
+  color: var(--main-bg);
+}
+.dropdown-menu li a:hover {
+  background-color: transparent !important;
+  color: var(--main-bg);
+}
+.dropdown-menu li a:hover::after {
+  width: 100%;
+}
+.nav-link.dropdown-toggle::after {
+  display: none !important;
+}
+@media (max-width:992px) {
+.navbar-nav li {
+  margin: 0 5px;
+}
+.logo a {
+  font-size: 16px;
+}
+.navbar-nav li a{
+  font-size: 12px;
+}
+}
+/* end header  */
+/* start footer  */
+footer {
+  background-color: var(--main-color);
+  min-height: 40vh;
+  text-align: right;
+  padding: 20px;
+}
+footer .contact-info {
+  margin: 30px 0 10px;
+}
+footer .contact-info .title h5 {
+  color: var(--p-color);
+  font-size: 16px;
+}
+footer .contact-info-content p {
+  color: var(--main-bg);
+}
+footer .contact-info-content h6 {
+  color: var(--main-bg);
+  margin: 15px 0;
+}
+footer .quick-links {
+  margin: 30px 0 10px;
+}
+footer .quick-links .title h5 {
+  color: var(--p-color);
+  font-size: 16px;
+}
+footer .quick-links-content a {
+  display: block;
+  margin: 5px 0;
+  text-decoration: none;
+  color: var(--main-bg);
+  transition: all 0.3s;
+}
+footer .quick-links-content a:hover {
+  color: var(--primary-color);
+}
+footer .subscription {
+  margin: 30px 0 10px;
+}
+footer .subscription .title h5 {
+  color: var(--p-color);
+  font-size: 16px;
+  position: relative;
+}
+footer .subscription .title h5::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+footer .subscription-content h4 {
+  color: var(--main-bg);
+  font-size: 30px;
+  margin: 20px 0;
+}
+footer .subscription-content span {
+  color: var(--primary-color);
+}
+footer .subscription-content .input-group {
+  margin: 20px 0;
+  margin-left: auto !important;
+  width: 85%;
+}
+footer .subscription-content .input-group input {
+  text-align: right;
+}
+footer .subscription-content .input-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 77, 77, 0.25);
+}
+footer .line {
+  border: 2px solid var(--primary-color);
+}
+footer .copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--p-color);
+  flex-wrap: wrap;
+}
+footer .copyright .left-side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--main-bg);
+}
+@media (max-width: 768px) {
+  footer .copyright {
+    justify-content: center;
+  }
+  footer .copyright h6 {
+    font-size: 12px;
+  }
+}
+/* end footer  */

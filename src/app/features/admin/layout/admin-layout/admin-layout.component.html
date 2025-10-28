@@ -1,0 +1,96 @@
+<div class="admin-dashboard d-flex">
+  <!-- Sidebar -->
+  <aside class="sidebar p-3">
+    <h5 class="mb-4 text-warning">AutoOne Admin</h5>
+
+    <ul class="nav flex-column">
+      <li>
+        <a (click)="toggleMenu('dashboard')" class="nav-link d-flex justify-content-between align-items-center" routerLink="/admin/home">
+          <span>🏠 الرئيسية</span>
+          <i [class.rotate]="activeMenu === 'dashboard'" class="bi bi-chevron-down"></i>
+        </a>
+      </li>
+
+      <!-- المنتجات -->
+      <li>
+        <a (click)="toggleMenu('products')" class="nav-link d-flex justify-content-between align-items-center">
+          <span>🛒 المنتجات</span>
+          <i [class.rotate]="activeMenu === 'products'" class="bi bi-chevron-down"></i>
+        </a>
+        <ul *ngIf="activeMenu === 'products'"  @slideToggle class="submenu">
+          <li><a routerLink="/admin/product-create" routerLinkActive="active">➕ إضافة منتج</a></li>
+          <li><a routerLink="/admin/product-list" routerLinkActive="active">📋 عرض المنتجات</a></li>
+          <li><a routerLink="/admin/product-update/:id" routerLinkActive="active">⚙️ تعديل المنتجات</a></li>
+        </ul>
+      </li>
+
+      <!-- الخدمات -->
+      <li>
+        <a (click)="toggleMenu('services')" class="nav-link d-flex justify-content-between align-items-center">
+          <span>🔧 الخدمات</span>
+          <i [class.rotate]="activeMenu === 'services'" class="bi bi-chevron-down"></i>
+        </a>
+        <ul *ngIf="activeMenu === 'services'"  @slideToggle class="submenu">
+          <li><a routerLink="/admin/ourservice-create" routerLinkActive="active">➕ إضافة خدمة</a></li>
+          <li><a routerLink="/admin/ourservice-list" routerLinkActive="active">📋 عرض الخدمات</a></li>
+          <li><a routerLink="/admin/ourservice-update/:id" routerLinkActive="active">⚙️ تعديل الخدمات</a></li>
+        </ul>
+      </li>
+
+      <!-- المدونة -->
+      <li>
+        <a (click)="toggleMenu('blog')" class="nav-link d-flex justify-content-between align-items-center">
+          <span>📰 المدونة</span>
+          <i [class.rotate]="activeMenu === 'blog'" class="bi bi-chevron-down"></i>
+        </a>
+        <ul *ngIf="activeMenu === 'blog'"  @slideToggle class="submenu">
+          <li><a routerLink="/admin/blog-create" routerLinkActive="active">➕ إضافة مدونة</a></li>
+          <li><a routerLink="/admin/blog-list" routerLinkActive="active">📋 عرض المدونات</a></li>
+          <li><a routerLink="/admin/blog-update/:id" routerLinkActive="active">⚙️ تعديل المدونات</a></li>
+        </ul>
+      </li>
+
+      <!-- الباقات -->
+      <li>
+        <a (click)="toggleMenu('pricing')" class="nav-link d-flex justify-content-between align-items-center">
+          <span>💳 الباقات</span>
+          <i [class.rotate]="activeMenu === 'pricing'" class="bi bi-chevron-down"></i>
+        </a>
+        <ul *ngIf="activeMenu === 'pricing'"  @slideToggle class="submenu">
+          <li><a routerLink="/admin/pricing-create" routerLinkActive="active">➕ إضافة باقة</a></li>
+          <li><a routerLink="/admin/pricing-list" routerLinkActive="active">📋 عرض الباقات</a></li>
+          <li><a routerLink="/admin/pricing-update/:id" routerLinkActive="active">⚙️ تعديل الباقات</a></li>
+        </ul>
+      </li>
+
+      <!-- المشرفين -->
+      <li>
+        <a (click)="toggleMenu('admins')" class="nav-link d-flex justify-content-between align-items-center">
+          <span>🧑‍💼 المشرفين</span>
+          <i [class.rotate]="activeMenu === 'admins'" class="bi bi-chevron-down"></i>
+        </a>
+        <ul *ngIf="activeMenu === 'admins'"  @slideToggle class="submenu">
+          <li><a routerLink="/admin/admin-create" routerLinkActive="active">➕ إضافة مشرف</a></li>
+          <li><a routerLink="/admin/admin-list" routerLinkActive="active">📋 قائمة المشرفين</a></li>
+          <li><a routerLink="/admin/admin-update/:id" routerLinkActive="active">⚙️ تعديل المشرفين</a></li>
+        </ul>
+      </li>
+
+      <!-- العملاء -->
+      <li>
+        <a routerLink="/admin/customers" class="nav-link">👥 العملاء</a>
+      </li>
+    </ul>
+
+    <hr>
+    <button class="btn btn-sm btn-outline-light w-100 mt-3">
+  🌓 تبديل الوضع
+</button>
+
+  </aside>
+
+  <!-- محتوى الصفحات -->
+  <main class="content flex-fill p-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>

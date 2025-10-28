@@ -1,0 +1,40 @@
+.container {
+  color: #000000;
+  font-family: "Cairo", sans-serif;
+  height: 100vh;
+  text-align: center;
+}
+.error-code {
+  font-size: 140px;
+  font-weight: bold;
+  color: #e63946;
+  text-shadow: 0 0 20px rgba(230, 57, 70, 0.4);
+}
+.car-icon {
+  font-size: 60px;
+  animation: moveCar 3s infinite linear;
+}
+@keyframes moveCar {
+  0% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+.btn-home {
+  background-color: #e63946;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-home:hover {
+  background-color: #c72f3f;
+  transform: scale(1.05);
+}
