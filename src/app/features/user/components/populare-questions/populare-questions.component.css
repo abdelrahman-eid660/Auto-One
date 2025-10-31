@@ -1,0 +1,109 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --p-color: #3a3636;
+  --main-bg: #ffffff;
+  --main-font-family: "El Messiri";
+}
+.questions {
+  padding: 20px 10px;
+  text-align: right;
+  font-family: var(--main-font-family);
+}
+.title p {
+  color: #3a3636;
+}
+.quest .accordion-body {
+  line-height: 1.6;
+}
+.quest .accordion-button {
+  line-height: 1.6;
+  margin-right: auto;
+  text-align: right;
+  flex-direction: row-reverse;
+  background-color: var(--main-color);
+  color: var(--main-bg);
+}
+.quest .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+.quest .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+  border-color: white;
+  outline: none;
+}
+.user-questions {
+  padding: 10px;
+  margin: 10px 0;
+}
+.user-questions .picture {
+  width: 280px;
+  margin: 10px;
+  padding: 10px;
+  margin-left: auto;
+  animation-name: rotate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+.user-questions label {
+  margin: 5px 0;
+  color: #3a3636;
+}
+.user-questions input {
+  margin: 10px 0;
+}
+.user-questions .form-group {
+  margin: 10px 0;
+}
+.user-questions select {
+  text-align: right;
+}
+.form-floating > .form-select option {
+  padding: 15px;
+}
+.user-questions textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  resize: none;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+.form-floating > .form-select {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.user-questions button {
+  background-color: var(--main-color);
+  color: var(--main-bg);
+  padding: 15px 40px;
+  margin: 10px 0;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  .user-questions .picture {
+    width: 250px;
+    margin: 10px auto;
+  }
+}
+@media (max-width: 420px) {
+  .quest .accordion-body {
+    font-size: 12px;
+  }
+  .quest .accordion-button {
+    font-size: 12px;
+  }
+}

@@ -1,1 +1,238 @@
-<p>about works!</p>
+<!-- main title  -->
+<div class="container-fulid">
+  <div class="banner-title">
+    <div class="banner-content">
+      <div class="banner-caption">
+        <h4>معلومات عنا</h4>
+        <div class="position">
+          <h6>معلومات عنا</h6>
+          <span><<</span>
+          <h6>الرئيسية</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="info" data-aos="fade-right" data-aos-duration="1000">
+          <h6>من نحن في أوتو وان</h6>
+          <h4><span>عن</span> أوتو وان</h4>
+          <p>
+            ChatGPTيمكن أن يكون الميكانيكي أفضل صديق لمالك السيارة أو أسوأ كابوس
+            له. عندما تحدث مشاكل في السيارة، يعتمد الناس بشكل كبير على
+            ميكانيكيهم لتشخيص وإصلاح المشكلة في أقصر وقت ممكن. يتوقعون من
+            الميكانيكيين أن يعملوا بأمانة واحترافية. لتكون ميكانيكيًا رائعًا،
+            يجب أن تمتلك الصفات التالية: الميكانيكيون العظماء قادرون على التفاعل
+            مع العملاء. هم قادرون على التواصل معهم بفعالية.
+          </p>
+          <div class="features">
+            <div class="row-features">
+              <h6>سيارات ذات جوده عالية</h6>
+              <h6>استماع فعال</h6>
+              <h6>قيمنا الأساسية</h6>
+            </div>
+            <div class="row-features feature-two">
+              <h6>جميع قطع الغيارات</h6>
+              <h6>حلول فورية</h6>
+              <h6>خدمة عملاء قوية</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+        <div class="picturs">
+          <img
+            src="assets/img/about us/about_us1.jpg"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="assets/img/about us/about_us2.jpg"
+            class="img-fluid"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="statistics">
+  <div class="layout-animation">
+    <video autoplay muted loop playsiline>
+      <source src="assets/img/layout/layout.mp4" />
+    </video>
+  </div>
+  <div class="container">
+    <div class="title">
+      <h6>شاهد إحصائياتنا ومهاراتنا</h6>
+      <h4><span> سيارات ممتازة </span>و قطع غيار</h4>
+    </div>
+    <div class="row">
+      @for (item of stats; track $index) {
+      <div class="col-md-3" data-aos="fade-up" data-aos-duration="2000">
+        <div class="statistics-box" [ngClass]="item.active">
+          <h6>
+            {{ item.current }}<span>{{ item.suffix }}</span>
+          </h6>
+          <i class="fa-solid" [ngClass]="item.icon"></i>
+          <h4>{{ item.label }}</h4>
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>
+</section>
+<section class="timeline">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 align-content-center">
+        <div class="picture">
+          <img
+            src="assets/img/about us/about_us3.jpg"
+            class="img-fluid"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="timeline-section">
+          <h4>ذو خبرة و قابلة للاعتماد</h4>
+          <h4 class="section-title">تاريخ<span>نا</span></h4>
+
+          <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">1995</div>
+              <div class="timeline-content">
+                <p>
+                  يمكن لخدمة إصلاح السيارات أن تقدم لك رعاية شخصية ومعرفة متخصصة
+                  لسيارتك. الفنيون متاحون من الإثنين إلى الجمعة لتقديم أفضل
+                  خدمات إصلاح السيارات.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">2008</div>
+              <div class="timeline-content">
+                <p>
+                  عادةً ما أشتري سيارات مستعملة ظنًا مني أنني أحصل على صفقات
+                  جيدة، لكنني أنتهي دائمًا بمواجهة إصلاحات باهظة الثمن (تعلم من
+                  أخطائي). لكن ميشين أوتو هو الأفضل بلا منازع.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-content">
+                <p>ونستمر في كوننا الأفضل بلا منازع في مجالنا.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="testimonials">
+  <div class="container">
+    <div class="title">
+      <h6>آراء عملاء قطع الغيار</h6>
+      <h4>ماذا يقول <span>عملاؤنا؟</span></h4>
+    </div>
+    <div class="row">
+      <div class="col-md-4" data-aos="fade-up" data-aos-duration="3000">
+        <div class="testimonial">
+          <i class="fa-regular fa-message"></i>
+          <div class="text">
+            لقد كنت أستخدم قطع الغيار من هذا المورد لسنوات، وقد فاقوا توقعاتي
+            دائمًا. الجودة ممتازة، مما يضمن المتانة والأداء في كل مرة. خدمة
+            العملاء لديهم مفيدة للغاية، حيث يوجهونني دائمًا إلى المنتجات
+            المناسبة ما يضمن المتانة.
+          </div>
+          <div class="aurther">
+            <div class="photo">
+              <img
+                src="assets/img/testimonials/testimonials_3.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="details">
+              <h5>مروان العسيري</h5>
+              <h6>رجل اعمال</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-duration="3000">
+        <div class="testimonial">
+          <i class="fa-regular fa-message"></i>
+          <div class="text">
+            لا أستطيع أن أعبّر بما فيه الكفاية عن مدى إعجابي بالخدمة الرائعة
+            التي تلقيتها في حول السعر المذكور عند الباب كان ٢٦ درهم لفحص العادم
+            ، بالإضافة إلى تكلفة الشهادة، وهذا ما تم تحصيله مني. لم يتم إضافة ١٠
+            درهم إضافية لحجم أو عمر مركبتي.
+          </div>
+          <div class="aurther">
+            <div class="photo">
+              <img
+                src="assets/img/testimonials/testimonials_2.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="details">
+              <h5>عثمان محمد</h5>
+              <h6>رجل اعمال</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-duration="3000">
+        <div class="testimonial">
+          <i class="fa-regular fa-message"></i>
+          <div class="text">
+            يمكن أن يكون الميكانيكي أفضل صديق لمالك السيارة أو أسوأ كابوس له.
+            عندما تحدث مشاكل في السيارة، يعتمد الناس بشكل كبير على ميكانيكيهم
+            لتشخيص وإصلاح المشكلة في أقصر وقت ممكن. يتوقعون من الميكانيكيين أن
+            يعملوا بسرعة وبأمانة.
+          </div>
+          <div class="aurther">
+            <div class="photo">
+              <img
+                src="assets/img/testimonials/testimonials_1.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="details">
+              <h5>محمد وليد</h5>
+              <h6>رجل اعمال</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="brands">
+  <div class="container">
+    <div class="row">
+      <div class="brand">
+        <img src="assets/img/brand/bmw.png" class="img-fluid" alt="" />
+        <img src="assets/img/brand/ferrari.png" class="img-fluid" alt="" />
+        <img src="assets/img/brand/hyundai.jpg" class="img-fluid" alt="" />
+        <img src="assets/img/brand/kia.webp" class="img-fluid" alt="" />
+        <img src="assets/img/brand/toyota.png" class="img-fluid" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

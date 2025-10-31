@@ -100,6 +100,76 @@ button.navbar-toggler:focus {
 }
 }
 /* end header  */
+
+/* start banner */
+.banner-title {
+  min-height: 200px;
+  background-image: url("../img/products/cover.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+}
+.banner-title .banner-content {
+  font-family: var(--main-font-family);
+  width: 100%;
+  height: 100%;
+}
+.banner-title .banner-caption {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--main-bg);
+  text-align: center;
+  padding: 60px 10px;
+}
+.banner-title .banner-caption .position {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin: 10px auto;
+  padding: 10px;
+  width: 220px;
+}
+.banner-title .banner-caption .position > h6:nth-of-type(2) {
+  color: var(--p-color);
+}
+.banner-title .banner-caption .position span {
+  margin-bottom: 6px;
+  color: var(--p-color);
+}
+/* end banner  */
+/* title of page  */
+.title > h6 {
+  position: relative;
+  font-size: 16px;
+  margin: 15px auto;
+  margin-right: 16px;
+  display: inline-block;
+  color: var(--main-color);
+}
+.title > h6::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+.title h4 {
+  font-size: 35px;
+  margin: 10px auto 20px;
+}
+.title h4 span {
+  color: var(--primary-color);
+}
 /* start footer  */
 footer {
   background-color: var(--main-color);

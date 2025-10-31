@@ -1,0 +1,143 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --p-color: rgb(146, 146, 146);
+  --main-bg: #ffffff;
+  --main-font-family: "El Messiri";
+}
+.banner-title .banner-caption .position {
+  width: 180px;
+}
+.contact{
+  padding: 10px;
+  font-family: var(--main-font-family);
+}
+.contact .title{
+  text-align: center;
+  margin: 40px 0;
+  margin-bottom: 60px;
+}
+.box{
+  position: relative;
+  padding: 10px;
+  text-align: right;
+  border: 1px solid rgba(0,0,0,0.5);
+  align-content: center;
+  border-radius: 10px;
+  margin: 30px 0;
+  transition: all 0.3s;
+}
+.box:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 0 10px #eb23003b;
+  cursor: pointer;
+}
+.box i {
+  position: absolute;
+  top: -35px;
+  right: 20px;
+  color: var(--primary-color);
+  font-size: 25px;
+  border: 8px solid var(--primary-color);
+  border-radius: 50%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+}
+.box button{
+  margin: 40px auto 10px;
+}
+.box button a{
+  text-decoration: none;
+  color:#dc3545 ;
+}
+.box button:hover a{
+  text-decoration: none;
+  color: var(--main-bg) ;
+}
+.details h4{
+  margin: 30px 0 10px;
+}
+.details h6{
+  margin: 30px 0 10px;
+}
+.user-form {
+  padding: 10px;
+  text-align: right;
+  font-family: var(--main-font-family);
+  margin: 10px;
+}
+.user-form .container{
+  background-color: whitesmoke;
+  align-content: center;
+}
+.user-form form{
+  padding: 10px;
+  margin: 10px 0;
+}
+.user-form label {
+  margin: 5px 0;
+  color: #3a3636;
+}
+.user-form input {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: right;
+}
+.user-form .form-group {
+  margin: 10px 0;
+}
+.user-form select {
+  text-align: right;
+}
+.form-floating > .form-select option {
+  padding: 15px;
+}
+.user-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  resize: none;
+  text-align: right;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+.form-floating > .form-select {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.user-form button {
+  background-color: var(--main-color);
+  color: var(--main-bg);
+  padding: 15px 40px;
+  margin: 10px 0;
+}
+.user-form iframe{
+  margin: 30px 0;
+  width: 100%;
+}
+@media (min-width:768px) and (max-width:992px) {
+  .box i {
+  position: absolute;
+  top: -25px;
+  font-size: 18px;
+  border: 5px solid var(--primary-color);
+  padding: 8px;
+}
+  .box button{
+    font-size: 8px;
+  }
+  .box button a{
+  font-size: 8px;
+}
+.details h4{
+  font-size: 12px;
+}
+.details h6{
+  font-size: 12px;
+}
+}
