@@ -1,1 +1,181 @@
-<p>products-update works!</p>
+<div class="product-form card shadow p-4 rounded-4">
+  <h4 class="mb-4 text-center text-primary fw-bold">تعديل بيانات المنتج</h4>
+
+  <form [formGroup]="productsForm">
+    <div class="row g-3">
+      <!-- الماركة -->
+      <div class="col-md-6">
+        <label for="marka" class="form-label fw-semibold">الماركة</label>
+        <input
+          type="text"
+          id="marka"
+          formControlName="marka"
+          class="form-control form-control-lg"
+          placeholder="أدخل اسم الماركة"
+        />
+        @if(productsForm.get('marka')?.touched &&
+        productsForm.get('marka')?.invalid){
+        <span class="text-danger">
+          @if(controls['marka'].errors?.['required']){من فضلك تدخل نوع الماركة}
+        </span>
+        }
+      </div>
+
+      <!-- الاسم -->
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-semibold">اسم المنتج</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control form-control-lg"
+          placeholder="اكتب اسم المنتج"
+        />
+        @if (productsForm.get('name')?.touched &&
+        productsForm.get('name')?.invalid) {
+        <span class="text-danger">
+          @if (controls['name'].errors?.['required']) {من فضلك ادخل اسم المنتج}
+        </span>
+        }
+      </div>
+
+      <!-- الوصف -->
+      <div class="col-12">
+        <label for="description" class="form-label fw-semibold">الوصف</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control form-control-lg"
+          rows="3"
+          placeholder="أدخل وصف المنتج..."
+        ></textarea>
+        @if (productsForm.get('description')?.touched &&
+        productsForm.get('description')?.invalid) {
+        <span class="text-danger">
+          @if (productsForm.get('description')?.errors?.['required']) {من فضلك
+          ادخل وصف المنتج}
+        </span>
+        }
+      </div>
+
+      <!-- الصورة -->
+      <div class="col-md-6">
+        <label for="image" class="form-label fw-semibold">الصورة</label>
+        <input
+          type="text"
+          id="image"
+          formControlName="image"
+          class="form-control form-control-lg"
+        />
+        @if (productsForm.get('image')?.touched &&
+        productsForm.get('image')?.invalid) {
+        <span class="text-danger">
+          @if (productsForm.get('image')?.errors?.['required']) {من فضلك اختر
+          صورة}
+        </span>
+        }
+      </div>
+
+      <!-- الكود -->
+      <div class="col-md-6">
+        <label for="code" class="form-label fw-semibold">الكود</label>
+        <input
+          type="text"
+          id="code"
+          formControlName="code"
+          class="form-control form-control-lg"
+          placeholder="أدخل كود المنتج"
+        />
+        @if (productsForm.get('code')?.touched &&
+        productsForm.get('code')?.invalid) {
+        <span class="text-danger">
+          @if (productsForm.get('code')?.errors?.['required']) {من فضلك ادخل كود
+          المنتج}
+        </span>
+        }
+      </div>
+
+      <!-- الكمية -->
+      <div class="col-md-6">
+        <label for="count" class="form-label fw-semibold">الكمية</label>
+        <input
+          type="number"
+          id="count"
+          formControlName="count"
+          class="form-control form-control-lg"
+          placeholder="عدد القطع المتاحة"
+        />
+        @if (productsForm.get('count')?.touched &&
+        productsForm.get('count')?.invalid) {
+        <span class="text-danger">
+          @if (productsForm.get('count')?.errors?.['required']) {من فضلك ادخل
+          كمية المنتج}
+        </span>
+        }
+      </div>
+
+      <!-- السعر -->
+      <div class="col-md-6">
+        <label for="price" class="form-label fw-semibold">السعر</label>
+        <input
+          type="number"
+          id="price"
+          formControlName="price"
+          class="form-control form-control-lg"
+          placeholder="أدخل السعر"
+        />
+        @if (productsForm.get('price')?.touched &&
+        productsForm.get('price')?.invalid) {
+        <span class="text-danger">
+          @if (productsForm.get('price')?.errors?.['required']) {من فضلك ادخل
+          سعر المنتج}
+        </span>
+        }
+      </div>
+
+      <!-- الخصم -->
+      <div class="col-md-6">
+        <label for="discount" class="form-label fw-semibold">الخصم (اختياري)</label>
+        <input
+          type="number"
+          id="discount"
+          formControlName="discount"
+          class="form-control form-control-lg"
+          placeholder="أدخل الخصم"
+        />
+      </div>
+      
+      <!-- الفئة -->
+      <div class="col-md-6">
+        <label for="category" class="form-label fw-semibold">الفئة</label>
+        <select
+          id="category"
+          class="form-select form-select-lg"
+          formControlName="category"
+        >
+          <option value="" selected disabled>اختر الفئة</option>
+          <option value="cars">سيارات</option>
+          <option value="spare-parts">قطع غيار</option>
+          <option value="special-spare-parts">قطع غيار مميزه</option>
+        </select>
+        @if (productsForm.get('category')?.touched &&
+        productsForm.get('category')?.invalid) {
+        <span class="text-danger">
+          @if (productsForm.get('category')?.errors?.['required']) {من فضلك اختر
+          صنف المنتج}
+        </span>
+        }
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button
+        type="submit"
+        (click)="update()"
+        class="btn btn-primary btn-lg px-5 rounded-pill shadow"
+      >
+        <i class="fa-solid fa-plus me-2"></i> حفظ التعديلات
+      </button>
+    </div>
+  </form>
+</div>

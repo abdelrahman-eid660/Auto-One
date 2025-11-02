@@ -1,0 +1,26 @@
+.products-table{
+  text-align: center;
+}
+.thumb {
+  width: 200px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+/* subtle hover row highlight */
+.table-hover tbody tr:hover {
+  background: #fbfcff;
+}
+
+/* small screens: stack columns for better readability (optional) */
+@media (max-width: 768px) {
+  .table {
+    text-align: right;
+  }
+  .table thead { display: none; }
+  .table tbody tr { display: block; margin-bottom: 12px; border-bottom: 1px solid #eee; }
+  .table tbody td { display: flex; justify-content: space-between; padding: 10px 12px; }
+  .thumb { width: 250px; height: 180px; }
+}

@@ -1,7 +1,327 @@
 {
-    "admins" : {
-        "name" : "abdelrahman",
-        "email" : "eida0556@gmail.com",
-        "password" : 1234
+  "admins": [
+    {
+      "id": "4",
+      "name": "Abdelrahman Eid",
+      "email": "eida0556@gmail.com",
+      "password": "1234",
+      "phone": "01144665225",
+      "role": "مشرف عام"
     }
+  ],
+  "products": [
+    {
+      "name": "Ferrari 488 GTB",
+      "code": "Fer-101",
+      "description": "سيارة رياضية فائقة الأداء مزودة بمحرك V8 تيربو مزدوج سعة 3.9 لتر. حوالي 661 حصان.تجمع بين التصميم الأنيق والانسيابية العالية والتسارع الخرافي من 0 إلى 100 كم/س في أقل من 3 ثوانٍ.",
+      "count": 25,
+      "price": 10000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/P59bq49Q/ferrari-1.jpg",
+      "marka": "Ferrari",
+      "category": "cars",
+      "id": "1"
+    },
+    {
+      "name": "Ferrari F8 Tributo",
+      "code": "Fer-102",
+      "description": "تعتبر تحية لمحركات V8 الأسطورية من فيراري، وتُعد تطويرًا مباشرًا لـ 488 GTB.710 حصان من محرك V8 سعة 3.9 لتر تيربو مزدوج. مزيج بين التكنولوجيا الحديثة والانسيابية الهوائية الدقيقة لتقديم أداء مذهل وسرعة قصوى تتجاوز 340 كم/س.",
+      "count": 20,
+      "price": 15000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/PrSf1fWp/ferrari-2.jpg",
+      "marka": "Ferrari",
+      "category": "cars",
+      "id": "efbb"
+    },
+    {
+      "name": "Ferrari SF90 Stradale",
+      "code": "Fer-103",
+      "description": "أول سيارة هجينة (Hybrid) من فيراري موجهة للطرق العامة. 986 حصان من مزيج محرك V8 تيربو وثلاثة محركات كهربائية. تقدم تسارعًا خارقًا بفضل الدفع الرباعي الكهربائي وأحدث تقنيات فيراري في الأداء والتحكم.",
+      "count": 20,
+      "price": 20000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/WzcN2SB0/ferrari-3.jpg",
+      "marka": "Ferrari",
+      "category": "cars",
+      "id": "e241"
+    },
+    {
+      "name": "BMW M4 Competition",
+      "code": "Bmw-101",
+      "description": "كوبيه رياضية فاخرة تجمع بين الأداء العالي والراحة اليومية. محرك 3.0 لتر Twin-Turbo Inline-6 يولّد حوالي 503 حصان.تسارع مذهل من 0 إلى 100 كم/س في 3.8 ثانية مع نظام دفع رباعي ذكي وتحكم دقيق في كل منعطف.",
+      "count": 40,
+      "price": 12000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/vB9r1Kb3/bmw-1.jpg",
+      "marka": "BMW",
+      "category": "cars",
+      "id": "b988"
+    },
+    {
+      "name": "BMW X6 M",
+      "code": "Bmw-102",
+      "description": "سيارة SUV كوبيه قوية تمزج بين الرفاهية والأداء الرياضي العالي.محرك V8 تيربو مزدوج سعة 4.4 لتر بقوة تصل إلى 617 حصان. تصميم عدواني فاخر من الخارج، ومقصورة مليئة بالتكنولوجيا، وأداء ينافس السيارات الرياضية الصغيرة.",
+      "count": 30,
+      "price": 18000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/C1DGZ2SG/bmw-2.jpg",
+      "marka": "BMW",
+      "category": "cars",
+      "id": "b761"
+    },
+    {
+      "name": "BMW i8",
+      "code": "Bmw-103",
+      "description": "سيارة هجينة رياضية تمثل رؤية BMW للمستقبل، بتصميم مستقبلي وخفة وزن عالية. حوالي 369 حصان من محرك بنزين ثلاثي الأسطوانات مع محرك كهربائي. كفاءة في استهلاك الوقود مع أداء رياضي وتسارع من 0 إلى 100 كم/س في 4.4 ثانية، وجسم من ألياف الكربون يمنحها خفة وأناقة.",
+      "count": 20,
+      "price": 25000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/2yD4nxS2/bmw-3.jpg",
+      "marka": "BMW",
+      "category": "cars",
+      "id": "d0f2"
+    },
+    {
+      "name": "Hyundai Elantra N",
+      "code": "Hyu-301",
+      "description": "نسخة رياضية من الإلنترا تجمع بين الشكل العصري والأداء القوي. محرك 2.0 لتر تيربو بقوة تصل إلى 276 حصان. نظام تعليق رياضي وتحكم دقيق يجعلها ممتعة في القيادة اليومية والرياضية، مع تصميم داخلي حديث.",
+      "count": 30,
+      "price": 12000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/W3rGDyT0/hyundai-1.jpg",
+      "marka": "Hyundai",
+      "category": "cars",
+      "id": "8e1c"
+    },
+    {
+      "name": "Hyundai Tucson",
+      "code": "Hyu-302",
+      "description": "واحدة من أكثر سيارات الـSUV مبيعًا بفضل تصميمها العصري ومساحتها الواسعة. محركات متعددة أبرزها 2.5 لتر بنزين بقوة 187 حصان أو هجين بقوة 226 حصان. توازن مثالي بين الراحة والتكنولوجيا مع شاشة وسطية كبيرة وأنظمة أمان متقدمة جدًا.",
+      "count": 24,
+      "price": 14000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/j2bzyhSk/hyundai-2.jpg",
+      "marka": "Hyundai",
+      "category": "cars",
+      "id": "392a"
+    },
+    {
+      "name": "Hyundai Ioniq 5",
+      "code": "Hyu-303",
+      "description": "سيارة كهربائية بالكامل تمثل جيل هيونداي الجديد من السيارات الصديقة للبيئة. مدى يصل إلى 480 كم بشحنة واحدة وقدرة تصل إلى 320 حصان في نسخة AWD. تصميم مستقبلي من الداخل والخارج، شحن فائق السرعة، وتجربة قيادة هادئة وسلسة جدًا.",
+      "count": 35,
+      "price": 20000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/2yD4nxSs/hyundai-3.jpg",
+      "marka": "Hyundai",
+      "category": "cars",
+      "id": "ffb8"
+    },
+    {
+      "name": "Kia Stinger",
+      "code": "Kia-001",
+      "description": "سيارة كوبيه رياضية فاخرة تجمع بين الأداء العالي والراحة. محرك 3.3 لتر تيربو مزدوج يولد 365 حصان. تصميم عدواني أنيق، تسارع قوي من 0 إلى 100 كم/س في أقل من 5 ثوانٍ، ومقصورة فخمة بلمسات رياضية.",
+      "count": 40,
+      "price": 25000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/5yVw8mtM/kia-1.jpg",
+      "marka": "KIA",
+      "category": "cars",
+      "id": "0238"
+    },
+    {
+      "name": "Kia Sportage",
+      "code": "Kia-002",
+      "description": "SUV مدمجة بتصميم حديث وأنظمة تكنولوجية متقدمة. محركات متعددة (بنزين، ديزل، وهجين) بقوة تصل إلى 226 حصان في النسخة الهجينة. تصميم داخلي أنيق مع شاشتين متصلتين، ومقاعد مريحة، وأنظمة أمان ذكية تنافس الفئات الأعلى.",
+      "count": 10,
+      "price": 28000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/Y0H1QxSK/kia-2.jpg",
+      "marka": "KIA",
+      "category": "cars",
+      "id": "bae9"
+    },
+    {
+      "name": "Kia EV6",
+      "code": "Kia-003",
+      "description": "سيارة كهربائية بالكامل تُظهر تطور كيا في عالم السيارات المستقبلية. مدى يصل إلى 528 كم بشحنة واحدة وقدرة تصل إلى 320 حصان في نسخة الدفع الكلي. تصميم مستقبلي، شحن سريع (من 10% إلى 80% في 18 دقيقة فقط)، وتسارع مذهل في أقل من 4.5 ثوانٍ.",
+      "count": 20,
+      "price": 30000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/Fz4j0xKv/kia-3.jpg",
+      "marka": "KIA",
+      "category": "cars",
+      "id": "324e"
+    },
+    {
+      "name": "Toyota Camry",
+      "code": "Toy-401",
+      "description": "سيارة سيدان فاخرة متوسطة الحجم تجمع بين الأداء القوي والراحة العالية. محرك 2.5 لتر بقوة تصل إلى 203 حصان أو هايبرد بقوة إجمالية 218 حصان. تصميم أنيق، مقصورة رحبة، وأنظمة أمان Toyota Safety Sense المتطورة.",
+      "count": 24,
+      "price": 1000000,
+      "discount": "",
+      "image": "https://i.postimg.cc/Wzw08JDp/toyota-1.jpg",
+      "marka": "Toyota",
+      "category": "cars",
+      "id": "4a1d"
+    },
+    {
+      "name": "Toyota Land Cruiser",
+      "code": "Toy-402",
+      "description": "سيارة SUV أسطورية في عالم الدفع الرباعي، معروفة بالصلابة والفخامة. محرك 3.5 لتر توين تيربو يولد 409 حصان. قدرة هائلة على الطرق الوعرة، مقصورة فاخرة، وتقنيات قيادة متقدمة تناسب المغامرات الطويلة.",
+      "count": 15,
+      "price": 1400000,
+      "discount": "",
+      "image": "https://i.postimg.cc/8cmL4rFz/toyota-2.jpg",
+      "marka": "Toyota",
+      "category": "cars",
+      "id": "f215"
+    },
+    {
+      "name": "Toyota Corolla Cross",
+      "code": "Toy-403",
+      "description": "سيارة كروس أوفر مدمجة تمزج بين العملية والاقتصاد في استهلاك الوقود. محرك هايبرد 1.8 لتر بقوة إجمالية 122 حصان. تصميم عصري، قيادة مريحة، واستهلاك وقود منخفض جدًا يجعلها خيارًا مثاليًا للمدينة.",
+      "count": 15,
+      "price": 1800000,
+      "discount": "",
+      "image": "https://i.postimg.cc/5yS8gFHV/toyota-3.jpg",
+      "marka": "Toyota",
+      "category": "cars",
+      "id": "6dd7"
+    },
+    {
+      "name": "إطارات السيارات",
+      "code": "SKU_١٩٧",
+      "description": "the best spare parts",
+      "count": 700,
+      "price": 100,
+      "image": "https://i.postimg.cc/8zBtrTfJ/spare-parts1.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "f6cb"
+    },
+    {
+      "name": "بطاريات السيارات",
+      "code": "SKU_197",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 500,
+      "price": 120,
+      "image": "https://i.postimg.cc/fRjB0MS3/spare-parts2.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "5f39"
+    },
+    {
+      "name": "مستلزمات السيارات",
+      "code": "SKU_199",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 200,
+      "price": 150,
+      "image": "https://i.postimg.cc/x1ytb9NN/spare-parts3.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "8e56"
+    },
+    {
+      "name": "حزمة القيمة الفاخرة",
+      "code": "SKU_200",
+      "description": "شير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 100,
+      "price": 200,
+      "image": "https://i.postimg.cc/4xbBhXHt/spare-parts4.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "0fc3"
+    },
+    {
+      "name": "تصليح السيارات",
+      "code": "SKU_201",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 90,
+      "price": 130,
+      "image": "https://i.postimg.cc/W16XJsqG/spare-parts5.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "aff5"
+    },
+    {
+      "name": "قطع غيار جديدة",
+      "code": "SKU_203",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 50,
+      "price": 300,
+      "discount": 250,
+      "image": "https://i.postimg.cc/Z5FVyJvF/spare-parts6.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "9045"
+    },
+    {
+      "name": "قطع موتور",
+      "code": "SKU_40",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 80,
+      "price": 320,
+      "image": "https://i.postimg.cc/VkBDbz0W/spare-parts7.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "1ebd"
+    },
+    {
+      "name": "فلاتر الهواء",
+      "code": "SKU_22",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 500,
+      "price": 200,
+      "image": "https://i.postimg.cc/Mpbdjzft/spare-parts8.jpg",
+      "marka": "اكسترا",
+      "category": "spare-parts",
+      "id": "1381"
+    },
+    {
+      "name": "قطع غيار السيارات",
+      "code": "SKU_200-1-1-1",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 100,
+      "price": 500,
+      "image": "https://i.postimg.cc/1XmN2Z3R/spical-spare-parts1.jpg",
+      "marka": "اكسترا",
+      "category": "special-spare-parts",
+      "id": "8274"
+    },
+    {
+      "name": "افضل العروض",
+      "code": "SKU_200-1-1",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 50,
+      "price": 600,
+      "image": "https://i.postimg.cc/5y4FTM22/spical-spare-parts2.jpg",
+      "marka": "اكسترا",
+      "category": "special-spare-parts",
+      "id": "2ce0"
+    },
+    {
+      "name": "قطع أصلية",
+      "code": "SKU_200-1",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 120,
+      "price": 650,
+      "image": "https://i.postimg.cc/qqJCSdvJ/spical-spare-parts3.jpg",
+      "marka": "اكسترا",
+      "category": "special-spare-parts",
+      "id": "5f00"
+    },
+    {
+      "name": "ملحقات السيارات",
+      "code": "SKU_2002",
+      "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
+      "count": 100,
+      "price": 700,
+      "image": "https://i.postimg.cc/prWn4tLd/spical-spare-parts4.jpg",
+      "marka": "اكسترا",
+      "category": "special-spare-parts",
+      "id": "7cd1"
+    }
+  ]
 }

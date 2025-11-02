@@ -1,1 +1,90 @@
-<p>admin-update works!</p>
+<div class="admin-form card shadow p-4 rounded-4 bg-light">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0 text-primary fw-bold">تعديل بيانات المشرف</h4>
+    <button class="btn btn-outline-secondary" (click)="onCancel()">
+      إلغاء
+    </button>
+  </div>
+
+  <form [formGroup]="adminForm" class="row g-3">
+    <!-- الاسم -->
+    <div class="col-md-6">
+      <label for="name" class="form-label fw-semibold">اسم المشرف</label>
+      <input id="name" formControlName="name" class="form-control form-control-lg" />
+      @if (adminForm.get('name')?.touched && adminForm.get('name')?.invalid) {
+        <div class="text-danger small">
+          @if (adminForm.get('name')?.errors?.['required']) {
+            <div>من فضلك أدخل اسم المشرف</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- الايميل -->
+    <div class="col-md-6">
+      <label for="email" class="form-label fw-semibold">البريد الإلكتروني</label>
+      <input id="email" formControlName="email" type="email" class="form-control form-control-lg" />
+      @if (adminForm.get('email')?.touched && adminForm.get('email')?.invalid) {
+        <div class="text-danger small">
+          @if (adminForm.get('email')?.errors?.['required']) {
+            <div>من فضلك أدخل البريد</div>
+          }
+          @if (adminForm.get('email')?.errors?.['email']) {
+            <div>البريد غير صالح</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- كلمة المرور -->
+    <div class="col-md-6">
+      <label for="password" class="form-label fw-semibold">كلمة المرور (اختياري)</label>
+      <input id="password" type="password" formControlName="password" class="form-control form-control-lg" placeholder="اتركه إن لا تريد تغييره" />
+      @if (adminForm.get('password')?.touched && adminForm.get('password')?.invalid) {
+        <div class="text-danger small">
+          @if (adminForm.get('password')?.errors?.['minlength']) {
+            <div>كلمة المرور 6 أحرف على الأقل</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- الهاتف -->
+    <div class="col-md-6">
+      <label for="phone" class="form-label fw-semibold">رقم الهاتف</label>
+      <input id="phone" formControlName="phone" class="form-control form-control-lg" />
+      @if (adminForm.get('phone')?.touched && adminForm.get('phone')?.invalid) {
+        <div class="text-danger small">
+          @if (adminForm.get('phone')?.errors?.['required']) {
+            <div>من فضلك أدخل رقم الهاتف</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- الدور -->
+    <div class="col-md-6">
+      <label for="role" class="form-label fw-semibold">الدور</label>
+      <select id="role" formControlName="role" class="form-select form-select-lg">
+        <option value="" disabled>اختر الدور</option>
+        <option value="مشرف عام">مشرف عام</option>
+        <option value="عضو">عضو</option>
+      </select>
+      @if (adminForm.get('role')?.touched && adminForm.get('role')?.invalid) {
+        <div class="text-danger small">
+          @if (adminForm.get('role')?.errors?.['required']) {
+            <div>من فضلك اختر الدور</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- أزرار -->
+    <div class="col-12 text-center mt-3">
+      <button type="submit" [disabled]="adminForm.invalid" (click)="update()" class="btn btn-primary px-4">
+        حفظ التعديلات
+      </button>
+      <button type="button" class="btn btn-outline-secondary ms-2" (click)="onCancel()">إلغاء</button>
+    </div>
+  </form>
+</div>

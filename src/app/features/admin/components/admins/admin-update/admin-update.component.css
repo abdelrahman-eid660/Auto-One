@@ -1,0 +1,18 @@
+.admin-form {
+  max-width: 920px;
+  margin: 28px auto;
+  background: #fff;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.img-thumbnail {
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+button.btn-primary {
+  border-radius: 8px;
+}

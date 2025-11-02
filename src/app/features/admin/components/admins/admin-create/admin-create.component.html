@@ -1,1 +1,108 @@
-<p>admin-create works!</p>
+<div class="admin-form card shadow p-4 rounded-4 bg-light">
+  <h4 class="mb-4 text-center text-primary fw-bold">إضافة مشرف جديد</h4>
+
+  <form [formGroup]="adminForm">
+    <div class="row g-3">
+
+      <!-- الاسم -->
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-semibold">اسم المشرف</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control form-control-lg"
+          placeholder="أدخل الاسم الكامل"
+        />
+        @if (controls['name'].touched && controls['name'].invalid) {
+          <span class="text-danger small">
+            @if (controls['name'].errors?.['required']) {من فضلك أدخل اسم المشرف}
+          </span>
+        }
+      </div>
+
+      <!-- البريد الإلكتروني -->
+      <div class="col-md-6">
+        <label for="email" class="form-label fw-semibold">البريد الإلكتروني</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control form-control-lg"
+          placeholder="example@email.com"
+        />
+        @if (controls['email'].touched && controls['email'].invalid) {
+          <span class="text-danger small">
+            @if (controls['email'].errors?.['required']) {من فضلك أدخل البريد الإلكتروني}
+            @if (controls['email'].errors?.['email']) {البريد الإلكتروني غير صالح}
+          </span>
+        }
+      </div>
+
+      <!-- كلمة المرور -->
+      <div class="col-md-6">
+        <label for="password" class="form-label fw-semibold">كلمة المرور</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control form-control-lg"
+          placeholder="أدخل كلمة المرور"
+        />
+        @if (controls['password'].touched && controls['password'].invalid) {
+          <span class="text-danger small">
+            @if (controls['password'].errors?.['required']) {من فضلك أدخل كلمة المرور}
+            @if (controls['password'].errors?.['minlength']) {كلمة المرور يجب أن تكون 6 أحرف على الأقل}
+          </span>
+        }
+      </div>
+
+      <!-- رقم الهاتف -->
+      <div class="col-md-6">
+        <label for="phone" class="form-label fw-semibold">رقم الهاتف</label>
+        <input
+          type="tel"
+          id="phone"
+          formControlName="phone"
+          class="form-control form-control-lg"
+          placeholder="0123456789"
+        />
+        @if (controls['phone'].touched && controls['phone'].invalid) {
+          <span class="text-danger small">
+            @if (controls['phone'].errors?.['required']) {من فضلك أدخل رقم الهاتف}
+          </span>
+        }
+      </div>
+
+      <!-- الدور (Role) -->
+      <div class="col-md-6">
+        <label for="role" class="form-label fw-semibold">الدور</label>
+        <select
+          id="role"
+          class="form-select form-select-lg"
+          formControlName="role"
+        >
+          <option value="" selected disabled>اختر الدور</option>
+          <option value="مشرف عام">مشرف عام</option>
+          <option value="عضو">عضو</option>
+        </select>
+        @if (controls['role'].touched && controls['role'].invalid) {
+          <span class="text-danger small">
+            @if (controls['role'].errors?.['required']) {من فضلك اختر الدور}
+          </span>
+        }
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+      <button
+        type="submit"
+        [disabled]="adminForm.invalid" (click)="onSubmit()"
+        class="btn btn-primary btn-lg px-5 rounded-pill shadow"
+      >
+        <i class="fa-solid fa-user-plus me-2"></i> إضافة المشرف
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AdminModule } from "../../../admin/admin.routes.module";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
-  imports: [AdminModule],
+  imports: [RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })

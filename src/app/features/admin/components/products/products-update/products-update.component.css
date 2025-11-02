@@ -1,0 +1,37 @@
+.product-form {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  text-align: right;
+}
+
+.product-form:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.form-label {
+  color: #333;
+  font-size: 15px;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #ced4da;
+  transition: 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #007bff, #0dcaf0);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #0069d9, #0bb3d9);
+}

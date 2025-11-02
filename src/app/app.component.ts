@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { OnInit } from '@angular/core';
-import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import AOS from 'aos';
+import { NgxSpinnerComponent } from 'ngx-spinner';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CarouselModule],
+  imports: [RouterOutlet, NgxSpinnerComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'AutoOne';
+
+  ngAfterViewInit() {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out',
+    });
+  }
 }

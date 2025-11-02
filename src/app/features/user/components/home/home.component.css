@@ -1,0 +1,273 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --main-bg: #ffffff;
+  --paragraph-color: grey;
+  --main-font-family: "El Messiri";
+}
+.home {
+  padding: 10px;
+  overflow-x: hidden;
+  text-align: right;
+}
+.hero {
+  position: relative;
+  z-index: -1;
+}
+.home .picture {
+  margin: 10px 0;
+}
+.home .picture img {
+  position: relative;
+  z-index: -1;
+}
+.home .intro {
+  padding: 10px;
+  margin: 10px 0;
+}
+.home .intro h1 {
+  font-size: 50px;
+  margin: 10px 0;
+  color: var(--main-color);
+  font-weight: bold;
+}
+.home .intro p {
+  color: var(--paragraph-color);
+  line-height: 1.6;
+  margin: 10px 0;
+}
+.home .intro button a {
+  color: var(--main-color);
+}
+.home .intro button:first-of-type a {
+  color: var(--primary-color);
+}
+.home .intro button:hover a {
+  color: var(--main-bg);
+}
+.home .intro .btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  gap: 15px;
+}
+.home .intro button:last-of-type {
+  color: var(--main-color);
+  border: none;
+  transition: all 0.3s;
+}
+.home .intro button:last-of-type:hover {
+  color: var(--main-bg);
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+}
+@media (max-width: 992px) {
+  .home .intro h1 {
+    font-size: 30px;
+  }
+  .home .intro p {
+    font-size: 14px;
+  }
+  .home .intro .btns button {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .home .row {
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 400px) {
+  .home .intro p {
+    font-size: 12px;
+  }
+  .home .intro .btns button {
+    font-size: 12px;
+  }
+}
+/* end home section  */
+
+.short-products {
+  padding: 10px;
+  text-align: right;
+  background-color: var(--main-color);
+}
+.short-products .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-bg);
+}
+.short-products .head h6 {
+  color: var(--main-bg) !important;
+}
+.short-products .head button {
+  background-color: var(--main-color);
+  border-radius: 8px;
+  border: 1px solid var(--main-bg);
+  padding: 15px 30px;
+  transition: all 0.3s;
+}
+.short-products .head button a {
+  color: var(--main-bg);
+  transition: all 0.3s;
+}
+.short-products .head button:hover {
+  background-color: var(--main-bg);
+}
+.short-products .head button:hover a {
+  color: var(--primary-color);
+}
+.brands {
+  padding: 40px 10px;
+  text-align: right;
+}
+.brands .title h6 {
+  margin: 20px auto;
+}
+.brands .picture {
+  padding: 10px;
+  align-content: center;
+}
+@media (max-width: 992px) {
+  .brands .title h6 {
+    font-size: 14px;
+  }
+  .title h6::after {
+    top: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brands {
+    text-align: center;
+  }
+  .brands .row {
+    flex-direction: column-reverse;
+  }
+  .brands .title h6 {
+    font-size: 14px;
+  }
+  .title h6::after {
+    top: 3px;
+  }
+  .brands .picture {
+    padding: 0;
+  }
+}
+.shop-now {
+  position: relative;
+  min-height: 85vh;
+  padding: 10px;
+  background-image: url("../../../../../../public/assets/img/products/cars/kia_3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  align-content: center;
+  border-bottom: 10px solid var(--primary-color);
+  text-align: right;
+}
+.layout-animation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.8;
+  z-index: 0;
+  overflow: hidden;
+}
+.shop-now .container {
+  position: relative;
+  color: var(--main-bg);
+  text-align: center;
+  z-index: 2;
+  overflow: hidden;
+}
+.shop-now .container .title > h6 {
+  position: relative;
+  font-size: 16px;
+  margin: 10px auto;
+  display: inline-block;
+  color: var(--main-bg);
+}
+.shop-now .container .title > h6::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+.shop-now .container .title h4 {
+  font-size: 60px;
+  font-weight: bold;
+  width: fit-content;
+  margin: 20px auto;
+  max-width: 600px;
+}
+.shop-now .container .title h4 span {
+  color: var(--primary-color);
+}
+.shop-now .btns {
+  position: relative;
+  display: inline-block;
+}
+.shop-now .btns button {
+  padding: 15px 40px;
+  background-color: var(--main-color);
+  transition: all 0.3s;
+  border-radius: 20px;
+  margin: 30px auto;
+}
+.shop-now .btns i {
+  position: absolute;
+  right: -25px;
+  width: 60px;
+  height: 60px;
+  align-content: center;
+  background-color: var(--primary-color);
+  border: 8px solid var(--primary-color);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+}
+.shop-now .btns button a {
+  color: var(--main-bg);
+  transition: all 0.3s;
+}
+.shop-now .btns button:hover {
+  background-color: var(--main-bg);
+  cursor: pointer;
+}
+.shop-now .btns button:hover a {
+  color: var(--primary-color);
+}
+@media (max-width:768px) {
+.shop-now .container .title h4 {
+  font-size: 30px;
+}
+.shop-now .btns button {
+  padding: 15px 25px;
+  background-color: var(--main-color);
+  transition: all 0.3s;
+  border-radius: 20px;
+  margin: 30px auto;
+}
+.shop-now .btns i {
+  position: absolute;
+  right: -18px;
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--primary-color);
+  font-size: 18px;
+}
+.shop-now .btns button a {
+  font-size: 12px;
+}
+}
