@@ -1,1 +1,61 @@
-<p>pricing-list works!</p>
+<div class="subscriptions-list card shadow p-4 rounded-4 bg-light">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0 text-primary fw-bold">قائمة باقات الصيانة</h4>
+    <button class="btn btn-success px-4" (click)="goToAdd()">
+      <i class="bi bi-plus-circle"></i> إضافة باقة جديدة
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle text-center">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">اسم الباقة</th>
+          <th scope="col">السعر</th>
+          <th scope="col">المدة</th>
+          <th scope="col">المميزات</th>
+          <th scope="col">الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (pricingData) { @for (item of pricingData; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td class="fw-semibold">{{ item.name }}</td>
+          <td>{{ item.price | currency : "EGP" : "symbol" : "1.0-0" }}</td>
+          <td>{{ item.duration }}</td>
+          <td class="text-start">
+            <ul class="list-unstyled mb-0 text-center">
+              @for (feature of item.features.split('\n'); track feature) {
+              <li>• {{ feature }}</li>
+              }
+            </ul>
+          </td>
+          <td>
+            <div class="btn-group" role="group" aria-label="actions">
+              <button
+                class="btn btn-outline-primary btn-sm me-2"
+                (click)="onEdit(item.id)"
+              >
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="onDelete(item.id)"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        } } @else {
+        <tr>
+          <td colspan="6" class="text-muted py-4">لا توجد باقات مضافة بعد</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

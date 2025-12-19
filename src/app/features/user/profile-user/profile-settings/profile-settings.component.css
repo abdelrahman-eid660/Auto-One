@@ -1,0 +1,92 @@
+  .settings-container {
+    max-width: 480px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: "Cairo", sans-serif;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+
+  .card-header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .select-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: 0.2s;
+  }
+
+  .select-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0,123,255,0.4);
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn.primary {
+    background: #007bff;
+    color: white;
+  }
+
+  .btn.primary:hover {
+    background: #0069d9;
+  }
+
+  .danger-card {
+    background: #ffeaea;
+  }
+
+  .danger-text {
+    color: #d9534f;
+    font-weight: 700;
+  }
+
+  .warning-text {
+    color: #c9302c;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  .btn.danger {
+    background: #d9534f;
+    color: white;
+  }
+
+  .btn.danger:hover {
+    background: #c9302c;
+  }

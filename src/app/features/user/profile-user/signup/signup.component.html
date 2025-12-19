@@ -1,0 +1,161 @@
+<div class="auth-page signup-page" dir="rtl">
+  <div class="card auth-card">
+    <h2 class="title">إنشاء حساب</h2>
+
+    <form [formGroup]="signupForm" (ngSubmit)="submit()" novalidate>
+      <div class="row gx-3">
+        <div class="col-md-4 text-center">
+          <div class="avatar-box">
+            <img
+              [src]="profileImg || 'https://i.postimg.cc/XqCYPKKh/user_men.jpg'"
+              alt="avatar"
+            />
+            <label class="btn-upload">
+              رفع صورة (اختياري)
+              <input
+                type="file"
+                accept="image/*"
+                (change)="onFileChange($event)"
+              />
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="row gx-2">
+            <div class="col-md-6 mb-2">
+              <input
+                formControlName="firstName"
+                class="form-control"
+                placeholder="الاسم الأول"
+              />
+              <small
+                class="text-danger"
+                *ngIf="f['firstName'].touched && f['firstName'].invalid"
+                >مطلوب</small
+              >
+            </div>
+            <div class="col-md-6 mb-2">
+              <input
+                formControlName="lastName"
+                class="form-control"
+                placeholder="الاسم الأخير"
+              />
+              <small
+                class="text-danger"
+                *ngIf="f['lastName'].touched && f['lastName'].invalid"
+                >مطلوب</small
+              >
+            </div>
+
+            <div class="col-md-6 mb-2">
+              <input
+                formControlName="email"
+                class="form-control"
+                placeholder="البريد الإلكتروني"
+              />
+              <small
+                class="text-danger"
+                *ngIf="f['email'].touched && f['email'].invalid"
+                >البريد غير صالح</small
+              >
+            </div>
+
+            <div class="col-md-6 mb-2">
+              <input
+                formControlName="phone"
+                class="form-control"
+                placeholder="رقم الهاتف"
+              />
+              <small
+                class="text-danger"
+                *ngIf="f['phone'].touched && f['phone'].invalid"
+                >رقم غير صالح</small
+              >
+            </div>
+
+            <div class="col-md-6 mb-2">
+              <input type="date" formControlName="dob" class="form-control" />
+              <small
+                class="text-danger"
+                *ngIf="f['dob'].touched && f['dob'].invalid"
+                >مطلوب</small
+              >
+            </div>
+
+            <div class="col-md-6 mb-2">
+              <select formControlName="gender" class="form-select">
+                <option value="male">ذكر</option>
+                <option value="female">أنثى</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <select
+                class="form-select"
+                formControlName="country"
+                (change)="onCountryChange($event)"
+              >
+                <option value="">اختر الدولة</option>
+                <option *ngFor="let c of countries" [value]="c.code">
+                  {{ c.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <select class="form-select" formControlName="city">
+                <option value="">اختر المدينة</option>
+                <option *ngFor="let city of filteredCities" [value]="city">
+                  {{ city }}
+                </option>
+              </select>
+            </div>
+
+            <div formGroupName="passwordGroup" class="col-12 mt-2">
+              <div class="row gx-2">
+                <div class="col-md-6 mb-2">
+                  <input
+                    type="password"
+                    formControlName="password"
+                    class="form-control"
+                    placeholder="كلمة المرور (6+ أحرف)"
+                  />
+                  <small
+                    class="text-danger"
+                    *ngIf="
+                      pg.get('password')?.touched && pg.get('password')?.invalid
+                    "
+                    >مطلوب (6+)</small
+                  >
+                </div>
+                <div class="col-md-6 mb-2">
+                  <input
+                    type="password"
+                    formControlName="confirmPassword"
+                    class="form-control"
+                    placeholder="تأكيد كلمة المرور"
+                  />
+                  <small
+                    class="text-danger"
+                    *ngIf="pg.touched && pg.errors?.['mismatch']"
+                    >كلمتا المرور غير متطابقتين</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3 d-flex gap-2">
+              <button class="btn btn-primary w-100" [disabled]="loading">
+                {{ loading ? "جاري المعالجة..." : "إنشاء الحساب" }}
+              </button>
+              <a class="btn btn-outline" routerLink="/user/login"
+                >لدي حساب بالفعل</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

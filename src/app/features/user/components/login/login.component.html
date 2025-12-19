@@ -1,0 +1,61 @@
+@if (!isLoggined) {
+<div class="login-page d-flex justify-content-center align-items-center">
+  <div class="login-box">
+    <div class="logo-box text-center mb-3">
+      <i class="fa-solid fa-car-side car-icon"></i>
+      <h3 class="fw-bold mt-2">معرض السيارات</h3>
+      <p class="text-light opacity-75">سجل دخول للوصول لجميع المميزات</p>
+    </div>
+
+<form [formGroup]="loginForm">
+  <div class="input-group mb-3">
+    <span class="input-group-text">
+      <i class="fa-solid fa-envelope"></i>
+    </span>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="البريد الإلكتروني"
+    />
+  </div>
+
+  <p class="text-warning small"
+     *ngIf="EmailUser?.touched && EmailUser?.invalid">
+    البريد الإلكتروني غير صالح
+  </p>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">
+      <i class="fa-solid fa-lock"></i>
+    </span>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      placeholder="كلمة المرور"
+    />
+  </div>
+
+  <p class="text-warning small"
+     *ngIf="passwordUser?.touched && passwordUser?.invalid">
+    كلمة المرور يجب أن تكون 5 أحرف على الأقل
+  </p>
+
+  <p *ngIf="errorMessage" class="text-danger fw-semibold small">
+    {{ errorMessage }}
+  </p>
+
+  <button
+    class="btn btn-warning w-100 fw-bold py-2"
+    type="submit"
+    (click)="login()"
+  >
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    تسجيل الدخول
+  </button>
+</form>
+
+  </div>
+</div>
+}

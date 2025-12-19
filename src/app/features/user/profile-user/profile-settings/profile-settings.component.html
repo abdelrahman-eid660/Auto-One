@@ -1,0 +1,24 @@
+<div class="settings-container">
+  <h2 class="title">الإعدادات</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <span>تغيير اللغة</span>
+    </div>
+    <div class="card-body">
+      <select class="select-control">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+      <button class="btn primary" (click)="changeLangue()">حفظ التغيير</button>
+    </div>
+  </div>
+
+  <div class="card danger-card">
+    <div class="card-header danger-text">حذف الحساب</div>
+    <div class="card-body">
+      <p class="warning-text">⚠️ سيتم حذف حسابك نهائياً ولا يمكن التراجع.</p>
+      <button class="btn danger" (click)="deleteMyAccount()">حذف الحساب</button>
+    </div>
+  </div>
+</div>

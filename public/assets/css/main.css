@@ -11,16 +11,107 @@
   box-sizing: border-box;
   font-family: var(--main-font-family);
 }
+.toast-container {
+  z-index: 999993243658574632414349 !important;
+}
+.active {
+  color: var(--primary-color) !important;
+}
 button a {
   text-decoration: none;
 }
+:root .owl-carousel .owl-nav {
+  width: 100%;
+  position: absolute;
+  top: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 50;
+}
+:root .category-of-products .owl-carousel .owl-nav {
+    top: 34%;
+}
+:root .owl-carousel .owl-nav button {
+  background: #C70039 !important;
+  color: #fff !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px !important;
+  border: none !important;
+  opacity: .85;
+  pointer-events: auto !important;
+  transition: 0.3s;
+  z-index: 99 !important;
+}
+
+:root .owl-carousel .owl-nav button:hover {
+  background: #000 !important;
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.owl-carousel {
+  overflow: visible !important;
+}
+.owl-nav {
+  display: flex !important;
+  justify-content: space-between;
+  position: absolute;
+  top: 45%;
+  width: 100%;
+}
+
+.owl-prev,
+.owl-next {
+  background-color: #222 !important;
+  color: #fff !important;
+  font-size: 28px !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0.9;
+  transition: 0.3s ease-in-out;
+  z-index: 99;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: #d90429 !important; /* لون للسيارات - أحمر رياضي */
+  color: #fff !important;
+  transform: scale(1.1);
+}
+
+@media (max-width:768px) {
+  :root .about-brand .owl-carousel .owl-nav {
+  top: 70%;
+}
+.owl-prev,
+.owl-next {
+  font-size: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+}
+/* end shared  */
+
 /* start header  */
 .nav-user {
   background-color: var(--main-bg);
   direction: rtl;
-  padding: 20px 10px;
-  position: sticky;
+  padding: 30px 10px !important;
+  position: sticky !important;
+  left: 0;
+  top: 0;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 324534565432;
 }
 .logo a {
   color: var(--main-color);
@@ -32,21 +123,22 @@ button.navbar-toggler:focus {
   box-shadow: none;
 }
 .navbar-nav li {
-  margin: 0 10px;
+  margin: 0 5px;
 }
-.navbar-nav li a.dashboard{
+.navbar-nav li a.dashboard {
   color: var(--main-bg);
   background-color: var(--primary-color);
   border-radius: 6px;
   transition: all 0.3s;
+  padding: 10px;
 }
-.navbar-nav li a.dashboard:hover{
+.navbar-nav li a.dashboard:hover {
   color: var(--main-bg);
   background-color: var(--main-color);
 }
 .dropdown-menu {
   background-color: var(--main-color);
-  text-align: right;
+  text-align: center;
   min-width: unset;
   border-radius: 0;
   left: -10px !important;
@@ -80,11 +172,11 @@ button.navbar-toggler:focus {
 }
 .dropdown-menu li a.active {
   background-color: transparent !important;
-  color: var(--main-bg);
+  color: var(--main-color);
 }
 .dropdown-menu li a:hover {
   background-color: transparent !important;
-  color: var(--main-bg);
+  color: var(--main-color);
 }
 .dropdown-menu li a:hover::after {
   width: 100%;
@@ -92,15 +184,23 @@ button.navbar-toggler:focus {
 .nav-link.dropdown-toggle::after {
   display: none !important;
 }
-@media (max-width:992px) {
-.navbar-nav li {
-  margin: 0 5px;
+@media (max-width: 992px) {
+  .navbar-nav li {
+    margin: 0 5px;
+  }
+  .logo a {
+    font-size: 16px;
+  }
+  .navbar-nav li a {
+    font-size: 12px;
+  }
 }
-.logo a {
-  font-size: 16px;
-}
-.navbar-nav li a{
-  font-size: 12px;
+@media (max-width:768px) {
+  .dropdown-menu {
+  text-align: right !important;
+  margin-top: 0px !important;
+  width: 100% !important;
+  border: none !important;
 }
 }
 /* end header  */
@@ -148,6 +248,7 @@ button.navbar-toggler:focus {
   color: var(--p-color);
 }
 /* end banner  */
+
 /* title of page  */
 .title > h6 {
   position: relative;
@@ -174,6 +275,7 @@ button.navbar-toggler:focus {
 .title h4 span {
   color: var(--primary-color);
 }
+
 /* start footer  */
 footer {
   background-color: var(--main-color);
@@ -275,3 +377,725 @@ footer .copyright .left-side {
   }
 }
 /* end footer  */
+
+/* المودال */
+.modal-quicklook {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 80%;
+  height: 500px;
+  max-width: 900px;
+  padding: 10px;
+  position: relative;
+  text-align: right;
+  align-content: center;
+  overflow-y: auto;
+}
+button.close {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 18px;
+  border-radius: 0;
+  cursor: pointer;
+  z-index: 22;
+}
+.modal-box .modal-info h6 {
+  color: var(--primary-color);
+}
+.modal-box .modal-info h6 {
+  color: var(--primary-color);
+}
+.counter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+  margin: 15px 0;
+}
+.counter button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #eee;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modal-info .btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  margin: 20px 0 10px;
+}
+.extra-icons {
+  display: flex;
+  gap: 25px;
+  font-size: 24px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.extra-icons i {
+  transition: all 0.3s;
+  position: relative;
+  padding: 5px;
+}
+.extra-icons i:hover {
+  color: var(--primary-color);
+}
+.extra-icons i.fa-heart::after {
+  content: "الاضافة الي سله الرغبات";
+  position: absolute;
+  padding: 10px;
+  top: -40px;
+  right: -30px;
+  width: 120px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+  font-size: 10px;
+  font-weight: bold;
+}
+.extra-icons i.fa-heart:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.extra-icons i.fa-heart.active::after {
+  content: "تصفح سله الرغبات";
+  position: absolute;
+  padding: 10px;
+  top: -40px;
+  right: -30px;
+  width: 120px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+  font-size: 10px;
+  font-weight: bold;
+}
+.extra-icons i.compare::after {
+  content: "  قارن بين المنتجات";
+  position: absolute;
+  padding: 10px;
+  top: -40px;
+  right: -30px;
+  width: 100px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+  font-size: 12px;
+}
+.extra-icons i.compare:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.extra-icons a.mes {
+  text-decoration: none;
+  color: var(--main-bg);
+  background-color: var(--primary-color);
+  padding: 10px;
+  font-size: 10px;
+  width: 110px;
+  border-radius: 5px;
+  position: absolute;
+  top: -38px;
+  right: -30px;
+  opacity: 0;
+  font-weight: bold;
+  transform: translateY(-5px);
+  transition: all 0.3s;
+}
+.extra-icons a.mes:hover {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+.extra-icons i.fa-heart.active:hover ~ a.mes {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+.info-note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.product-meta p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+.modal-box .modal-image {
+  width: 100%;
+  height: 400px;
+  margin: 50px 0;
+}
+.modal-box .modal-image img {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .modal-box .row {
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 450px) {
+  .modal-info .btns {
+    margin: 50px 0 10px;
+  }
+  .modal-box .modal-info p {
+    font-size: 12px;
+  }
+  .modal-info .btns {
+    gap: 10px;
+  }
+  .modal-info .btns button {
+    font-size: 10px;
+  }
+  .extra-icons {
+    gap: 20px;
+  }
+  .extra-icons i {
+    font-size: 14px;
+  }
+  .extra-icons i.fa-heart::after {
+    width: 90px;
+    font-size: 8px;
+  }
+  .extra-icons i.fa-heart.active::after {
+    width: 100px;
+    font-size: 8px;
+  }
+  .extra-icons i.compare::after {
+    width: 70px;
+    font-size: 8px;
+  }
+  .extra-icons a.mes {
+    width: 90px;
+    font-size: 8px;
+  }
+}
+
+/* مودال المفضلة */
+.wishlist-modal {
+  background: #111;
+  color: var(--main-bg);
+  border-radius: 15px;
+  border: 2px solid var(--primary-color, #c00);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.wishlist-modal .icon i {
+  font-size: 60px;
+  color: var(--primary-color, #dc3545);
+  animation: pulse 1s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.wishlist-modal .btn {
+  border-radius: 30px;
+  font-weight: bold;
+  background: var(--primary-color, #dc3545);
+  border: none;
+  transition: all 0.3s;
+}
+
+.wishlist-modal .btn:hover {
+  background: #ff0000;
+  transform: scale(1.05);
+}
+.compare-modal {
+  background: #1e1e1e;
+  border: 2px solid #ff9800;
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(255, 152, 0, 0.3);
+}
+
+.compare-modal .icon-circle {
+  background-color: #ff9800;
+  color: #fff;
+  font-size: 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.compare-modal .icon-circle:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.compare-modal .btn-primary {
+  background-color: #ff9800;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.compare-modal .btn-primary:hover {
+  background-color: #e68900;
+  transform: scale(1.03);
+}
+/* end modals  */
+
+/* start boxs of store  */
+.row-store {
+  margin-top: 30px;
+}
+.box-store {
+  padding: 10px 2px;
+  transition: all 0.3s;
+  position: relative;
+  text-align: center;
+  align-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(95, 94, 94, 0.3);
+  margin: 15px 0 25px;
+  background-color: var(--main-bg);
+}
+.box-store:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.box-store .picture-store {
+  width: 95%;
+  height: 250px;
+  margin: 10px auto;
+  overflow: hidden;
+  position: relative;
+}
+.box-store .picture-store img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+}
+.box-store .picture-store img:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+.box-store .icons-store {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: var(--main-color);
+  background-color: var(--main-bg);
+  padding: 10px;
+  height: 40px;
+  transition: all 0.3s;
+  overflow: visible;
+}
+.box-store:hover .icons-store {
+  height: 130px;
+}
+.icons-store i {
+  position: relative;
+  padding: 5px;
+}
+.icons-store i:hover {
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+}
+.icons-store i.active {
+  background-color: var(--main-bg);
+}
+.icons-store .fav-icon a {
+  position: absolute;
+  top: 0px;
+  right: -125px;
+  padding: 10px;
+  font-size: 12px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+.icons-store .fav-icon:hover a {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+.icons-store i.compare::after {
+  content: "  قارن بين المنتجات";
+  position: absolute;
+  padding: 10px;
+  top: -2px;
+  right: -110px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+  font-size: 12px;
+}
+.icons-store i.compare:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.icons-store i:nth-of-type(2)::after {
+  content: "عرض سريع";
+  position: absolute;
+  padding: 10px;
+  top: -2px;
+  right: -85px;
+  background-color: var(--primary-color);
+  color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+  font-size: 12px;
+}
+.icons-store i:nth-of-type(2):hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.icons-store i:nth-child(2),
+.icons-store i:nth-child(3) {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+.box-store:hover .icons-store i:nth-child(2),
+.box-store:hover .icons-store i:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+}
+.box-store .caption-store {
+  margin: 10px 0;
+  padding: 5px;
+  transition: all 0.3s;
+  border-bottom: 1px solid red;
+}
+.box-store .caption-store h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.box-store .caption-store p {
+  color: var(--p-color);
+}
+.box-store .price-cart-store {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.box-store .price-cart-store h6 {
+  margin-bottom: 0 !important;
+  color: var(--primary-color);
+  font-size: 14px;
+}
+.box-store .price-cart-store h6 span {
+  color: var(--main-color);
+}
+.box-store .price-cart-store button {
+  font-size: 14px;
+}
+.box-store .price-cart-store button a {
+  color: var(--primary-color);
+}
+.box-store .price-cart-store button:hover a {
+  color: var(--main-bg);
+}
+@media (max-width: 992px) {
+  .box-store .icons-store {
+    left: 5px;
+    top: 10px;
+    gap: 10px;
+    padding: 5px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .box-store:hover .icons-store {
+    height: 100px;
+  }
+  .icons-store i {
+    padding: 5px;
+  }
+  .icons-store .fav-icon a {
+    top: 0px;
+    right: -95px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  .icons-store i.compare::after {
+    padding: 5px;
+    top: 0px;
+    right: -80px;
+    font-size: 10px;
+  }
+  .icons-store i:nth-of-type(2)::after {
+    padding: 5px;
+    font-size: 10px;
+    right: -60px;
+    top: 2px;
+  }
+  .box-store .caption-store h4 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .short-products .head h4 {
+    font-size: 16px;
+  }
+  .short-products .head h6 {
+    color: var(--main-bg) !important;
+    font-size: 14px;
+  }
+  .short-products .head button {
+    padding: 10px;
+  }
+  .short-products .head button a {
+    font-size: 12px;
+  }
+  .box-store .price-cart-store {
+    justify-content: space-between;
+  }
+}
+@media (min-width: 463px) and (max-width: 768px) {
+  .box-store .icons-store {
+    left: 5px;
+    top: 10px;
+    gap: 15px;
+    padding: 10px;
+    height: 40px;
+  }
+  .box-store:hover .icons-store {
+    height: 130px;
+  }
+  .icons-store i {
+    padding: 5px;
+  }
+  .icons-store .fav-icon a {
+    top: 0px;
+    right: -125px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .icons-store i.compare::after {
+    padding: 10px;
+    top: -2px;
+    right: -110px;
+    font-size: 12px;
+  }
+  .icons-store i:nth-of-type(2)::after {
+    padding: 10px;
+    top: -2px;
+    right: -85px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 463px) {
+  .box-store .icons-store {
+    left: 5px;
+    top: 10px;
+    gap: 10px;
+    padding: 5px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .box-store:hover .icons-store {
+    height: 100px;
+  }
+  .icons-store i {
+    padding: 5px;
+  }
+  .icons-store .fav-icon a {
+    top: 0px;
+    right: -95px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  .icons-store i.compare::after {
+    padding: 5px;
+    top: 0px;
+    right: -80px;
+    font-size: 10px;
+  }
+  .icons-store i:nth-of-type(2)::after {
+    padding: 5px;
+    font-size: 10px;
+    right: -60px;
+    top: 2px;
+  }
+  .box-store .price-cart-store {
+    justify-content: center;
+  }
+}
+/* end boxs of store  */
+
+/* start modal Login/Signup  */
+.nav-item a{
+  cursor: pointer;
+}
+.auth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99965789087654356789999;
+}
+
+.auth-modal {
+  width: 420px;
+  background: #111;
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.auth-modal.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #d90429;
+}
+
+.auth-form h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 7px 0;
+  background: #222;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 8px;
+  text-align: right;
+}
+
+.btn-main {
+  width: 100%;
+  padding: 12px;
+  background: #d90429;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  margin: 12px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-main:hover {
+  background: #ff0a3c;
+}
+
+.switch-text {
+  color: #eee;
+  margin-top: 10px;
+}
+
+.switch-text span {
+  color: #d90429;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.switch-text span:hover {
+  text-decoration: underline;
+}
+
+/* end modal Login/Signup  */

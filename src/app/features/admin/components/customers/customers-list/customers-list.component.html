@@ -1,1 +1,714 @@
-<p>customers-list works!</p>
+<div class="container-fluid customer-page">
+  <!-- Page Heading -->
+           <button (click)="rm()">ccccc</button>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="fw-bold"><i class="fa-solid fa-users"></i> العملاء</h4>
+    <button class="btn btn-sm btn-primary">
+      <i class="fa-solid fa-download"></i> تصدير التقارير
+    </button>
+  </div>
+
+  <!-- Row: Products Customers -->
+  <div class="card mb-4 shadow-sm">
+    <div
+      class="card-header bg-dark text-warning d-flex justify-content-between align-items-center"
+    >
+      <span class="fw-bold"
+        ><i class="fa-solid fa-car-side me-2"></i> عملاء المنتجات</span
+      >
+      <span class="badge bg-warning text-dark">{{
+        productCustomers?.length || 0
+      }}</span>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-dark text-center">
+          <tr>
+            <th>ID</th>
+            <th>اسم العميل</th>
+            <th>الإيميل</th>
+            <th>رقم الهاتف</th>
+            <th>المنتجات</th>
+            <th>الاجمالي</th>
+            <th>العمليات</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let item of productCustomers; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.firstName }} {{ item.lastName }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.phone }}</td>
+            <td>
+              <ul class="products-ul">
+                @for (item of getOrder(item.id); track $index) {
+                <li class="badge bg-info text-dark me-1 mb-1 d-inline-block">
+                  {{ item.name }} x({{ item.quntity }})
+                </li>
+
+                }
+              </ul>
+            </td>
+            <td>
+              <span class="badge bg-success text-white mb-1">
+                {{ item[0].total }} ج.م
+              </span>
+            </td>
+            <td class="d-flex justify-content-center align-items-center p-5">
+              <button
+                class="btn btn-sm btn-outline-info me-1"
+                (click)="openProductModal(item)"
+                title="عرض التفاصيل"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+              <button
+                class="btn btn-sm btn-outline-danger"
+                (click)="remove(item.id, item.name)"
+                title="حذف العميل"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Row: Services Customers -->
+  <div class="card shadow-sm">
+    <div
+      class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
+    >
+      <span class="fw-bold"
+        ><i class="fa-solid fa-screwdriver-wrench me-2"></i> عملاء الخدمات</span
+      >
+      <span class="badge bg-light text-primary">{{
+        serviceCustomers?.length || 0
+      }}</span>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-primary text-center">
+          <tr>
+            <th>ID</th>
+            <th>اسم العميل</th>
+            <th>الإيميل</th>
+            <th>الخدمة</th>
+            <th>السعر</th>
+            <th>المدة</th>
+            <th>تاريخ الاشتراك</th>
+            <th>الحالة</th>
+            <th>العمليات</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          @for (item of serviceCustomers; track $index) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>
+              @for (service of item.service; track $index) {
+              <span class="badge bg-info text-dark me-1 mb-1 d-inline-block">{{
+                service.name
+              }}</span>
+              }
+            </td>
+            <td>
+              @for (service of item.service; track $index) {
+              <div class="badge bg-success text-white mb-1">
+                {{ service.price }} ج.م
+              </div>
+              }
+            </td>
+            <td>
+              @for (service of item.service; track $index) {
+              <div class="badge bg-warning text-dark mb-1">
+                {{ service.duration }} شهر
+              </div>
+              }
+            </td>
+            <td>{{ item.startDate | date : "shortDate" }}</td>
+            <td>
+              <span class="badge" [ngClass]="getStatusBadgeClass(item)">
+                {{ getCustomerStatus(item) }}
+              </span>
+            </td>
+            <td class="text-center">
+              <div class="btn-group" role="group" aria-label="actions">
+                <button
+                  class="btn btn-sm btn-outline-info me-1"
+                  (click)="openServiceModal(item)"
+                  title="عرض التفاصيل"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button
+                  class="btn btn-sm btn-outline-danger"
+                  (click)="remove(item.id, item.name)"
+                  title="حذف العميل"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- products Modal -->
+  <div
+    class="modal fade"
+    [class.show]="showProductModal"
+    [style.display]="showProductModal ? 'block' : 'none'"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">
+            <i class="fa-solid fa-user-circle me-2"></i>
+            تفاصيل العميل - {{ selectedProductCustomer?.firstName }}
+            <small class="ms-2 opacity-75"
+              >#{{ selectedProductCustomer?.id }}</small
+            >
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            (click)="closeModal()"
+          ></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body" *ngIf="selectedProductCustomer">
+          <div class="row">
+            <!-- المعلومات الشخصية -->
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0">
+                    <i class="fa-solid fa-user me-2"></i>
+                    المعلومات الشخصية
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >الاسم الاول</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedProductCustomer.firstName }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >الاسم الثاني</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedProductCustomer.lastName }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >البريد الإلكتروني</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedProductCustomer.email }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >رقم الهاتف</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedProductCustomer.phone }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >البلد</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedProductCustomer.country || "غير محدد" }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >المدينة</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedProductCustomer.city || "غير محدد" }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- الخدمات والمنتجات -->
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0">
+                    <i class="fa-solid fa-list-alt me-2"></i>
+                    المنتجات
+                    <span class="badge bg-primary ms-2">{{
+                      selectedProductCustomer[0].items?.length || 0
+                    }}</span>
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div
+                    *ngIf="
+                      !selectedProductCustomer[0].items ||
+                      selectedProductCustomer[0].items.length === 0
+                    "
+                    class="text-center text-muted py-4"
+                  >
+                    <i class="fa-solid fa-inbox fa-2x mb-3"></i>
+                    <p class="mb-0">منتجات</p>
+                  </div>
+
+                  <div
+                    *ngIf="
+                      selectedProductCustomer[0].items &&
+                      selectedProductCustomer[0].items.length > 0
+                    "
+                    class="services-container"
+                  >
+                    <div
+                      *ngFor="
+                        let product of selectedProductCustomer[0].items;
+                        let i = index
+                      "
+                      class="service-item border-bottom pb-3 mb-3"
+                    >
+                      <div class="picture">
+                        <img
+                          [src]="product.image"
+                          class="img-fluid mb-3"
+                          alt=""
+                        />
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-start mb-2"
+                      >
+                        <h6 class="text-primary mb-1">{{ product.name }}</h6>
+                        <span
+                          class="badge"
+                          [ngClass]="
+                            getServiceStatusBadge(
+                              selectedProductCustomer.status
+                            )
+                          "
+                        >
+                          {{
+                            getServiceStatusText(selectedProductCustomer.status)
+                          }}
+                        </span>
+                      </div>
+
+                      <div class="row g-2 mb-2">
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-fingerprint"></i>
+                            الكود: <strong>{{ product.code }}</strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-marker"></i>
+                            الماركة: <strong>{{ product.marka }}</strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-money-bill-wave me-1"></i>
+                            السعر: <strong>{{ product.price }} ج.م</strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-plus-minus"></i>
+                            العدد: <strong>{{ product.quntity }} </strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-tag"></i>
+                            الخصم:
+                            <strong>{{ product.discount }}ج.م</strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-group-arrows-rotate"></i>
+                            الاجمالي:
+                            <strong>{{ product.total }}ج.م</strong>
+                          </small>
+                        </div>
+                        <div class="col-12">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-flag me-1"></i>
+                            المواصفات:
+                            <strong>{{ product.description }}</strong>
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- الإحصائيات -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0">
+                    <i class="fa-solid fa-chart-bar me-2"></i>
+                    الإحصائيات
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                      <div class="border rounded p-3 bg-light">
+                        <h3 class="text-primary mb-1 fw-bold">
+                          {{ selectedProductCustomer[0].items.length }}
+                        </h3>
+                        <small class="text-muted">إجمالي المنتجات</small>
+                      </div>
+                    </div>
+                    <div class="col-md-9 mb-3">
+                      <div class="border rounded p-3 bg-light">
+                        <h3 class="text-info mb-1 fw-bold">
+                          {{ selectedProductCustomer[0].total }}
+                        </h3>
+                        <small class="text-muted">إجمالي الإنفاق (ج.م)</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="closeModal()"
+          >
+            <i class="fa-solid fa-times me-2"></i>
+            إغلاق
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="edit(selectedProductCustomer.id)"
+          >
+            <i class="fa-solid fa-edit me-2"></i>
+            تعديل البيانات
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- services Modal -->
+  <div
+    class="modal fade"
+    [class.show]="showServiceModal"
+    [style.display]="showServiceModal ? 'block' : 'none'"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">
+            <i class="fa-solid fa-user-circle me-2"></i>
+            تفاصيل العميل - {{ selectedServiceCustomer?.name }}
+            <small class="ms-2 opacity-75"
+              >#{{ selectedServiceCustomer?.id }}</small
+            >
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            (click)="closeModal()"
+          ></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body" *ngIf="selectedServiceCustomer">
+          <div class="row">
+            <!-- المعلومات الشخصية -->
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0">
+                    <i class="fa-solid fa-user me-2"></i>
+                    المعلومات الشخصية
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >الاسم الكامل</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedServiceCustomer.name }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >البريد الإلكتروني</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedServiceCustomer.email }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >رقم الهاتف</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedServiceCustomer.phone }}
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >المدينة</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedServiceCustomer.city || "غير محدد" }}
+                      </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <label class="form-label fw-bold text-muted small"
+                        >العنوان</label
+                      >
+                      <div class="fw-semibold">
+                        {{ selectedServiceCustomer.address || "غير محدد" }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- الخدمات والمنتجات -->
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0">
+                    <i class="fa-solid fa-list-alt me-2"></i>
+                    {{ modalType === "product" ? "المنتجات" : "الخدمات" }}
+                    <span class="badge bg-primary ms-2">{{
+                      selectedServiceCustomer.service?.length || 0
+                    }}</span>
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div
+                    *ngIf="
+                      !selectedServiceCustomer.service ||
+                      selectedServiceCustomer.service.length === 0
+                    "
+                    class="text-center text-muted py-4"
+                  >
+                    <i class="fa-solid fa-inbox fa-2x mb-3"></i>
+                    <p class="mb-0">
+                      لا توجد {{ modalType === "product" ? "منتجات" : "خدمات" }}
+                    </p>
+                  </div>
+
+                  <div
+                    *ngIf="
+                      selectedServiceCustomer.service &&
+                      selectedServiceCustomer.service.length > 0
+                    "
+                    class="services-container"
+                  >
+                    <div
+                      *ngFor="
+                        let service of selectedServiceCustomer.service;
+                        let i = index
+                      "
+                      class="service-item border-bottom pb-3 mb-3"
+                    >
+                      <div
+                        class="d-flex justify-content-between align-items-start mb-2"
+                      >
+                        <h6 class="text-primary mb-1">{{ service.name }}</h6>
+                        <span
+                          class="badge"
+                          [ngClass]="getServiceStatusBadge(service.status)"
+                        >
+                          {{ getServiceStatusText(service.status) }}
+                        </span>
+                      </div>
+
+                      <div class="row g-2 mb-2">
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-money-bill-wave me-1"></i>
+                            السعر: <strong>{{ service.price }} ج.م</strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-clock me-1"></i>
+                            المدة: <strong>{{ service.duration }} </strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-play me-1"></i>
+                            البدء:
+                            <strong>{{
+                              service.startDate | date : "shortDate"
+                            }}</strong>
+                          </small>
+                        </div>
+                        <div class="col-6">
+                          <small class="text-muted">
+                            <i class="fa-solid fa-flag me-1"></i>
+                            الانتهاء:
+                            <strong>{{
+                              service.endDate | date : "shortDate"
+                            }}</strong>
+                          </small>
+                        </div>
+                      </div>
+
+                      <!-- المميزات -->
+                      <div *ngIf="service.features" class="features-section">
+                        <small class="fw-bold text-muted d-block mb-1"
+                          >المميزات:</small
+                        >
+                        <ul class="list-unstyled mb-0">
+                          <li
+                            *ngFor="
+                              let feature of formatFeatures(service.features)
+                            "
+                            class="small text-muted"
+                          >
+                            <i class="fa-solid fa-check text-success me-1"></i>
+                            {{ feature }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- الإحصائيات -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header bg-light">
+                  <h6 class="mb-0">
+                    <i class="fa-solid fa-chart-bar me-2"></i>
+                    الإحصائيات
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                      <div class="border rounded p-3 bg-light">
+                        <h3 class="text-primary mb-1 fw-bold">
+                          {{ getCustomerStats().totalServices }}
+                        </h3>
+                        <small class="text-muted"
+                          >إجمالي
+                          {{
+                            modalType === "product" ? "المنتجات" : "الخدمات"
+                          }}</small
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="border rounded p-3 bg-light">
+                        <h3 class="text-success mb-1 fw-bold">
+                          {{ getCustomerStats().activeServices }}
+                        </h3>
+                        <small class="text-muted">نشطة</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="border rounded p-3 bg-light">
+                        <h3 class="text-warning mb-1 fw-bold">
+                          {{ getCustomerStats().inactiveServices }}
+                        </h3>
+                        <small class="text-muted">غير نشطة</small>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="border rounded p-3 bg-light">
+                        <h3 class="text-info mb-1 fw-bold">
+                          {{ getCustomerStats().totalRevenue }}
+                        </h3>
+                        <small class="text-muted">إجمالي الإنفاق (ج.م)</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="closeModal()"
+          >
+            <i class="fa-solid fa-times me-2"></i>
+            إغلاق
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="editServic(selectedServiceCustomer.id)"
+          >
+            <i class="fa-solid fa-edit me-2"></i>
+            تعديل البيانات
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Backdrop -->
+  <!-- <div
+    class="modal-backdrop fade show"
+    *ngIf="showModal"
+    (click)="closeModal()"
+  ></div> -->
+</div>

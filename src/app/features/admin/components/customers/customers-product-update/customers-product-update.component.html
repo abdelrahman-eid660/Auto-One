@@ -1,0 +1,171 @@
+<div class="container mt-4" [formGroup]="productsForm">
+  <h3>تعديل بيانات العميل</h3>
+
+  <div class="card p-3 mb-4">
+    <h5>بيانات العميل</h5>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>الاسم الأول</label>
+        <input formControlName="firstName" class="form-control" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>الاسم الثاني</label>
+        <input formControlName="lastName" class="form-control" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>الايميل</label>
+        <input formControlName="email" type="email" class="form-control" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>الهاتف</label>
+        <input formControlName="phone" class="form-control" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>المدينة</label>
+        <input formControlName="city" class="form-control" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>البلد</label>
+        <input formControlName="country" class="form-control" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>طريقة الدفع</label>
+        <select
+          class="form-select"
+          formControlName="paymentMethod"
+          (change)="toggleVisa()"
+        >
+          <option value="cash">كاش</option>
+          <option value="visa">فيزا</option>
+        </select>
+      </div>
+
+      <div class="col-12 row" *ngIf="showVisa">
+        <div class="col-md-4 mb-3">
+          <label>رقم البطاقة</label>
+          <input formControlName="cardNumber" class="form-control" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>CVV</label>
+          <input formControlName="cvv" class="form-control" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>تاريخ الانتهاء</label>
+          <input
+            type="month"
+            formControlName="expireDate"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="mb-3">المنتجات</h5>
+
+  <div formArrayName="items">
+    <div
+      *ngFor="let item of itemsArray.controls; let i = index"
+      [formGroupName]="i"
+      class="card p-3 mb-3"
+    >
+      <div class="row">
+        <div class="col-md-4">
+          <img [src]="item.value.image" class="car-img mb-2" />
+          <input formControlName="image" class="form-control" />
+        </div>
+
+        <div class="col-md-8">
+          <label>اسم المنتج</label>
+          <input formControlName="name" class="form-control mb-3" />
+
+          <label>الوصف</label>
+          <textarea
+            formControlName="description"
+            rows="2"
+            class="form-control mb-3"
+          ></textarea>
+
+          <div class="row">
+            <div class="col-6">
+              <label>السعر</label>
+              <input
+                type="number"
+                formControlName="price"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-6">
+              <label>الخصم</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  formControlName="discount"
+                  class="form-control"
+                />
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="removeDiscount(i)"
+                >
+                  حذف
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <label class="mt-3">الكمية</label>
+          <div class="input-group">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="decreaseQty(i)"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              formControlName="quntity"
+              class="form-control text-center"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="increaseQty(i)"
+            >
+              +
+            </button>
+          </div>
+
+          <label class="mt-3">الإجمالي</label>
+          <input
+            type="number"
+            formControlName="total"
+            readonly
+            class="form-control"
+          />
+
+          <button
+            class="btn btn-outline-danger mt-3"
+            type="button"
+            (click)="removeItem(i)"
+          >
+            🗑 حذف المنتج
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-success w-100" (click)="saveUpdate()">
+    حفظ كل التعديلات
+  </button>
+</div>

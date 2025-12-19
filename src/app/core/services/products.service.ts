@@ -8,6 +8,6 @@ import { HttpClient } from '@angular/common/http';
 export class ProductsService extends APIFunctionService {
 
   constructor(protected override http : HttpClient) {
-    super("http://localhost:3000/products" , http)
+    super("https://auto.eida0556.workers.dev/products" , http)
    }
 }

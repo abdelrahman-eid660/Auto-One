@@ -1,0 +1,8 @@
+.dropdown-menu{
+  text-align: center;
+}
+@media (max-width:768px) {
+  .dropdown-menu{
+    text-align: right;
+  }
+}

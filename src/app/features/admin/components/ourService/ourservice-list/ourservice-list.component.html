@@ -1,1 +1,66 @@
-<p>ourservice-list works!</p>
+<div class="services-list container mt-1 p-4 rounded shadow-lg">
+  <h2 class="text-center text-warning fw-bold">🔧 قائمة الخدمات</h2>
+  <div class="options d-flex justify-content-between align-items-center">
+    <div class="col-md-4 mb-3">
+      <input
+        class="form-control"
+        placeholder="البحث بالاسم"
+        (input)="filter($event)"
+      />
+    </div>
+    <div class="text-end mb-3">
+      <button class="btn btn-warning fw-bold" (click)="addService()">
+        ➕ إضافة خدمة جديدة
+      </button>
+    </div>
+  </div>
+
+  <div class="table-responsive bg-dark text-light rounded p-3">
+    <table class="table table-dark table-hover align-middle mb-0">
+      <thead class="text-warning border-bottom border-warning">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">اسم الخدمة</th>
+          <th scope="col">الوصف</th>
+          <th scope="col">الصورة</th>
+          <th scope="col" class="text-center">الإجراءات</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let service of filterService; let i = index">
+          <td>{{ i + 1 }}</td>
+
+          <td class="fw-bold text-light">{{ service.title }}</td>
+          <td>{{ service.description | slice : 0 : 50 }}...</td>
+          <td>
+            <img
+              [src]="service.image"
+              alt="service"
+              width="80"
+              height="60"
+              class="rounded shadow-sm border border-warning"
+            />
+          </td>
+          <td class="text-center">
+            <div class="btn-group" role="group" aria-label="actions">
+              <button
+                class="btn btn-sm btn-outline-warning"
+                (click)="edit(service.id)"
+              >
+                ✏️ تعديل
+              </button>
+
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="remove(service.id)"
+            >
+              🗑️ حذف
+            </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

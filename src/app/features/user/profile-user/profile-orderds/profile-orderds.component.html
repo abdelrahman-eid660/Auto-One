@@ -1,0 +1,28 @@
+<div class="orders-container p-4 d-flex flex-column gap-5">
+  <h2 class="text-center mb-4">طلباتي</h2>
+
+  @if ( !isLoading  && myorders.length > 0) { @for (item of myorders; track $index)
+  { @for (i of item[0].items; track $index) {
+  <div
+    class="order-card mb-3 p-3 shadow rounded d-flex justify-content-between align-items-center"
+  >
+    <div class="info">
+      <h4 class="car-name m-0">{{ i.name }}</h4>
+      <p class="text-muted m-0">الماركة: {{ i.marka }}</p>
+      <p class="text-muted price m-0">السعر: {{ i.price }}ج.م</p>
+    </div>
+    <div class="picture" style="width: 200px; height: 150px;">
+      <img [src]="i.image" width="100%" height="100%"  alt="" />
+    </div>
+  </div>
+  } } } @else {
+  <div class="emptyOrder text-center my-5">
+    <h1 class="text-light">
+    يبدو أن سلة التسوق الخاصة بك فارغة! حان الوقت لبدء التسوق قد تكون مهتما…
+  </h1>
+  <button class="btn btn-outline-danger">
+    <a routerLink="/user/store">اطلب الان</a>
+  </button>
+  </div>
+  }
+</div>

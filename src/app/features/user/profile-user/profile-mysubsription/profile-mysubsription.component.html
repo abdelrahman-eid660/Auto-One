@@ -1,0 +1,37 @@
+@if (!isLoading && userSubscription){
+
+<div class="subscription-container mt-5">
+  <h2 class="text-center title">تم الاشتراك بنجاح 🎉</h2>
+
+  <div class="subscription-card">
+    <p><span>اسم الخدمة:</span> {{ userSubscription.name }}</p>
+    <p><span>السعر:</span> {{ userSubscription.price }} جنية</p>
+    <p><span>تاريخ البداية:</span> {{ userSubscription.startDate }}</p>
+    <p><span>تاريخ الانتهاء:</span> {{ userSubscription.endDate }}</p>
+    <p><span>الحالة:</span> {{ userSubscription.status | statusTranslate }}</p>
+
+    <h5>مميزات الباقة:</h5>
+    <ul class="features-list">
+      @for (f of userSubscription.features; track $index) {
+      <li>{{ f }}</li>
+      }
+    </ul>
+    <div class="d-grid">
+      <button
+        class="btn btn-outline-danger"
+        (click)="cancelSubscribtion(userSubscription.id)"
+      >
+        الغاء الاشتراك
+      </button>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="container message-text">
+  <h2 class="text-danger display-4 text-center">لم تشترك في اي باقة بعد.</h2>
+  <button class="btn btn-outline-danger">
+    <a routerLink="/user/services">اضغط هنا للاشتراك في خدماتنا</a>
+  </button>
+</div>
+
+}

@@ -1,0 +1,42 @@
+.blog-create {
+  max-width: 700px;
+  margin: auto;
+  direction: rtl;
+  color: var(--text-color, #333);
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.preview-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  border: 3px solid #ffc107;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+}
+
+/* زر التحميل */
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* الوضع الداكن */
+.dark-mode .blog-create {
+  --text-color: #f1f1f1;
+  background-color: #181818;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #2b2b2b;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark-mode .form-control:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 5px #ffc107;
+}

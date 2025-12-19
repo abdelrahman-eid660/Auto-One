@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
-  imports: [ RouterLink],
+  imports: [RouterLink],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css',
 })
@@ -14,13 +14,15 @@ export class ProductsListComponent {
   productDataFilter!: any;
   constructor(
     private productServ: ProductsService,
-    private toster: ToastrService,
+    private toster: ToastrService
   ) {
     this.getData();
   }
   getData() {
     this.productServ.get().subscribe((data: any) => {
       this.productsData = data;
+      console.log(this.productsData);
+
       this.productDataFilter = [...data];
     });
   }
@@ -41,9 +43,12 @@ export class ProductsListComponent {
   }
   remove(id: any) {
     this.productServ.delete(id).subscribe((data) => {
-      this.toster.error('تم حذف المنتج بنجاح',"",{
-        timeOut : 3000
+      this.toster.error('تم حذف المنتج بنجاح', '', {
+        timeOut: 1200,
       });
+      setTimeout(() => {
+        window.location.reload();
+      }, 1250);
       this.getData();
     });
   }

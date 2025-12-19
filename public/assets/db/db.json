@@ -1,23 +1,16 @@
 {
-  "admins": [
-    {
-      "id": "4",
-      "name": "Abdelrahman Eid",
-      "email": "eida0556@gmail.com",
-      "password": "1234",
-      "phone": "01144665225",
-      "role": "مشرف عام"
-    }
-  ],
+  "admins": [],
+  "users": [],
   "products": [
     {
       "name": "Ferrari 488 GTB",
       "code": "Fer-101",
       "description": "سيارة رياضية فائقة الأداء مزودة بمحرك V8 تيربو مزدوج سعة 3.9 لتر. حوالي 661 حصان.تجمع بين التصميم الأنيق والانسيابية العالية والتسارع الخرافي من 0 إلى 100 كم/س في أقل من 3 ثوانٍ.",
       "count": 25,
-      "price": 10000000,
-      "discount": "",
+      "price": 15000000,
+      "discount": 0,
       "image": "https://i.postimg.cc/P59bq49Q/ferrari-1.jpg",
+      "total": 15000000,
       "marka": "Ferrari",
       "category": "cars",
       "id": "1"
@@ -28,8 +21,9 @@
       "description": "تعتبر تحية لمحركات V8 الأسطورية من فيراري، وتُعد تطويرًا مباشرًا لـ 488 GTB.710 حصان من محرك V8 سعة 3.9 لتر تيربو مزدوج. مزيج بين التكنولوجيا الحديثة والانسيابية الهوائية الدقيقة لتقديم أداء مذهل وسرعة قصوى تتجاوز 340 كم/س.",
       "count": 20,
       "price": 15000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/PrSf1fWp/ferrari-2.jpg",
+      "total": 15000000,
       "marka": "Ferrari",
       "category": "cars",
       "id": "efbb"
@@ -40,8 +34,9 @@
       "description": "أول سيارة هجينة (Hybrid) من فيراري موجهة للطرق العامة. 986 حصان من مزيج محرك V8 تيربو وثلاثة محركات كهربائية. تقدم تسارعًا خارقًا بفضل الدفع الرباعي الكهربائي وأحدث تقنيات فيراري في الأداء والتحكم.",
       "count": 20,
       "price": 20000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/WzcN2SB0/ferrari-3.jpg",
+      "total": 20000000,
       "marka": "Ferrari",
       "category": "cars",
       "id": "e241"
@@ -52,8 +47,9 @@
       "description": "كوبيه رياضية فاخرة تجمع بين الأداء العالي والراحة اليومية. محرك 3.0 لتر Twin-Turbo Inline-6 يولّد حوالي 503 حصان.تسارع مذهل من 0 إلى 100 كم/س في 3.8 ثانية مع نظام دفع رباعي ذكي وتحكم دقيق في كل منعطف.",
       "count": 40,
       "price": 12000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/vB9r1Kb3/bmw-1.jpg",
+      "total": 12000000,
       "marka": "BMW",
       "category": "cars",
       "id": "b988"
@@ -64,8 +60,9 @@
       "description": "سيارة SUV كوبيه قوية تمزج بين الرفاهية والأداء الرياضي العالي.محرك V8 تيربو مزدوج سعة 4.4 لتر بقوة تصل إلى 617 حصان. تصميم عدواني فاخر من الخارج، ومقصورة مليئة بالتكنولوجيا، وأداء ينافس السيارات الرياضية الصغيرة.",
       "count": 30,
       "price": 18000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/C1DGZ2SG/bmw-2.jpg",
+      "total": 18000000,
       "marka": "BMW",
       "category": "cars",
       "id": "b761"
@@ -76,8 +73,9 @@
       "description": "سيارة هجينة رياضية تمثل رؤية BMW للمستقبل، بتصميم مستقبلي وخفة وزن عالية. حوالي 369 حصان من محرك بنزين ثلاثي الأسطوانات مع محرك كهربائي. كفاءة في استهلاك الوقود مع أداء رياضي وتسارع من 0 إلى 100 كم/س في 4.4 ثانية، وجسم من ألياف الكربون يمنحها خفة وأناقة.",
       "count": 20,
       "price": 25000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/2yD4nxS2/bmw-3.jpg",
+      "total": 25000000,
       "marka": "BMW",
       "category": "cars",
       "id": "d0f2"
@@ -88,8 +86,9 @@
       "description": "نسخة رياضية من الإلنترا تجمع بين الشكل العصري والأداء القوي. محرك 2.0 لتر تيربو بقوة تصل إلى 276 حصان. نظام تعليق رياضي وتحكم دقيق يجعلها ممتعة في القيادة اليومية والرياضية، مع تصميم داخلي حديث.",
       "count": 30,
       "price": 12000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/W3rGDyT0/hyundai-1.jpg",
+      "total": 12000000,
       "marka": "Hyundai",
       "category": "cars",
       "id": "8e1c"
@@ -100,8 +99,9 @@
       "description": "واحدة من أكثر سيارات الـSUV مبيعًا بفضل تصميمها العصري ومساحتها الواسعة. محركات متعددة أبرزها 2.5 لتر بنزين بقوة 187 حصان أو هجين بقوة 226 حصان. توازن مثالي بين الراحة والتكنولوجيا مع شاشة وسطية كبيرة وأنظمة أمان متقدمة جدًا.",
       "count": 24,
       "price": 14000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/j2bzyhSk/hyundai-2.jpg",
+      "total": 14000000,
       "marka": "Hyundai",
       "category": "cars",
       "id": "392a"
@@ -112,8 +112,9 @@
       "description": "سيارة كهربائية بالكامل تمثل جيل هيونداي الجديد من السيارات الصديقة للبيئة. مدى يصل إلى 480 كم بشحنة واحدة وقدرة تصل إلى 320 حصان في نسخة AWD. تصميم مستقبلي من الداخل والخارج، شحن فائق السرعة، وتجربة قيادة هادئة وسلسة جدًا.",
       "count": 35,
       "price": 20000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/2yD4nxSs/hyundai-3.jpg",
+      "total": 20000000,
       "marka": "Hyundai",
       "category": "cars",
       "id": "ffb8"
@@ -124,8 +125,9 @@
       "description": "سيارة كوبيه رياضية فاخرة تجمع بين الأداء العالي والراحة. محرك 3.3 لتر تيربو مزدوج يولد 365 حصان. تصميم عدواني أنيق، تسارع قوي من 0 إلى 100 كم/س في أقل من 5 ثوانٍ، ومقصورة فخمة بلمسات رياضية.",
       "count": 40,
       "price": 25000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/5yVw8mtM/kia-1.jpg",
+      "total": 25000000,
       "marka": "KIA",
       "category": "cars",
       "id": "0238"
@@ -136,8 +138,9 @@
       "description": "SUV مدمجة بتصميم حديث وأنظمة تكنولوجية متقدمة. محركات متعددة (بنزين، ديزل، وهجين) بقوة تصل إلى 226 حصان في النسخة الهجينة. تصميم داخلي أنيق مع شاشتين متصلتين، ومقاعد مريحة، وأنظمة أمان ذكية تنافس الفئات الأعلى.",
       "count": 10,
       "price": 28000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/Y0H1QxSK/kia-2.jpg",
+      "total": 28000000,
       "marka": "KIA",
       "category": "cars",
       "id": "bae9"
@@ -148,8 +151,9 @@
       "description": "سيارة كهربائية بالكامل تُظهر تطور كيا في عالم السيارات المستقبلية. مدى يصل إلى 528 كم بشحنة واحدة وقدرة تصل إلى 320 حصان في نسخة الدفع الكلي. تصميم مستقبلي، شحن سريع (من 10% إلى 80% في 18 دقيقة فقط)، وتسارع مذهل في أقل من 4.5 ثوانٍ.",
       "count": 20,
       "price": 30000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/Fz4j0xKv/kia-3.jpg",
+      "total": 30000000,
       "marka": "KIA",
       "category": "cars",
       "id": "324e"
@@ -160,8 +164,9 @@
       "description": "سيارة سيدان فاخرة متوسطة الحجم تجمع بين الأداء القوي والراحة العالية. محرك 2.5 لتر بقوة تصل إلى 203 حصان أو هايبرد بقوة إجمالية 218 حصان. تصميم أنيق، مقصورة رحبة، وأنظمة أمان Toyota Safety Sense المتطورة.",
       "count": 24,
       "price": 1000000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/Wzw08JDp/toyota-1.jpg",
+      "total": 1000000,
       "marka": "Toyota",
       "category": "cars",
       "id": "4a1d"
@@ -172,8 +177,9 @@
       "description": "سيارة SUV أسطورية في عالم الدفع الرباعي، معروفة بالصلابة والفخامة. محرك 3.5 لتر توين تيربو يولد 409 حصان. قدرة هائلة على الطرق الوعرة، مقصورة فاخرة، وتقنيات قيادة متقدمة تناسب المغامرات الطويلة.",
       "count": 15,
       "price": 1400000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/8cmL4rFz/toyota-2.jpg",
+      "total": 1400000,
       "marka": "Toyota",
       "category": "cars",
       "id": "f215"
@@ -184,8 +190,9 @@
       "description": "سيارة كروس أوفر مدمجة تمزج بين العملية والاقتصاد في استهلاك الوقود. محرك هايبرد 1.8 لتر بقوة إجمالية 122 حصان. تصميم عصري، قيادة مريحة، واستهلاك وقود منخفض جدًا يجعلها خيارًا مثاليًا للمدينة.",
       "count": 15,
       "price": 1800000,
-      "discount": "",
+      "discount": 0,
       "image": "https://i.postimg.cc/5yS8gFHV/toyota-3.jpg",
+      "total": 1800000,
       "marka": "Toyota",
       "category": "cars",
       "id": "6dd7"
@@ -197,8 +204,10 @@
       "count": 700,
       "price": 100,
       "image": "https://i.postimg.cc/8zBtrTfJ/spare-parts1.jpg",
+      "total": 100,
       "marka": "اكسترا",
       "category": "spare-parts",
+      "discount": 0,
       "id": "f6cb"
     },
     {
@@ -208,8 +217,10 @@
       "count": 500,
       "price": 120,
       "image": "https://i.postimg.cc/fRjB0MS3/spare-parts2.jpg",
+      "total": 120,
       "marka": "اكسترا",
       "category": "spare-parts",
+      "discount": 0,
       "id": "5f39"
     },
     {
@@ -219,8 +230,10 @@
       "count": 200,
       "price": 150,
       "image": "https://i.postimg.cc/x1ytb9NN/spare-parts3.jpg",
+      "total": 150,
       "marka": "اكسترا",
       "category": "spare-parts",
+      "discount": 0,
       "id": "8e56"
     },
     {
@@ -230,8 +243,10 @@
       "count": 100,
       "price": 200,
       "image": "https://i.postimg.cc/4xbBhXHt/spare-parts4.jpg",
+      "total": 200,
       "marka": "اكسترا",
       "category": "spare-parts",
+      "discount": 0,
       "id": "0fc3"
     },
     {
@@ -240,9 +255,11 @@
       "description": "يشير الأثاث إلى الأشياء المنقولة التي تهدف إلى دعم الأنشطة البشرية المختلفة مثل الجلوس والأكل والنوم. يستخدم الأثاث أيضًا لحمل الأشياء على ارتفاع مناسب للعمل ، أو لتخزين الأشياء.",
       "count": 90,
       "price": 130,
+      "discount": 0,
       "image": "https://i.postimg.cc/W16XJsqG/spare-parts5.jpg",
+      "total": 130,
       "marka": "اكسترا",
-      "category": "spare-parts",
+      "category": "special-spare-parts",
       "id": "aff5"
     },
     {
@@ -253,8 +270,9 @@
       "price": 300,
       "discount": 250,
       "image": "https://i.postimg.cc/Z5FVyJvF/spare-parts6.jpg",
+      "total": 300,
       "marka": "اكسترا",
-      "category": "spare-parts",
+      "category": "special-spare-parts",
       "id": "9045"
     },
     {
@@ -264,8 +282,10 @@
       "count": 80,
       "price": 320,
       "image": "https://i.postimg.cc/VkBDbz0W/spare-parts7.jpg",
+      "total": 320,
       "marka": "اكسترا",
       "category": "spare-parts",
+      "discount": 0,
       "id": "1ebd"
     },
     {
@@ -275,8 +295,10 @@
       "count": 500,
       "price": 200,
       "image": "https://i.postimg.cc/Mpbdjzft/spare-parts8.jpg",
+      "total": 200,
       "marka": "اكسترا",
       "category": "spare-parts",
+      "discount": 0,
       "id": "1381"
     },
     {
@@ -286,8 +308,10 @@
       "count": 100,
       "price": 500,
       "image": "https://i.postimg.cc/1XmN2Z3R/spical-spare-parts1.jpg",
+      "total": 500,
       "marka": "اكسترا",
       "category": "special-spare-parts",
+      "discount": 0,
       "id": "8274"
     },
     {
@@ -297,8 +321,10 @@
       "count": 50,
       "price": 600,
       "image": "https://i.postimg.cc/5y4FTM22/spical-spare-parts2.jpg",
+      "total": 600,
       "marka": "اكسترا",
       "category": "special-spare-parts",
+      "discount": 0,
       "id": "2ce0"
     },
     {
@@ -308,8 +334,10 @@
       "count": 120,
       "price": 650,
       "image": "https://i.postimg.cc/qqJCSdvJ/spical-spare-parts3.jpg",
+      "total": 650,
       "marka": "اكسترا",
       "category": "special-spare-parts",
+      "discount": 0,
       "id": "5f00"
     },
     {
@@ -319,9 +347,140 @@
       "count": 100,
       "price": 700,
       "image": "https://i.postimg.cc/prWn4tLd/spical-spare-parts4.jpg",
+      "total": 700,
       "marka": "اكسترا",
       "category": "special-spare-parts",
+      "discount": 0,
       "id": "7cd1"
     }
-  ]
+  ],
+  "pricing": [
+    {
+      "name": "الباقة البرونزية",
+      "price": 1500,
+      "duration": "3 شهور",
+      "features": "تغيير زيت المحرك مره واحده\nفحص شامل للفرامل والإطارات\nتنظيف خارجي للسيارة\nخصم 5% على أي قطع غيار",
+      "id": "8c77"
+    },
+    {
+      "id": "4d3a",
+      "name": "الباقة الفضية",
+      "price": 2800,
+      "duration": "6 شهور",
+      "features": "تغيير زيت المحرك مرتين\nفحص شامل كل 3 شهور\nتنظيف داخلي وخارجي\nتلميع خارجي مجاني\nخصم 10% على قطع الغيار"
+    },
+    {
+      "id": "dd58",
+      "name": "الباقة الذهبية",
+      "price": 4500,
+      "duration": "12 شهر",
+      "features": "تغيير الزيت والفلاتر كل 3 شهور\nفحص كامل للنظام الكهربائي\nمعاينة مجانية كل شهرين\nغسيل VIP شامل\nخصم 15% على الصيانة الدورية"
+    },
+    {
+      "id": "1d5b",
+      "name": "الباقة البلاتينية",
+      "price": 7000,
+      "duration": "12 شهر",
+      "features": "جميع خدمات الباقة الذهبية\nدعم طوارئ على الطريق 24/7\nسيارة بديلة أثناء الصيانة\nصيانة تكييف مرتين في السنة\nخصم 25% على جميع الخدمات الإضافية"
+    }
+  ],
+  "blog": [
+    {
+      "title": "أفضل قطع غيار السيارات",
+      "description": "القالب الخاص بوردبريس إكسترا ليس مجرد قالب آخر لوردبريس؛ بل هو تحفة فنية تم تصميمها ...",
+      "image": "https://i.postimg.cc/6qFFqk72/blog.jpg",
+      "date": "2025-11-11",
+      "id": "1"
+    },
+    {
+      "title": "كيف تختار زيت المحرك ؟",
+      "description": "القالب الخاص بوردبريس إكسترا ليس مجرد قالب آخر لوردبريس؛ بل هو تحفة فنية تم تصميمها ...",
+      "image": "https://i.postimg.cc/hvNNvkJQ/blog-2.jpg",
+      "date": "2025-11-11",
+      "id": "2"
+    },
+    {
+      "title": "نصائح للحفاظ على بطارية ؟",
+      "description": "القالب الخاص بوردبريس إكسترا ليس مجرد قالب آخر لوردبريس؛ بل هو تحفة فنية تم تصميمها ...",
+      "image": "https://i.postimg.cc/ZnXXnG9y/blog-3.jpg",
+      "date": "2025-11-11",
+      "id": "3"
+    },
+    {
+      "title": "ما تحتاجه من اي ورشة ؟",
+      "description": "القالب الخاص بوردبريس إكسترا ليس مجرد قالب آخر لوردبريس؛ بل هو تحفة فنية تم تصميمها ...",
+      "image": "https://i.postimg.cc/FzwwzMff/blog-4.jpg",
+      "date": "2025-11-11",
+      "id": "4"
+    },
+    {
+      "title": "أدوات العناية بالسيارة",
+      "description": "القالب الخاص بوردبريس إكسترا ليس مجرد قالب آخر لوردبريس؛ بل هو تحفة فنية تم تصميمها ...",
+      "image": "https://i.postimg.cc/Y0TT054g/blog-5.jpg",
+      "date": "2025-11-11",
+      "id": "5"
+    },
+    {
+      "title": "أهمية تغيير فلتر الهواء في سيارتك",
+      "description": "القالب الخاص بوردبريس إكسترا ليس مجرد قالب آخر لوردبريس؛ بل هو تحفة فنية تم تصميمها ...",
+      "image": "https://i.postimg.cc/fy11yG3Y/blog-6.jpg",
+      "date": "2025-11-11",
+      "id": "6"
+    }
+  ],
+  "services": [
+    {
+      "id": "s01",
+      "image": "https://i.postimg.cc/Fz5MGtZj/service1.png",
+      "title": "مكونات المحرك",
+      "description": "القوة الدافعة التي لا تعرف التوقف. اكتشف قلب السيارة: محركنا المصمم بدقة ليمنحك تجربة قيادة سلسة وموثوقة. من المكبس الذي يضخ الحياة، إلى عمود المرفق الذي يحول الطاقة إلى حركة، كل جزء يعمل بتناغم لضمان الأداء الأمثل والكفاءة المطلقة. قوة، متانة، واعتمادية - كل ما تحتاجه على الطريق."
+    },
+    {
+      "id": "s02",
+      "image": "https://i.postimg.cc/VvQx4yRd/service4.png",
+      "title": "قطع اجزاء النقل",
+      "description": "نظام نقل الحركة لدينا ليس مجرد تروس؛ إنه هندسة متكاملة تضمن لك الاستجابة الفورية وأقصى كفاءة في استهلاك الوقود. قل وداعاً للاهتزازات، واستمتع بتجربة قيادة يحددها سلاسة النقل والقوة الموثوقة."
+    },
+    {
+      "id": "s03",
+      "image": "https://i.postimg.cc/J0VfKwqX/service3.png",
+      "title": "نظام العادم",
+      "description": "المحول الحفاز هي التكنولوجيا التي تحمي الأداء والبيئة. يضمن محولنا الحفاز تقليل الانبعاثات الضارة دون التضحية بقوة تدفق العادم، مما يحافظ على نظافة محركك والتزامك بالمعايير البيئية."
+    },
+    {
+      "id": "s04",
+      "image": "https://i.postimg.cc/MH2CtkDj/service2.png",
+      "title": "الاجزاء الكهربائية",
+      "description": "النظام الكهربائي هو العقل المدبر لمركبتك، فهو يوفر الطاقة اللازمة للتشغيل، الإضاءة، والأنظمة الذكية. نحن نضمن لك قطع غيار كهربائية مصممة بأعلى جودة"
+    },
+    {
+      "id": "1",
+      "image": "https://i.postimg.cc/htXhHTgW/service5.png",
+      "title": "تشخيص المحرك",
+      "description": "نحن نستخدم أدوات متقدمة وميكانيكيين معتمدين للحفاظ على عمل المحركات بسلاسة."
+    },
+    {
+      "id": "2",
+      "image": "https://i.postimg.cc/T3KhZgG8/service6.png",
+      "title": "إصلاح تكييف الهواء",
+      "description": "حافظ على برودة سيارتك مع خدمات تشخيص تكييف الهواء، الإصلاحات، وشحن المبرد"
+    },
+    {
+      "id": "3",
+      "image": "https://i.postimg.cc/DwRmF0fC/service7.png",
+      "title": "استبدال البطارية",
+      "description": "اختبار وصيانة واستبدال بطاريات السيارات لمنع الأعطال المفاجئة"
+    },
+    {
+      "id": "4",
+      "image": "https://i.postimg.cc/BnRtsbZ7/service8.png",
+      "title": "فحص نظام الفرامل",
+      "description": "فحص سائل الفرامل لضمان سلامتك مع فرامل سريعة وفعالة."
+    }
+  ],
+  "cart": [],
+  "subscription": [],
+  "customers": [],
+  "purchase": [],
+  "order-products": []
 }

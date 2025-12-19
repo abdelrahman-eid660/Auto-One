@@ -1,1 +1,55 @@
-<p>admin-login works!</p>
+<div class="login-container">
+  <div class="login-box">
+    <h2 class="login-title">تسجيل الدخول</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3 text-start">
+        <label class="text-warning fw-bold">البريد الإلكتروني</label>
+        <input type="email" formControlName="email" class="form-control" />
+        <small
+          class="text-danger"
+          *ngIf="
+            loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+          "
+        >
+          البريد غير صالح
+        </small>
+      </div>
+
+      <div class="mb-3 text-start position-relative">
+        <label class="text-warning fw-bold">كلمة المرور</label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          class="form-control"
+        />
+
+        <span class="toggle-password" (click)="togglePassword()"> 👁️ </span>
+
+        <small
+          class="text-danger"
+          *ngIf="
+            loginForm.get('password')?.touched &&
+            loginForm.get('password')?.invalid
+          "
+        >
+          كلمة المرور مطلوبة
+        </small>
+      </div>
+
+      <button
+        class="btn-login"
+        type="submit"
+        [disabled]="isSubmitting || loginForm.invalid"
+      >
+        تسجيل الدخول
+      </button>
+      <button class="btn btn-signup" type="submit">
+        <a routerLink="/admin/admin-create">انشاء حساب</a>
+      </button>
+      <button class="btn btn-theme w-75" routerLink="/user/home">
+        العوده الي صفحة المستخدمين🙆‍♂️
+      </button>
+    </form>
+  </div>
+</div>

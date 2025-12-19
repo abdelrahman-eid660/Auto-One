@@ -1,0 +1,184 @@
+<div class="top-actions d-flex justify-between">
+  <h3>الملف الشخصي</h3>
+  <div class="actions">
+    <button class="btn btn-outline" (click)="toggleEdit()">
+      {{ editing ? "إلغاء" : "تعديل البيانات" }}
+    </button>
+    <button class="btn btn-success" *ngIf="editing" (click)="saveProfile()">
+      حفظ
+    </button>
+  </div>
+</div>
+
+<div class="card profile-card">
+  <div class="row g-3">
+    <div class="profile d-flex justify-content-between gap-3">
+      <form [formGroup]="profileForm" novalidate>
+        <div class="profile-image mb-3">
+          <div class="avatar-edit">
+            <img [src]="avatar" class="avatar-large" alt="avatar" />
+            <label class="btn-upload">
+              تغيير الصورة
+              <input
+                [disabled]="!editing"
+                type="file"
+                (change)="selectImage($event)"
+              />
+            </label>
+          </div>
+        </div>
+        <div class="profile-details">
+          <div class="row g-2">
+            <div class="col-md-6">
+              <label>الاسم الأول</label>
+              <input
+                formControlName="firstName"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+            <div class="col-md-6">
+              <label>الاسم الأخير</label>
+              <input
+                formControlName="lastName"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label>البريد الإلكتروني</label>
+              <input
+                formControlName="email"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label>الهاتف</label>
+              <input
+                formControlName="phone"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label>الجنس</label>
+              <select
+                formControlName="gender"
+                [disabled]="!editing"
+                class="form-select"
+              >
+                <option value="" selected disabled>اختار نوعك</option>
+                <option value="male">ذكر</option>
+                <option value="female">انثي</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label>تاريخ الميلاد</label>
+              <input
+                type="date"
+                formControlName="dob"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label>البلد</label>
+              <input
+                formControlName="country"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label>المدينة</label>
+              <input
+                formControlName="city"
+                [readonly]="!editing"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label>طريقة الدفع المفضلة</label>
+              <select
+                formControlName="paymentMethod"
+                [disabled]="!editing"
+                class="form-select"
+              >
+                <option value="cash">كاش</option>
+                <option value="visa">فيزا</option>
+              </select>
+            </div>
+
+            <div
+              class="col-12 mt-2"
+              *ngIf="profileForm.value.paymentMethod === 'visa'"
+            >
+              <div class="row g-2">
+                <div class="col-md-4">
+                  <label>رقم البطاقة</label>
+                  <input
+                    formControlName="cardNumber"
+                    [readonly]="!editing"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label>CVV</label>
+                  <input
+                    formControlName="cvv"
+                    [readonly]="!editing"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label>تاريخ انتهاء</label>
+                  <input
+                    type="month"
+                    formControlName="expireDate"
+                    [readonly]="!editing"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- quick stats / cars list -->
+<div class="card stats mt-3">
+  <div class="row">
+    <div class="col-md-4 stat">
+      <h4>3</h4>
+      <small>عدد الإعلانات</small>
+    </div>
+    <div class="col-md-4 stat">
+      @if (myorders && myorders.length > 0){ @for (order of myorders; track
+      $index) {
+      <h4>{{ order?.length ?? 0 }}</h4>
+      } }@else{
+      <h4>0</h4>
+      }
+      <small>طلبات تم شراؤها</small>
+    </div>
+    <div class="col-md-4 stat">
+      @if (mysubscription && mysubscription.length > 0){
+      <h4>{{ mysubscription?.length }}</h4>
+      }@else{
+      <h4>{{ 0 }}</h4>
+      }
+      <small>اشتراكات</small>
+    </div>
+  </div>
+</div>

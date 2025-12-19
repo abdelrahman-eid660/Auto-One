@@ -8,24 +8,26 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './admin-list.component.html',
-  styleUrls: ['./admin-list.component.css']
+  styleUrls: ['./admin-list.component.css'],
 })
 export class AdminListComponent {
-  adminsData ! : any
-  constructor(private adminServ : AdminsService , private toster : ToastrService){
-    this.getData()
+  adminsData!: any;
+  constructor(private adminServ: AdminsService, private toster: ToastrService) {
+    this.getData();
   }
-  getData(){
-    this.adminServ.get().subscribe((data)=>{
-      this.adminsData = data
-    })
+  getData() {
+    this.adminServ.get().subscribe((data) => {
+      this.adminsData = data;
+    });
   }
-remove(id : any){
-  this.adminServ.delete(id).subscribe((data)=>{
-    this.toster.error('',"تم ازالة مشرف بنجاح",{
-      timeOut : 3000
-    })
-  })
-  this.getData()
-}
+  remove(id: any) {
+    this.adminServ.delete(id).subscribe((data) => {});
+    localStorage.removeItem('admin')
+    this.toster.error('', 'تم ازالة مشرف بنجاح', {
+      timeOut: 1200,
+    });
+    setTimeout(() => {
+      window.location.reload()
+    }, 1250);
+  }
 }

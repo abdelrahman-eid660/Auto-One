@@ -8,6 +8,6 @@ import {  HttpClient } from '@angular/common/http';
 export class AdminsService extends APIFunctionService {
 
   constructor(protected override http : HttpClient) {
-    super("http://localhost:3000/admins",http)
+    super("https://auto.eida0556.workers.dev/admins",http)
    }
 }

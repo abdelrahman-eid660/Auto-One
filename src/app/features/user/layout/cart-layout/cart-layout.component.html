@@ -1,0 +1,58 @@
+<!-- main title  -->
+<div class="container-fulid">
+  <div class="banner-title">
+    <div class="banner-content">
+      <div class="banner-caption">
+        <h4>عربة التسوق</h4>
+        <div class="position">
+          <h6>عربة التسوق</h6>
+          <span><<</span>
+          <h6>الرئيسية</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="nav-cart">
+      <ul>
+      <li><a routerLink="/user/cart" routerLinkActive="active"><span>1</span>عربة التسوق</a></li>
+      <li><a (click)="checkout()" routerLinkActive="active"><span>2</span>تفاصيل الشحن والدفع</a></li>
+    </ul>
+</div>
+<div class="modal fade modallogin" id="loginRequiredModal" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content premium-modal">
+
+      <div class="modal-header border-0 justify-content-center">
+        <h5 class="modal-title text-white fw-bold d-flex align-items-center">
+          <i class="fa-solid fa-car-side me-2"></i> دخول المستخدم
+        </h5>
+      </div>
+
+      <div class="modal-body text-center text-white">
+
+        <div class="car-icon-box mb-3">
+          <i class="fa-solid fa-car-burst"></i>
+        </div>
+
+        <h4 class="fw-bold mb-2">مرحبًا بك في عالم السيارات</h4>
+        <p class="text-light opacity-75 mb-4 fs-6">
+          يجب عليك تسجيل الدخول لمتابعة التصفح والاستفادة من جميع المميزات.
+        </p>
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-light flex-fill py-2" (click)="goToLogin()">
+            تسجيل الدخول
+          </button>
+
+          <button class="btn btn-warning flex-fill py-2 fw-bold" (click)="goToRegister()">
+            إنشاء حساب جديد
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

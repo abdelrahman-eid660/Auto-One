@@ -1,1 +1,63 @@
-<p>blog works!</p>
+<!-- main title  -->
+<div class="container-fulid">
+  <div class="banner-title">
+    <div class="banner-content">
+      <div class="banner-caption">
+        <h4>المدونة</h4>
+        <div class="position">
+          <h6>المدونة</h6>
+          <span><<</span>
+          <h6>الرئيسية</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="blog">
+  <div class="container">
+    <div class="title">
+      <h6>مدونتا</h6>
+      <h4>اهلا بك في مجتمع <span>AutoOne</span></h4>
+    </div>
+    <div class="row">
+      @if (blogData) { @for (item of blogData; track $index) {
+      <div class="col-md-4">
+        <div class="blog-box">
+          <div class="picture">
+            <img [src]="item.image" class="img-fluid" alt="" />
+          </div>
+          <div class="info">
+            <h4>{{ item.title }}</h4>
+            <span>{{ item.date }}</span>
+            <p>{{ item.description }}</p>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-outline-dark">اقراْ المزيد</button>
+          </div>
+        </div>
+      </div>
+      } }
+
+      <div class="pagination-controls text-center mt-4">
+        <button
+          class="btn btn-secondary me-2 ms-4"
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+        >
+          السابق
+        </button>
+
+        <span>صفحة {{ currentPage }} من {{ totalPage }}</span>
+
+        <button
+          class="btn btn-secondary ms-2 me-4"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPage"
+        >
+          التالي
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

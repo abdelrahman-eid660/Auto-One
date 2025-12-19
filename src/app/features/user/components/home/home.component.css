@@ -5,6 +5,7 @@
   --paragraph-color: grey;
   --main-font-family: "El Messiri";
 }
+
 .home {
   padding: 10px;
   overflow-x: hidden;
@@ -88,8 +89,9 @@
 }
 /* end home section  */
 
+/* start short-products  */
 .short-products {
-  padding: 10px;
+  padding: 40px 10px;
   text-align: right;
   background-color: var(--main-color);
 }
@@ -97,6 +99,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
   color: var(--main-bg);
 }
 .short-products .head h6 {
@@ -119,43 +122,7 @@
 .short-products .head button:hover a {
   color: var(--primary-color);
 }
-.brands {
-  padding: 40px 10px;
-  text-align: right;
-}
-.brands .title h6 {
-  margin: 20px auto;
-}
-.brands .picture {
-  padding: 10px;
-  align-content: center;
-}
-@media (max-width: 992px) {
-  .brands .title h6 {
-    font-size: 14px;
-  }
-  .title h6::after {
-    top: 3px;
-  }
-}
-
-@media (max-width: 768px) {
-  .brands {
-    text-align: center;
-  }
-  .brands .row {
-    flex-direction: column-reverse;
-  }
-  .brands .title h6 {
-    font-size: 14px;
-  }
-  .title h6::after {
-    top: 3px;
-  }
-  .brands .picture {
-    padding: 0;
-  }
-}
+/* end short-products  */
 .shop-now {
   position: relative;
   min-height: 85vh;
@@ -248,26 +215,251 @@
 .shop-now .btns button:hover a {
   color: var(--primary-color);
 }
-@media (max-width:768px) {
-.shop-now .container .title h4 {
-  font-size: 30px;
+
+@media (max-width: 768px) {
+  .shop-now .container .title h4 {
+    font-size: 30px;
+  }
+  .shop-now .btns button {
+    padding: 15px 25px;
+    background-color: var(--main-color);
+    transition: all 0.3s;
+    border-radius: 20px;
+    margin: 30px auto;
+  }
+  .shop-now .btns i {
+    position: absolute;
+    right: -18px;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--primary-color);
+    font-size: 18px;
+  }
+  .shop-now .btns button a {
+    font-size: 12px;
+  }
 }
-.shop-now .btns button {
-  padding: 15px 25px;
-  background-color: var(--main-color);
+/* end short-products  */
+
+.headshort-products {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+/* end short-products  */
+
+/* start category-of-products  */
+.category-of-products {
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  height: 100vh;
+}
+.category-of-products .container-fluid {
+  width: 100%;
+  height: 100vh;
+  align-content: center;
+}
+.category-of-products .picture {
+  width: 650px;
+  height: 450px;
+  margin: 0px auto;
+  padding: 10px;
+}
+.category-of-products .picture img {
+  width: 100%;
+  height: 100%;
+}
+.category-of-products .caption {
+  padding: 10px;
+  margin: 10px 0;
+  align-content: center;
+}
+.category-of-products .caption h2 {
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 55px;
+  margin: 10px 0;
+}
+.category-of-products .caption p {
+  width: 650px;
+  margin: 10px auto;
+  line-height: 1.6;
+  color: #333;
+  font-weight: bold;
+}
+.category-of-products .caption button a {
+  color: var(--main-color);
   transition: all 0.3s;
-  border-radius: 20px;
-  margin: 30px auto;
 }
-.shop-now .btns i {
-  position: absolute;
-  right: -18px;
-  width: 40px;
-  height: 40px;
-  border: 4px solid var(--primary-color);
-  font-size: 18px;
+.category-of-products .caption button:hover a {
+  color: var(--main-bg);
+  transition: all 0.3s;
 }
-.shop-now .btns button a {
-  font-size: 12px;
+::ng-deep.owl-nav {
+  top: 90%;
 }
+@media (max-width: 768px) {
+  .category-of-products .picture {
+    width: 550px;
+    height: 300px;
+  }
+  .category-of-products .caption p {
+    width: 350px;
+  }
+}
+@media (max-width: 576px) {
+  .category-of-products .picture {
+    width: 320px;
+    padding: 10px;
+  }
+  .category-of-products .caption h2 {
+    font-size: 40px;
+  }
+  .category-of-products .caption p {
+    width: 250px;
+  }
+  .category-of-products .caption button a {
+    font-size: 14px;
+  }
+}
+/* end category-of-products  */
+
+/* start brands  */
+.brands {
+  margin-top: 60px;
+  padding: 40px 10px;
+  text-align: right;
+}
+.brands .title h6 {
+  margin: 20px auto;
+}
+.brands .picture {
+  padding: 10px;
+  align-content: center;
+}
+@media (max-width: 992px) {
+  .brands .title h6 {
+    font-size: 14px;
+  }
+  .title h6::after {
+    top: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brands {
+    text-align: center;
+  }
+  .brands .row {
+    flex-direction: column-reverse;
+  }
+  .brands .title h6 {
+    font-size: 14px;
+  }
+  .title h6::after {
+    top: 3px;
+  }
+  .brands .picture {
+    padding: 0;
+  }
+}
+/* end brands  */
+
+/* start about-brand  */
+.about-brand {
+  padding: 0;
+  background-color: var(--main-color);
+  overflow: hidden;
+  align-content: center;
+}
+.about-brand .container-fluid {
+  padding: 0 !important;
+  background-color: var(--main-color);
+}
+.about-brand .box {
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  padding: 10px;
+}
+.about-brand .box .title h6 {
+  color: var(--main-bg);
+}
+.about-brand .box .quote img {
+  margin: 10px 0;
+  width: 50px;
+}
+.about-brand .box h4 {
+  font-size: 30px;
+  line-height: 1.6;
+  font-weight: bold;
+  color: var(--main-bg);
+}
+.about-brand .picture {
+  height: 500px;
+}
+.about-brand .picture img {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 992px) {
+  .about-brand .box h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--main-bg);
+  }
+}
+@media (max-width: 768px) {
+  .about-brand .box h4 {
+    font-size: 16px;
+  }
+  .about-brand .box .quote img {
+    margin: 10px 0;
+    width: 25px;
+  }
+  .about-brand .box {
+    padding: 30px 10px;
+    margin-bottom: 50px;
+  }
+}
+
+/* end about-brand  */
+
+/* start discont-products  */
+.discont-products {
+  padding: 40px 10px;
+  text-align: center;
+  background-color: var(--main-bg);
+}
+.discont-products .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  color: var(--main-bg);
+}
+.discont-products .head h6 {
+  color: var(--main-bg) !important;
+}
+.discont-products .head button {
+  background-color: var(--main-color);
+  border-radius: 8px;
+  border: 1px solid var(--main-bg);
+  padding: 15px 30px;
+  transition: all 0.3s;
+}
+.discont-products .head button a {
+  color: var(--main-bg);
+  transition: all 0.3s;
+}
+.discont-products .head button:hover {
+  background-color: var(--main-bg);
+}
+.discont-products .head button:hover a {
+  color: var(--primary-color);
 }

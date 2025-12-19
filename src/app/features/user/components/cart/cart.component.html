@@ -1,1 +1,193 @@
-<p>cart works!</p>
+@if (allData && allData.length > 0) {
+<div class="cart-container" dir="rtl">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0 text-light">
+        <i class="fas fa-shopping-cart me-2"></i>
+        سلة المشتريات
+      </h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th width="40%">المنتج</th>
+              <th width="15%">الصورة</th>
+              <th width="10%">السعر</th>
+              <th width="15%">الكمية</th>
+              <th width="10%">المجموع</th>
+              <th width="10%">إزالة</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of allData; track $index) {
+            <tr>
+              <td>
+                <div class="product-info">
+                  <h6 class="product-name mb-1">{{ item.name }}</h6>
+                  <small class="text-muted">موديل: {{ item.marka }}</small>
+                </div>
+              </td>
+              <td>
+                <div class="product-image">
+                  <img [src]="item.image" [alt]="item.name" class="img-fulid" />
+                </div>
+              </td>
+              <td>
+                <div class="product-price">
+                  <strong class="text-success"
+                    >{{ item.price | number }} ج.م</strong
+                  >
+                </div>
+              </td>
+              <td>
+                <div class="quantity-controls">
+                  <div class="input-group input-group-sm">
+                    <button
+                      class="btn btn-outline-secondary"
+                      (click)="decreaseQuantity(item)"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      class="form-control text-center"
+                      [value]="item.quntity"
+                      readonly
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      (click)="increaseQuantity(item)"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="total-price">
+                  <strong class="text-primary"
+                    >{{ item.total | number }} ج.م</strong
+                  >
+                </div>
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="removeItem(item.id)"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+        <div
+          class="card-footer d-flex justify-content-between align-items-center gap-2"
+        >
+          <div class="copun-box">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                (input)="copuonInput($event)"
+                placeholder="رمز القسيمة"
+              />
+            </div>
+            <button class="btn btn-outline-dark" (click)="copuon()">
+              استخدام القسيمة
+            </button>
+          </div>
+          <button class="btn continue btn-outline-danger m-auto">
+            <a routerLink="/user/store">مواصلة التسوق</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- ملخص الطلب -->
+      <div class="order-summary mt-4">
+        <div class="row justify-content-end">
+          <div class="col-md-5">
+            <div class="card bg-light">
+              <div class="card-body">
+                <h5 class="card-title">ملخص الطلب</h5>
+                <div class="summary-item d-flex justify-content-between mb-2">
+                  <span>المجموع الجزئي:</span>
+                  <span>{{ subtotal | number }} ج.م</span>
+                </div>
+                <div class="summary-item d-flex justify-content-between mb-2">
+                  <span>الضريبة (14%):</span>
+                  <span>{{ tax | number }} ج.م</span>
+                </div>
+                <div class="summary-item d-flex justify-content-between mb-3">
+                  <span>الشحن:</span>
+                  <span class="text-success">مجاني</span>
+                </div>
+                <hr />
+                <div class="summary-total d-flex justify-content-between">
+                  <strong>الإجمالي:</strong>
+                  <strong class="text-primary">{{ totalPrice | number }} ج.م</strong>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-primary w-100 mt-3"
+                  (click)="purchase(allData)"
+                >
+                  <i class="fas fa-credit-card me-2"></i>
+                  إتمام الشراء
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modallogin" id="loginRequiredModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content premium-modal">
+      <div class="modal-header border-0 justify-content-center">
+        <h5 class="modal-title text-white fw-bold d-flex align-items-center">
+          <i class="fa-solid fa-car-side me-2"></i> دخول المستخدم
+        </h5>
+      </div>
+
+      <div class="modal-body text-center text-white">
+        <div class="car-icon-box mb-3">
+          <i class="fa-solid fa-car-burst"></i>
+        </div>
+
+        <h4 class="fw-bold mb-2">مرحبًا بك في عالم السيارات</h4>
+        <p class="text-light opacity-75 mb-4 fs-6">
+          يجب عليك تسجيل الدخول لمتابعة التصفح والاستفادة من جميع المميزات.
+        </p>
+
+        <div class="d-flex gap-2">
+          <button
+            class="btn btn-outline-light flex-fill py-2"
+            (click)="goToLogin()"
+          >
+            تسجيل الدخول
+          </button>
+
+          <button
+            class="btn btn-warning flex-fill py-2 fw-bold"
+            (click)="goToRegister()"
+          >
+            إنشاء حساب جديد
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+@else {
+  <div class="container">
+    <h1 class="text-center text-danger mb-">...🛒السلة فارغة حاليا اذهب الان لاملها</h1>
+    <button class="btn btn-outline-danger"><a routerLink="/user/store">اذهب الان لملئ سلتك</a></button>
+  </div>
+}

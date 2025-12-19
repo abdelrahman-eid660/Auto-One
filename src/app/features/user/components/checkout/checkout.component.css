@@ -1,0 +1,29 @@
+.checkout-container {
+  direction: rtl;
+}
+.checkout-box, .order-summary {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+.order-summary h3,
+.checkout-box h3 {
+  font-weight: 700;
+  color: #134E5E;
+}
+.payment-method input {
+  width: 18px;
+  height: 18px;
+}
+
+.visa-box {
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+button.btn-success {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 10px;
+}

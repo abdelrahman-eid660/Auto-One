@@ -1,0 +1,40 @@
+.blog-table-container {
+  background-color: var(--bg-color, #f9f9f9);
+  color: var(--text-color, #333);
+  border-radius: 10px;
+}
+
+.blog-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #f0ad4e;
+}
+
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-dark {
+  background-color: #343a40 !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.dark-mode .blog-table-container {
+  --bg-color: #181818;
+  --text-color: #f1f1f1;
+}
+
+.dark-mode .table {
+  background-color: #242424;
+  color: #eee;
+}
+
+.dark-mode .table-dark {
+  background-color: #111 !important;
+}

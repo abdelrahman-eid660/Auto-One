@@ -1,0 +1,25 @@
+.service-update {
+  max-width: 600px;
+  background-color: #1e1e1e;
+  border: 2px solid #ffcc00;
+}
+
+.form-control {
+  background-color: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.form-control:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 5px #ffcc00;
+}
+
+img.img-thumbnail {
+  border: 2px solid #ffcc00;
+}
+
+.btn-warning:hover {
+  background-color: #e6b800;
+  color: black;
+}

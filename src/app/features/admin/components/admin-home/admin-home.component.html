@@ -1,17 +1,6 @@
-    <!-- المحتوى الرئيسي -->
-    <div class="flex-fill content-wrapper" style="margin-left:260px; transition:margin-left .25s">
-      <!-- Topbar -->
+    <div class="flex-fill content-wrapper">
       <div class="topbar d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-          <!-- زر فتح الشريط على الموبايل -->
-          <button id="toggleSidebar" class="btn btn-outline-secondary me-2 d-lg-none">
-            ☰
-          </button>
-
-          <form class="d-flex align-items-center" style="gap:.5rem">
-            <input class="form-control form-control-sm" style="width:260px" placeholder="ابحث عن منتج أو خدمة..." />
-            <button class="btn btn-sm btn-outline-primary">بحث</button>
-          </form>
         </div>
 
         <div class="d-flex align-items-center gap-2">
@@ -20,14 +9,15 @@
             <button class="btn btn-sm btn-outline-secondary">🔔</button>
             <span class="badge bg-danger position-absolute" style="top:-6px;right:-6px;font-size:10px">3</span>
           </div>
+
           <!-- user -->
           <div class="dropdown">
-            <a class="btn btn-sm btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <a class="btn btn-sm btn-outline-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown">
               مرحبًا، مدير
             </a>
             <ul class="dropdown-menu dropdown-menu-end p-2">
-              <li><a class="dropdown-item" href="#">الملف الشخصي</a></li>
-              <li><a class="dropdown-item" href="#">الإعدادات</a></li>
+              <li><a class="dropdown-item">الملف الشخصي</a></li>
+              <li><a class="dropdown-item">الإعدادات</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a id="logoutMobile" class="dropdown-item" routerLink="/admin/admin-login">تسجيل خروج</a></li>
             </ul>
@@ -35,16 +25,13 @@
         </div>
       </div>
 
-      <!-- Main content area -->
       <main class="p-4">
-        <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent p-0 mb-3">
             <li class="breadcrumb-item active" aria-current="page">الرئيسية</li>
           </ol>
         </nav>
 
-        <!-- Row: slider + widgets -->
         <div class="row g-3">
           <!-- Slider -->
           <div class="col-12 col-lg-8">
@@ -97,7 +84,6 @@
             </div>
           </div>
 
-          <!-- Widgets -->
           <div class="col-12 col-lg-4">
             <div class="card p-3 mb-3">
               <h6 class="mb-2">إحصائيات سريعة</h6>
@@ -128,7 +114,6 @@
           </div>
         </div>
 
-        <!-- جدول مختصر أو قائمة آخر العمليات -->
         <div class="card p-3 mt-4">
           <h6>آخر الأنشطة</h6>
           <ul class="list-unstyled mb-0">
@@ -150,5 +135,4 @@
         </div>
 
       </main>
-      <!-- نهاية المحتوى الرئيسي -->
     </div>

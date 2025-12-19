@@ -1,0 +1,19 @@
+{
+  "name": "ignite-json",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "login": "wrangler login --browser false",
+    "deploy": "wrangler deploy --name",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "create-db": "wrangler kv namespace create --use-remote --update-config --binding KV_DB",
+    "push-db": "wrangler kv bulk put kv.json --binding KV_DB --remote"
+  },
+  "dependencies": {
+    "hono": "^4.10.3",
+    "sort-on": "^7.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.4.0"
+  }
+}

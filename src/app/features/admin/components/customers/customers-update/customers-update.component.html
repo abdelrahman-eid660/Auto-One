@@ -1,0 +1,124 @@
+<div class="container mt-4">
+  <h3 class="mb-3">تعديل بيانات العميل</h3>
+
+  @if (customerForm && serviceForm) {
+  <form [formGroup]="customerForm" (ngSubmit)="updateAll()">
+    <div class="card p-3 mb-4">
+      <h5 class="mb-3">بيانات العميل</h5>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>الاسم</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>الايميل</label>
+          <input type="email" class="form-control" formControlName="email" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>رقم الهاتف</label>
+          <input type="text" class="form-control" formControlName="phone" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>المدينة</label>
+          <input type="text" class="form-control" formControlName="city" />
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>العنوان</label>
+          <input type="text" class="form-control" formControlName="address" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>طريقة الدفع</label>
+          <select
+            class="form-select"
+            formControlName="paymentMethod"
+            (change)="toggleVisa()"
+          >
+            <option value="cash">كاش</option>
+            <option value="visa">فيزا</option>
+          </select>
+        </div>
+
+        <div *ngIf="showVisa" class="col-12 row">
+          <div class="col-md-4 mb-3">
+            <label>رقم البطاقة</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="cardNumber"
+            />
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>CVV</label>
+            <input type="text" class="form-control" formControlName="cvv" />
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>تاريخ انتهاء البطاقة</label>
+            <input
+              type="month"
+              class="form-control"
+              formControlName="expireDate"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <form [formGroup]="serviceForm" (ngSubmit)="updateAll()">
+    <div class="card p-3">
+      <h5 class="mb-3">بيانات الإشتراك</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>اسم الخدمة</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label>السعر</label>
+          <input type="text" class="form-control" formControlName="price" />
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label>المدة</label>
+          <input type="text" class="form-control" formControlName="duration" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>تاريخ البداية</label>
+          <input type="date" class="form-control" formControlName="startDate" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>تاريخ الانتهاء</label>
+          <input type="date" class="form-control" formControlName="endDate" />
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>الحالة</label>
+          <select class="form-select" formControlName="status">
+            <option value="pending">قيد التنفيذ</option>
+            <option value="active">نشط</option>
+            <option value="finished">منتهي</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <button
+    class="btn btn-success mt-3 w-100"
+    type="submit"
+    (click)="updateAll()"
+  >
+    حفظ التعديلات
+  </button>
+
+  }
+</div>

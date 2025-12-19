@@ -20,27 +20,32 @@ import { ProductsUpdateComponent } from "./components/products/products-update/p
 import { AdminError404Component } from "./shared/admin-error404/admin-error404.component";
 import { NgModule } from "@angular/core";
 import { AdminHomeComponent } from "./components/admin-home/admin-home.component";
+import { CustomersUpdateComponent } from "./components/customers/customers-update/customers-update.component";
+import { CustomersProductUpdateComponent } from "./components/customers/customers-product-update/customers-product-update.component";
+import { authAdminsGuard } from "../../core/guard/auth-admins.guard";
 
 const route : Routes = [
   {path : '' , component : AdminLayoutComponent , children : [
-    {path : 'home' , component : AdminHomeComponent , title : 'الرئيسية'},
+    {path : 'home' , component : AdminHomeComponent , title : 'الرئيسية' , canActivate : [authAdminsGuard]},
     {path : 'admin-create' , component : AdminCreateComponent , title : 'اضافة مشرف'},
-    {path : 'admin-list' , component : AdminListComponent , title : 'قائمة المشرفيين'},
-    {path : 'admin-update/:id' , component : AdminUpdateComponent , title : 'تعديل بيانات المشرف'},
+    {path : 'admin-list' , component : AdminListComponent ,canActivate : [authAdminsGuard], title : 'قائمة المشرفيين'},
+    {path : 'admin-update/:id' , component : AdminUpdateComponent,canActivate : [authAdminsGuard] , title : 'تعديل بيانات المشرف'},
     {path : 'admin-login' , component : AdminLoginComponent , title : 'تسجيل الدخول'},
-    {path : 'blog-create' , component : BlogCreateComponent , title : 'اضافة مدونة'},
-    {path : 'blog-list' , component : BlogListComponent , title : 'قائمة المدونات'},
-    {path : 'blog-update/:id' , component : BlogUpdateComponent , title : 'تعديل المدونه'},
-    {path : 'customers' , component : CustomersListComponent , title : 'قائمة العملاء'},
-    {path : 'ourservice-create' , component : OurserviceCreateComponent , title : 'اضافة خدمة'},
-    {path : 'ourservice-list' , component : OurserviceListComponent , title : 'قائمة خدماتنا'},
-    {path : 'ourservice-update/:id' , component : OurserviceUpdateComponent , title : 'تعديل الخدمة'},
-    {path : 'pricing-create' , component : PricingCreateComponent , title : 'اضافة باقة'},
-    {path : 'pricing-list' , component : PricingListComponent , title : 'قائمة باقاتنا'},
-    {path : 'pricing-update/:id' , component : PricingUpdateComponent , title : 'تعديل باقة'},
-    {path : 'product-create' , component :ProductsCreateComponent , title : 'اضافة منتج'},
-    {path : 'product-list' , component : ProductsListComponent , title : 'قائمة منتجاتنا'},
-    {path : 'product-update/:id' , component : ProductsUpdateComponent , title : 'تعديل منتج'},
+    {path : 'blog-create' , component : BlogCreateComponent ,canActivate : [authAdminsGuard], title : 'اضافة مدونة'},
+    {path : 'blog-list' , component : BlogListComponent ,canActivate : [authAdminsGuard], title : 'قائمة المدونات'},
+    {path : 'blog-update/:id' , component : BlogUpdateComponent ,canActivate : [authAdminsGuard], title : 'تعديل المدونه'},
+    {path : 'customers' , component : CustomersListComponent ,canActivate : [authAdminsGuard], title : 'قائمة العملاء'},
+    {path : 'customers-update/:id' , component : CustomersUpdateComponent ,canActivate : [authAdminsGuard], title : 'تعديل بيانات العملاء'},
+    {path : 'customersproduct-update/:id' , component : CustomersProductUpdateComponent ,canActivate : [authAdminsGuard], title : 'تعديل بيانات العملاء'},
+    {path : 'ourservice-create' , component : OurserviceCreateComponent ,canActivate : [authAdminsGuard], title : 'اضافة خدمة'},
+    {path : 'ourservice-list' , component : OurserviceListComponent ,canActivate : [authAdminsGuard], title : 'قائمة خدماتنا'},
+    {path : 'ourservice-update/:id' , component : OurserviceUpdateComponent ,canActivate : [authAdminsGuard], title : 'تعديل الخدمة'},
+    {path : 'pricing-create' , component : PricingCreateComponent ,canActivate : [authAdminsGuard], title : 'اضافة باقة'},
+    {path : 'pricing-list' , component : PricingListComponent ,canActivate : [authAdminsGuard], title : 'قائمة باقاتنا'},
+    {path : 'pricing-update/:id' , component : PricingUpdateComponent ,canActivate : [authAdminsGuard], title : 'تعديل باقة'},
+    {path : 'product-create' , component :ProductsCreateComponent ,canActivate : [authAdminsGuard], title : 'اضافة منتج'},
+    {path : 'product-list' , component : ProductsListComponent ,canActivate : [authAdminsGuard], title : 'قائمة منتجاتنا'},
+    {path : 'product-update/:id' , component : ProductsUpdateComponent ,canActivate : [authAdminsGuard], title : 'تعديل منتج'},
     {path : '' , redirectTo : 'home' , pathMatch:'full' , title : 'الرئيسية'},
     {path : '**' , component : AdminError404Component , title : 'خطاء'},
   ],

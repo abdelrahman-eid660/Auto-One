@@ -1,0 +1,123 @@
+:root {
+  --bg: #0f1720; /* dark gray */
+  --panel: #11151a;
+  --accent: #0ea5ff; /* blue */
+  --muted: #97a3ad;
+  --card: #131820;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+}
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.top-actions h3 {
+  margin: 0;
+  color: var(--accent);
+}
+.actions .btn {
+  margin-left: 8px;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(3, 8, 12, 0.5);
+  color: #dbefff;
+}
+
+/* avatar edit */
+.avatar-large {
+  width: 180px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(14, 165, 255, 0.08);
+}
+.btn-upload {
+  display: inline-block;
+  margin-top: 10px;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  cursor: pointer;
+}
+.btn-upload input {
+  display: none;
+}
+
+/* form controls look */
+.form-control,
+.form-select {
+  background: #0e1418;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  color: #e9f6ff;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* buttons */
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(14, 165, 255, 0.12);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #051623;
+}
+
+/* stats */
+.stats .stat {
+  padding: 16px;
+  text-align: center;
+}
+.stats .stat h4 {
+  margin: 0;
+  color: var(--accent);
+}
+.stats .stat small {
+  color: var(--muted);
+}
+
+/* responsive */
+@media (max-width: 920px) {
+  .profile-page {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .sidebar {
+    width: 100%;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .sidebar-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+  .content {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+
+<div class="profile-page">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar-wrap">
+        <img [src]="userData.avatar || avatar" alt="avatar" class="avatar" />
+      </div>
+      <div class="user-name">
+        <h5>{{userData.firstName }} {{userData.lastName }}</h5>
+        <small class="text-light">{{userData.email }}</small>
+      </div>
+    </div>
+
+    <nav class="side-nav">
+      <a routerLink="/user/profile/home" routerLinkActive="active" class="nav-item active">الملف الشخصي</a>
+      <a routerLink="/user/profile/orders" routerLinkActive="active" class="nav-item">طلباتى</a>
+      <a routerLink="/user/profile/mysubscription" routerLinkActive="active" class="nav-item">اشتراكاتى</a>
+      <a routerLink="/user/profile/settings" routerLinkActive="active" class="nav-item">الإعدادات</a>
+      <hr />
+      <a class="nav-item logout" (click)="loginOut()">تسجيل خروج</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+<router-outlet></router-outlet>
+  </main>
+</div>

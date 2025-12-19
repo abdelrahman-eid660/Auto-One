@@ -1,0 +1,156 @@
+<div class="checkout-container container mt-5">
+  <div class="row g-4">
+    <!-- Right: Customer Form -->
+    <div class="col-lg-7">
+      <div class="checkout-box p-4">
+        <h3 class="mb-3">بيانات العميل</h3>
+
+        <form [formGroup]="checkoutForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>الاسم الأول *</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>الاسم الأخير *</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>اسم الشركة (اختياري)</label>
+            <input type="text" class="form-control" formControlName="company" />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>الدولة *</label>
+              <select
+                class="form-select"
+                formControlName="country"
+                (change)="onCountryChange($event)"
+              >
+                <option value="">اختر الدولة</option>
+                <option *ngFor="let c of countries" [value]="c.code">
+                  {{ c.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>المدينة *</label>
+              <select class="form-select" formControlName="city">
+                <option value="">اختر المدينة</option>
+                <option *ngFor="let city of filteredCities" [value]="city">
+                  {{ city }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>البريد الإلكتروني *</label>
+            <input type="email" class="form-control" formControlName="email" />
+          </div>
+
+          <div class="mb-3">
+            <label>رقم الهاتف *</label>
+            <input type="text" class="form-control" formControlName="phone" />
+          </div>
+
+          <div class="mb-3">
+            <label>ملاحظات مع الطلب (اختياري)</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              formControlName="note"
+            ></textarea>
+          </div>
+
+          <h5 class="mt-4 mb-2">طريقة الدفع</h5>
+          <div class="payment-method d-flex gap-4">
+            <label class="form-check-label">
+              <input
+                type="radio"
+                formControlName="paymentMethod"
+                value="cash"
+                (change)="toggleVisa(false)"
+                class="form-check-input me-2"
+              />
+              كاش
+            </label>
+            <label class="form-check-label">
+              <input
+                type="radio"
+                formControlName="paymentMethod"
+                value="visa"
+                (change)="toggleVisa(true)"
+                class="form-check-input me-2"
+              />
+              Visa
+            </label>
+          </div>
+
+          <!-- Visa Fields -->
+          <div *ngIf="showVisa" class="visa-box mt-3 p-3">
+            <label>رقم البطاقة *</label>
+            <input
+              type="text"
+              class="form-control mb-2"
+              formControlName="cardNumber"
+            />
+
+            <div class="d-flex gap-3">
+              <div class="w-50">
+                <label>CVV *</label>
+                <input type="text" class="form-control" formControlName="cvv" />
+              </div>
+              <div class="w-50">
+                <label>تاريخ الإنتهاء *</label>
+                <input
+                  type="month"
+                  class="form-control"
+                  formControlName="expireDate"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn btn-success mt-4 w-100 fw-bold"
+            (click)="submitOrder()"
+          >
+            تأكيد الطلب
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Left: Order Summary -->
+    <div class="col-lg-5">
+      <div class="order-summary p-4 mb-4">
+        <h3 class="mb-3">ملخص الطلب</h3>
+
+        @for (item of cartData; track $index) {
+        <div class="d-flex justify-content-between py-2 border-bottom">
+          <span>{{ item.name }} ({{ item.quntity }}x)</span>
+          <span>{{ item.price * item.quntity }} جنية</span>
+        </div>
+        }
+
+        <div class="d-flex justify-content-between mt-3 fw-bold fs-5">
+          <span>الإجمالي:</span>
+          <span>{{ totalPrice }} جنية</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

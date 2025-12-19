@@ -1,0 +1,224 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --main-bg: #ffffff;
+  --main-font-family: "El Messiri";
+}
+.container{
+  height: 30vh;
+  align-content: center;
+}
+.container .btn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container .btn a{
+  color: var(--primary-color);
+}
+.container .btn:hover a{
+  color: var(--main-bg);
+}
+.cart-container {
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.cart-container .table {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container .table th {
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px 10px;
+  background: #2c3e50;
+  color: white;
+}
+
+.cart-container .table td {
+  vertical-align: middle;
+  padding: 15px 10px;
+  text-align: center;
+  border-color: #e9ecef;
+}
+
+.cart-container .product-info {
+  text-align: right;
+}
+.cart-container .product-info {
+  text-align: right;
+}
+
+.cart-container .product-name {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.cart-container .product-image img {
+  border-radius: 8px;
+  width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.cart-container .product-image img:hover {
+  transform: scale(1.05);
+}
+
+.cart-container .quantity-controls .input-group {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.cart-container .quantity-controls .btn {
+  border-color: #ced4da;
+  font-weight: bold;
+}
+
+.cart-container .quantity-controls .form-control {
+  border-color: #ced4da;
+  background: #fff;
+}
+
+.cart-container .product-price,
+.cart-container .total-price {
+  font-family: "Arial", sans-serif;
+}
+
+.cart-container .text-success {
+  color: #28a745 !important;
+}
+
+.cart-container .text-primary {
+  color: #007bff !important;
+}
+
+.cart-container .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+  transition: all 0.3s ease;
+}
+
+.cart-container .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: scale(1.05);
+}
+
+.cart-container .order-summary .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container .summary-item {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.cart-container .summary-total {
+  font-size: 18px;
+  color: #2c3e50;
+}
+.cart-container .table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container .card-header {
+  border-radius: 10px 10px 0 0 !important;
+  border: none;
+}
+
+.cart-container .btn-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cart-container .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+.copun-box {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 600px;
+  gap: 15px;
+}
+.copun-box .input-group {
+  width: 250px;
+}
+.copun-box .input-group input {
+  padding: 10px;
+}
+.card-footer button a {
+  color: #eb2500;
+}
+.card-footer button:hover a {
+  color: white;
+}
+@media (max-width: 992px) {
+  .card-footer button {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 10px;
+  }
+  .cart-container .product-image img {
+    width: 120px;
+  }
+
+  .table-responsive {
+    border-radius: 8px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+
+  .product-name {
+    font-size: 14px;
+  }
+
+  .quantity-controls .input-group {
+    width: 100px;
+  }
+
+  .order-summary .col-md-4 {
+    width: 100%;
+  }
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.cart-container h4,
+h5 {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.cart-container .text-muted {
+  color: #6c757d !important;
+}
