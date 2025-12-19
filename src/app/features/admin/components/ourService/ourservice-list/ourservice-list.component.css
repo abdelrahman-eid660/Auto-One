@@ -1,0 +1,47 @@
+.services-list {
+  max-width: 1200px;
+  background-color: #1e1e1e;
+  border: 2px solid #ffcc00;
+}
+
+.table th,
+.table td {
+  vertical-align: middle !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #2c2c2c;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.btn-outline-danger:hover {
+  background-color: #ff4c4c;
+  color: white;
+}
+@media (max-width: 768px) {
+  button.btn-warning {
+    font-size: 10px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    white-space: nowrap !important;
+    min-width: 140px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+@media (max-width:450px) {
+  input.form-control{
+    width: 90%;
+  }
+}

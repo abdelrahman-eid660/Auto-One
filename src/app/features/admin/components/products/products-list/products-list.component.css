@@ -13,14 +13,15 @@
 .table-hover tbody tr:hover {
   background: #fbfcff;
 }
-
-/* small screens: stack columns for better readability (optional) */
 @media (max-width: 768px) {
-  .table {
-    text-align: right;
+  .table td,
+  .table th {
+    white-space: nowrap !important;
+    min-width: 140px;
   }
-  .table thead { display: none; }
-  .table tbody tr { display: block; margin-bottom: 12px; border-bottom: 1px solid #eee; }
-  .table tbody td { display: flex; justify-content: space-between; padding: 10px 12px; }
-  .thumb { width: 250px; height: 180px; }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }

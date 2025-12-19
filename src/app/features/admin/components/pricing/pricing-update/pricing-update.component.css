@@ -1,0 +1,17 @@
+.subscription-form {
+  max-width: 900px;
+  margin: 24px auto;
+  background: #fff;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.card.p-3 {
+  border-radius: 8px;
+}
+
+ul {
+  padding-left: 1rem;
+}

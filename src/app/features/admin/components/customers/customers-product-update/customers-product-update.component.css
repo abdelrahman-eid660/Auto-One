@@ -1,0 +1,100 @@
+.container {
+  max-width: 950px;
+  direction: rtl;
+}
+
+h3 {
+  text-align: right;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #00a6ff;
+}
+
+.card {
+  background: #141a23;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.card h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #00a6ff;
+  border-right: 4px solid #00a6ff;
+  padding-right: 10px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+input,
+select {
+  background: #1e2633;
+  border: 1px solid #2b3444;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input:focus,
+select:focus {
+  border-color: #00a6ff;
+  box-shadow: 0 0 5px #0095e2;
+}
+
+.btn-success {
+  background: #00a6ff;
+  border: none;
+  padding: 13px;
+  font-size: 17px;
+  border-radius: 14px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.btn-success:hover {
+  background: #007cc2;
+}
+
+.status-pending {
+  color: #ffc107;
+}
+
+.status-active {
+  color: #28a745;
+}
+
+.status-finished {
+  color: #dc3545;
+}
+
+/* أيقونات شكل سيارات */
+.card-title-icon {
+  font-size: 22px;
+  margin-left: 8px;
+  color: #00a6ff;
+}
+.car-edit-container {
+  max-width: 850px;
+  margin: auto;
+  direction: rtl;
+}
+
+.car-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  transition: 0.3s;
+}
+
+.car-img:hover {
+  transform: scale(1.03);
+  border-color: #0d6efd;
+}

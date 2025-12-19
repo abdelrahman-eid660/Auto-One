@@ -1,1 +1,83 @@
-<p>pricing-create works!</p>
+<div class="subscription-form card shadow p-4 rounded-4 bg-light">
+  <!-- العنوان -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0 text-primary fw-bold">إضافة باقة جديدة</h4>
+    <button class="btn btn-outline-secondary" (click)="onCancel()">إلغاء</button>
+  </div>
+
+  <!-- النموذج -->
+  <form [formGroup]="pricingForm" class="row g-3">
+
+    <!-- اسم الباقة -->
+    <div class="col-md-6">
+      <label for="name" class="form-label fw-semibold">اسم الباقة</label>
+      <input id="name" type="text" formControlName="name" class="form-control form-control-lg" placeholder="مثال: الباقة الذهبية" />
+      @if (controls['name'].touched && controls['name'].invalid) {
+        <div class="text-danger small">
+          @if (controls['name'].errors?.['required']) {
+            <div>من فضلك أدخل اسم الباقة</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- السعر -->
+    <div class="col-md-6">
+      <label for="price" class="form-label fw-semibold">السعر (بالجنيه)</label>
+      <input id="price" type="number" formControlName="price" class="form-control form-control-lg" placeholder="مثال: 1500" />
+      @if (controls['price'].touched && controls['price'].invalid) {
+        <div class="text-danger small">
+          @if (controls['price'].errors?.['required']) {
+            <div>من فضلك أدخل السعر</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- المدة -->
+    <div class="col-md-6">
+      <label for="duration" class="form-label fw-semibold">المدة</label>
+      <select id="duration" formControlName="duration" class="form-select form-select-lg">
+        <option value="" disabled>اختر المدة</option>
+        <option value="3 شهور">3 شهور</option>
+        <option value="6 شهور">6 شهور</option>
+        <option value="12 شهر">12 شهر</option>
+      </select>
+      @if (controls['duration'].touched && controls['duration'].invalid) {
+        <div class="text-danger small">
+          <div>من فضلك اختر المدة</div>
+        </div>
+      }
+    </div>
+
+    <!-- المميزات -->
+    <div class="col-12">
+      <label for="features" class="form-label fw-semibold">مميزات الباقة</label>
+      <textarea
+        id="features"
+        rows="4"
+        formControlName="features"
+        class="form-control form-control-lg"
+        placeholder="اكتب المميزات هنا مثل: &#10;- تغيير الزيت &#10;- تنظيف السيارة &#10;- خصم 10% ..."
+      ></textarea>
+      @if (controls['features'].touched && controls['features'].invalid) {
+        <div class="text-danger small">
+          <div>من فضلك أدخل مميزات الباقة</div>
+        </div>
+      }
+    </div>
+
+    <!-- الأزرار -->
+    <div class="col-12 text-center mt-3">
+      <button
+        type="submit"
+        class="btn btn-success px-4"
+        [disabled]="pricingForm.invalid"
+        (click)="addPricing()"
+      >
+        <i class="bi bi-plus-circle"></i> حفظ الباقة
+      </button>
+      <button type="button" class="btn btn-outline-secondary ms-2" (click)="onCancel()">إلغاء</button>
+    </div>
+  </form>
+</div>

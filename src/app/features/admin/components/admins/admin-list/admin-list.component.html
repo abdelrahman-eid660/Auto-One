@@ -1,54 +1,60 @@
 <div class="card shadow p-4 rounded-4 bg-light">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold text-primary mb-0">قائمة المشرفين</h4>
-    <button class="btn btn-success px-3"  routerLink="/admin/admin-create">
-       إضافة مشرف جديد
+    <button class="btn btn-success px-3" routerLink="/admin/admin-create">
+      إضافة مشرف جديد
     </button>
   </div>
 
-  @if (adminsData.length > 0) {
-    <div class="table-responsive">
-      <table class="table table-hover align-middle text-center">
-        <thead class="table-primary">
-          <tr>
-            <th>ID</th>
-            <th>الاسم</th>
-            <th>البريد الإلكتروني</th>
-            <th>رقم الهاتف</th>
-            <th>الدور</th>
-            <th>الإجراءات</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (admin of adminsData; track $index) {
-            <tr>
-              <td>{{ $index + 1 }}</td>
-              <td>{{ admin.name }}</td>
-              <td>{{ admin.email }}</td>
-              <td>{{ admin.phone }}</td>
-              <td>
-                <span
-                  class="px-3 py-2"
-                >
-                  {{ admin.role }}
-                </span>
-              </td>
-              <td>
-                <button class="btn btn-outline-primary btn-sm me-2" routerLink="/admin/admin-update/{{admin.id}}">
-                  ✏️ تعديل
-                </button>
-                <button class="btn btn-outline-danger btn-sm" (click)="remove(admin.id)">
-                  🗑️ حذف
-                </button>
-              </td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    </div>
+  @if (adminsData) {
+  <div class="table-responsive">
+    <table class="table table-hover align-middle text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>ID</th>
+          <th>الاسم</th>
+          <th>البريد الإلكتروني</th>
+          <th>رقم الهاتف</th>
+          <th>الدور</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (admin of adminsData; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ admin.name }}</td>
+          <td>{{ admin.email }}</td>
+          <td>{{ admin.phone }}</td>
+          <td>
+            <span class="px-3 py-2">
+              {{ admin.role }}
+            </span>
+          </td>
+          <td>
+            <div class="btn-group" role="group" aria-label="actions">
+              <button
+                class="btn btn-outline-primary btn-sm me-2"
+                routerLink="/admin/admin-update/{{ admin.id }}"
+              >
+                ✏️ تعديل
+              </button>
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="remove(admin.id)"
+              >
+                🗑️ حذف
+              </button>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
   } @else {
-    <div class="alert alert-warning text-center mt-3">
-      لا توجد بيانات لعرضها حالياً.
-    </div>
+  <div class="alert alert-warning text-center mt-3">
+    لا توجد بيانات لعرضها حالياً.
+  </div>
   }
 </div>

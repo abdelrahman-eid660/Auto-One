@@ -6,15 +6,17 @@
     </button>
   </div>
 
-  <!-- search / filter (اختياري) -->
   <div class="row mb-3">
     <div class="col-md-4">
-      <input class="form-control" placeholder="بحث بالاسم أو الفئة" (input)="filter($event)" />
+      <input
+        class="form-control"
+        placeholder="بحث بالاسم أو الفئة"
+        (input)="filter($event)"
+      />
     </div>
   </div>
 
-  <!-- Table responsive -->
-  <div class="table-responsive card shadow-sm">
+  <div class="table-responsive card shadow-sm" dir="ltr">
     <table class="table table-hover align-middle mb-0">
       <thead class="table-light">
         <tr>
@@ -32,7 +34,10 @@
         <tr>
           <td>
             <div class="btn-group" role="group" aria-label="actions">
-              <button class="btn btn-sm btn-outline-primary" routerLink="/admin/product-update/{{item.id}}">
+              <button
+                class="btn btn-sm btn-outline-primary"
+                routerLink="/admin/product-update/{{ item.id }}"
+              >
                 <i class="fa-solid fa-pen"></i>
               </button>
               <button
@@ -43,7 +48,6 @@
               </button>
             </div>
           </td>
-          <!-- image thumbnail -->
           <td>
             <div class="d-flex align-items-center justify-content-center">
               <img
@@ -53,17 +57,8 @@
               />
             </div>
           </td>
-
           <td>{{ item.count }}</td>
-          @if(item.discount > 0){
-          <td>
-           EGP {{ item.discount }}
-          </td>
-          }@else{
-          <td>
-           EGP {{ item.price }}
-          </td>
-          }
+          <td>EGP {{ item.total }}</td>
           <td>{{ item.category }}</td>
           <td>
             <div class="fw-semibold">{{ item.name }}</div>
@@ -75,5 +70,4 @@
       </tbody>
     </table>
   </div>
-
 </div>

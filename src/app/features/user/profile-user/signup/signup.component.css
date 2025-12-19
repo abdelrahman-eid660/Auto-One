@@ -1,0 +1,84 @@
+/* src/app/user/signup/signup.component.css */
+.auth-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: linear-gradient(180deg,#f8fafc,#eef6fb);
+}
+
+.auth-card {
+  width: 920px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 8px 30px rgba(14,35,60,0.08);
+  color: #222;
+}
+
+.title {
+  text-align: right;
+  color: #0d6efd;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.avatar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-box img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #e9eef8;
+  background: #f5f7fb;
+}
+
+.btn-upload {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  position: relative;
+}
+
+.btn-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-control, .form-select {
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fbfdff;
+  border: 1px solid #e6eef9;
+  color: #111827;
+}
+
+.btn-primary {
+  background: #0d6efd;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #dae9ff;
+  color: #0d6efd;
+  border-radius: 10px;
+}

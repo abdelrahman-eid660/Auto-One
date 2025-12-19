@@ -27,52 +27,56 @@ export class ProductsUpdateComponent {
     this.updateProduct();
 
     this.id = this.activatedtoute.snapshot.paramMap.get('id');
-    this.productServ.getById(this.id).subscribe((data : any) => {
+    this.productServ.getById(this.id).subscribe((data: any) => {
       this.productsForm.patchValue(data);
     });
   }
   productsForm!: FormGroup;
   updateProduct() {
     this.productsForm = this.fb.group({
-      name: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(40),
-        ],
-      ],
-      code: [
-        '',
-        [Validators.required, Validators.minLength(3), Validators.maxLength(20)],
-      ],
-      description: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(200),
-        ],
-      ],
-      count: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      discount: [''],
-      image: ['', [Validators.required]],
-      marka: ['', [Validators.required]],
-      category: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(6)]],
+      code: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      count: ['', Validators.required],
+      price: [0, Validators.required],
+      discount: [0],
+      total: [{ value: 0, disabled: true }],
+      image: ['', Validators.required],
+      marka: ['', Validators.required],
+      category: ['', Validators.required],
     });
+    this.calculateTotal();
   }
   get controls() {
     return this.productsForm.controls;
   }
+  calculateTotal() {
+    this.productsForm.get('price')?.valueChanges.subscribe(() => {
+      this.updateTotal();
+    });
+
+    this.productsForm.get('discount')?.valueChanges.subscribe(() => {
+      this.updateTotal();
+    });
+  }
+
+  updateTotal() {
+    const price = Number(this.productsForm.get('price')?.value) || 0;
+    const discount = Number(this.productsForm.get('discount')?.value) || 0;
+    let total = price;
+
+    if (discount > 0) {
+      total = price - (price * discount) / 100;
+    }
+    this.productsForm.patchValue({ total });
+  }
   update() {
-    this.productServ
-      .put(this.productsForm.value, this.id)
-      .subscribe((data: any) => {
-        this.router.navigateByUrl('/admin/product-list');
-        this.toster.success('تم تعديل المنتج  بنجاح', '', {
-          timeOut: 3000,
-        });
+    const productData = this.productsForm.getRawValue();
+    this.productServ.put(productData, this.id).subscribe((data: any) => {
+      this.router.navigateByUrl('/admin/product-list');
+      this.toster.success('تم تعديل المنتج  بنجاح', '', {
+        timeOut: 3000,
       });
+    });
   }
 }

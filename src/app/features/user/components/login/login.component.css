@@ -1,0 +1,83 @@
+/* الخلفية */
+.login-page {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70")
+      center/cover no-repeat;
+}
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #ced4da; /* يمكنك تغيير اللون حسب احتياجك */
+}
+/* الصندوق */
+.login-box {
+  width: 380px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.7s ease;
+}
+
+/* الشعار */
+.car-icon {
+  font-size: 55px;
+  color: #ffc107;
+  animation: moveCar 1.5s infinite ease-in-out;
+}
+
+.logo-box h3 {
+  color: #fff;
+}
+
+/* الإنيميشن */
+@keyframes moveCar {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* المدخلات */
+.input-group-text {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  font-size: 18px;
+}
+
+.form-control {
+  border: none;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* اللينك */
+.register-link:hover {
+  color: #ffc107 !important;
+  text-decoration: underline;
+  transition: 0.3s;
+}

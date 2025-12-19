@@ -1,0 +1,137 @@
+.customer-page h4 {
+  color: var(--primary-color);
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 17px;
+}
+
+.table-hover tbody tr:hover {
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+}
+
+/* Modal Styles */
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10447543550;
+}
+.modal.show {
+  display: block;
+}
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-header {
+  border-radius: 15px 15px 0 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-backdrop {
+  z-index: 1040;
+  opacity: 0.5;
+}
+
+/* Service Items */
+.service-item {
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  margin: -10px -15px;
+}
+
+.features-section ul li {
+  padding: 2px 0;
+}
+.products-ul{
+  list-style: none;
+  padding: 10px;
+}
+/* Animations */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width:768px) and (max-width:992px) {
+  .modal-content{
+    width: 600px !important;
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 20px auto;
+  }
+
+  .modal-header h5 {
+    font-size: 1.1rem;
+  }
+
+  .service-item .row {
+    margin: 0 -5px;
+  }
+
+  .service-item .col-6 {
+    padding: 0 5px;
+  }
+}
+
+/* Scrollbar for modal body */
+.modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    white-space: nowrap !important;
+    min-width: 140px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

@@ -1,0 +1,30 @@
+.subscriptions-list {
+  max-width: 1100px;
+  margin: auto;
+  background-color: #f8f9fa;
+}
+
+table th {
+  font-weight: bold;
+}
+
+td ul {
+  padding-left: 1rem;
+}
+
+button i {
+  font-size: 1.1rem;
+}
+/* في وضع الفون */
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    white-space: nowrap !important; /* يمنع نزول الكلام لسطر جديد */
+    min-width: 140px; /* يخليها واسعة */
+  }
+
+  .table-responsive {
+    overflow-x: auto;       /* يسمح بالسكرول */
+    -webkit-overflow-scrolling: touch;
+  }
+}

@@ -1,5 +1,171 @@
-<div class="container">
-  <h2 class="text-danger display-4 text-center">
-      You haven't chosen your subscription yet.
-    </h2>
-</div>
+@if (subscriptionForm) {
+<section class="pricing">
+  <div class="container">
+    <h3 class="title">إتمام شراء الخدمة</h3>
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000">
+        <div class="checkout-container mb-5">
+          <form
+            [formGroup]="subscriptionForm"
+            (ngSubmit)="submitSubscription()"
+          >
+            <div class="form-group">
+              <label>الإسم بالكامل</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="أدخل اسمك"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>البريد الإلكتروني</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="example@mail.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>رقم الهاتف</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="phone"
+                placeholder="01012345678"
+              />
+            </div>
+            <div class="location d-flex justify-content-between flex-wrap">
+              <div class="form-group">
+                <label>المدينة</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="city"
+                  placeholder="ادخل اسم مدينتك "
+                />
+              </div>
+              <div class="form-group">
+                <label>العنوان</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="address"
+                  placeholder="اكتب العنوان بالتفصيل"
+                />
+              </div>
+            </div>
+
+            <div class="date-box justify-content-between flex-wrap">
+              <div>
+                <label>تاريخ بداية الخدمة</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="startDate"
+                  [value]="currentDate"
+                />
+              </div>
+
+              <div>
+                <label>تاريخ انتهاء الخدمة</label>
+                <input
+                  type="text"
+                  disabled
+                  class="form-control"
+                  [value]="endDate"
+                />
+              </div>
+            </div>
+
+            <div class="payment-box">
+              <label class="payment-title">طريقة الدفع</label>
+
+              <div class="payment-option">
+                <input
+                  type="radio"
+                  formControlName="paymentMethod"
+                  value="cash"
+                  (change)="toggleVisa(false)"
+                  id="cash"
+                  name="paymentMethod"
+                />
+                <span>كاش</span>
+              </div>
+
+              <div class="payment-option">
+                <input
+                  type="radio"
+                  formControlName="paymentMethod"
+                  value="visa"
+                  (change)="toggleVisa(true)"
+                  id="visa"
+                  name="paymentMethod"
+                />
+                <span>فيزا</span>
+              </div>
+            </div>
+
+            <div class="visa-box" *ngIf="showVisa">
+              <div class="form-group">
+                <label>رقم البطاقة</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="cardNumber"
+                  maxlength="16"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>CVV</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="cvv"
+                  maxlength="4"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>تاريخ الإنتهاء</label>
+                <input
+                  type="month"
+                  class="form-control"
+                  formControlName="expireDate"
+                />
+              </div>
+            </div>
+
+            <button class="btn-submit" type="submit">إتمام الطلب</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-5" data-aos="fade-up" data-aos-duration="1000">
+        <div class="box">
+          <div class="title">
+            <h5>{{ pricingSubscription.name }}</h5>
+          </div>
+          <div class="cost">
+            <h6>
+              {{ pricingSubscription.price }} جنية<span
+                >/{{ pricingSubscription.duration }}</span
+              >
+            </h6>
+            <p>فقط</p>
+          </div>
+          <div class="features">
+            @for (feature of pricingSubscription.features; track $index) {
+            <p>{{ feature }}</p>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}
+

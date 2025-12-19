@@ -3,44 +3,185 @@
     <div class="logo">
       <a class="navbar-brand" routerLink="/user/home">AutoOne</a>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="/user/home">الرئيسية</a>
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLinkActive="active"
+            routerLink="/user/home"
+            >الرئيسية</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/user/store">المتجر</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/user/store"
+            >المتجر</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/user/services">الخدمات</a>
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/user/services"
+            >الخدمات</a
+          >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/user/cart"><i class="fa-solid fa-cart-shopping"></i> السلة</a>
-        </li>
+
         <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    الصفحات
-    <i class="fa-solid fa-chevron-down"></i>
-  </a>
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            الصفحات
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="/user/about">من نحن</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="/user/blog">المدونة</a></li>
-            <li><a class="dropdown-item" routerLinkActive="active" routerLink="/user/populare-questions">الاسئلة الشائعة</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                routerLink="/user/wishlist"
+                >المفضله❤️</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                routerLink="/user/product-compare"
+                >المقارنة</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                routerLink="/user/about"
+                >من نحن</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                routerLink="/user/blog"
+                >المدونة</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                routerLink="/user/populare-questions"
+                >الاسئلة الشائعة</a
+              >
+            </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/user/subscription"> الاشتراكات</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/user/cart"
+            ><i class="fa-solid fa-cart-shopping"></i> السلة</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/user/contact">تواصل معانا</a>
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/user/contact"
+            >تواصل معانا</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link dashboard" routerLinkActive="active" routerLink="/admin/admin-login"><i class="fa-solid fa-user-tie ms-1"></i> DashBoard </a>
+          @if (isLoggined) {
+          <a
+            class="nav-link myaccount"
+            routerLinkActive="active"
+            routerLink="/user/profile"
+            >حسابي</a
+          >
+          }@else {
+          <a
+            class="nav-link login"
+            routerLinkActive="active"
+            (click)="openAuthModal()"
+            >تسجيل دخول</a
+          >
+          }
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link dashboard"
+            routerLinkActive="active"
+            routerLink="/admin"
+            ><i class="fa-solid fa-user-tie ms-1"></i> DashBoard
+          </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="auth-overlay" *ngIf="showModal" (click)="closeAuthModal()">
+  <div
+    class="auth-modal"
+    [class.active]="true"
+    (click)="$event.stopPropagation()"
+  >
+    <span class="close-btn" (click)="closeAuthModal()">×</span>
+
+    <form *ngIf="!isRegister" [formGroup]="loginForm" class="auth-form">
+      <h2>تسجيل الدخول</h2>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="البريد الإلكتروني"
+      />
+
+      <p
+        class="text-warning small"
+        *ngIf="EmailUser?.touched && EmailUser?.invalid"
+      >
+        البريد الإلكتروني غير صالح
+      </p>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="كلمة المرور"
+      />
+      <p
+        class="text-warning small"
+        *ngIf="passwordUser?.touched && passwordUser?.invalid"
+      >
+        كلمة المرور يجب أن تكون 5 أحرف على الأقل
+      </p>
+
+      <p *ngIf="errorMessage" class="text-danger fw-semibold small">
+        {{ errorMessage }}
+      </p>
+
+      <button class="btn-main" (click)="login()">تسجيل الدخول</button>
+
+      <p class="switch-text">
+        ليس لديك حساب؟
+        <span routerLink="/user/signup" (click)="closeAuthModal()"
+          >إنشاء حساب</span
+        >
+      </p>
+    </form>
+  </div>
+</div>

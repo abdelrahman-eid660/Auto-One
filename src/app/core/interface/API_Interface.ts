@@ -7,6 +7,8 @@ export interface APIStructuare {
   post(body: any): Observable<any>;
 
   put(body: any, id: any): Observable<any>;
+  
+  patch(body: any, id: any): Observable<any>;
 
   delete(id: any): Observable<any>;
 }

@@ -21,6 +21,9 @@ export class APIFunctionService implements APIStructuare {
     put(obj : any , id :any){
       return this.http.put(this.baseUrl + `/${id}` , obj)
     }
+    patch(obj : any , id :any){
+      return this.http.patch(this.baseUrl + `/${id}` , obj)
+    }
     delete(id: any) {
       return this.http.delete(this.baseUrl + `/${id}`)
     }

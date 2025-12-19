@@ -1,0 +1,45 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --p-color: rgb(146, 146, 146);
+  --main-bg: #ffffff;
+  --main-font-family: "El Messiri";
+}
+a {
+  text-decoration: none;
+}
+
+.show {
+  transform: translateX(0px) !important;
+  opacity: 1 !important;
+}
+.banner-title .banner-caption .position {
+  width: 180px;
+}
+.contact {
+  padding: 10px;
+  font-family: var(--main-font-family);
+}
+.contact .title {
+  text-align: center;
+  margin: 40px 0;
+  margin-bottom: 60px;
+}
+.store {
+  padding: 10px;
+  direction: rtl;
+  font-family: var(--main-font-family);
+}
+.headStore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.headStore .btns {
+  margin-top: 30px;
+}
+.headStore .options select {
+  font-size: 12px;
+}

@@ -1,0 +1,94 @@
+.login-container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-theme {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  display: block;
+  margin: 10px auto;
+}
+.btn-theme:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.login-box {
+  width: 400px;
+  background: #1c1c1c;
+  padding: 35px;
+  border-radius: 12px;
+  border: 2px solid #ffcc00;
+  text-align: center;
+}
+
+.login-title {
+  color: #ffcc00;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.form-control {
+  background: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.form-control:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 5px #ffcc00;
+}
+
+.btn-login {
+  background: #ffcc00;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+.btn-login:hover {
+  background: #e6b800;
+  cursor: pointer;
+}
+.btn-signup {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 10px;
+  transition: all 0.3s;
+  border-color: #e6b800;
+}
+.btn-signup a {
+  color: #ffcc00;
+  transition: all 0.3s;
+}
+.btn-signup:hover a {
+  color: #fff;
+  cursor: pointer;
+}
+.toggle-password {
+  cursor: pointer;
+  color: #ffcc00;
+  position: absolute;
+  left: 10px;
+  top: 33px;
+}
+
+.text-danger {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red !important;
+}

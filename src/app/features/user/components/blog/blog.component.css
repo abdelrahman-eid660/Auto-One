@@ -1,0 +1,55 @@
+:root {
+  --main-color: #000000;
+  --primary-color: #eb2500;
+  --main-bg: #ffffff;
+  --main-font-family: "El Messiri";
+}
+.blog {
+  padding: 20px;
+  direction: rtl;
+  margin-top: 20px;
+  text-align: center;
+}
+.blog .title {
+  margin: 30px 0;
+}
+.blog .blog-box {
+  padding: 10px;
+  transition: all 0.3s;
+  margin: 20px 0;
+}
+.blog .blog-box:hover {
+  cursor: pointer;
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+.blog .blog-box .picture {
+  margin: 10px auto;
+  overflow: hidden;
+}
+.blog .blog-box .picture img {
+  transition: all 0.3s;
+}
+.blog .blog-box:hover img {
+  transform: scale(1.12);
+}
+.blog-box .info {
+  padding: 10px;
+  text-align: right;
+  margin: 10px 0 0;
+}
+.blog-box .info h4{
+  font-size: 18px;
+}
+.blog-box .info span {
+  color: var(--primary-color);
+  font-size: 14px;
+}
+@media (min-width:768px) and (max-width:1010px) {
+  .blog-box .info h4{
+  font-size: 12px;
+}
+.blog-box .info p {
+  font-size: 14px;
+}
+}

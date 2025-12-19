@@ -26,19 +26,89 @@
     </div>
   </div>
 </section>
+
 <section class="short-products">
   <div class="container">
     <div class="head">
-      <button class="btn">
-        <a routerLink="/user/store">استكشاف المزيد</a>
-      </button>
       <div class="title">
         <h6>المنتجات المميزة</h6>
         <h4>المنتجات <span>الشائعة</span></h4>
       </div>
+      <button class="btn">
+        <a routerLink="/user/store">استكشاف المزيد</a>
+      </button>
+    </div>
+    <div class="row row-store">
+      <owl-carousel-o *ngIf="mostProducts?.length" [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let item of mostProducts">
+          <div class="box-store">
+            <div class="picture-store">
+              <img [src]="item.image" class="img-fluid" alt="" />
+              <div class="icons-store">
+                <div class="fav-icon">
+                  <i
+                    class="fa-regular fa-heart"
+                    (click)="favouritBtn(item)"
+                    [ngClass]="{ active: isFavourite(item) }"
+                  ></i>
+                  <a *ngIf="isFavourite(item)" routerLink="/user/wishlist"
+                    >تصفح قائمة الرغبات</a
+                  >
+                </div>
+                <i
+                  class="fa-solid fa-check compare"
+                  (click)="compareBtn(item)"
+                ></i>
+                <i
+                  class="fa-solid fa-magnifying-glass"
+                  (click)="showModel(item.id)"
+                ></i>
+              </div>
+            </div>
+            <div class="caption-store">
+              <h4>{{ item.name }}</h4>
+              <p>{{ item.category }}</p>
+            </div>
+            <div class="price-cart-store">
+              <h6 class="d-flex justify-content-between gap-1"><span>ج.م</span> {{ item.price }}</h6>
+              <button class="btn btn-outline-danger" (click)="cart(item)">
+                <a
+                  ><i class="fa-solid fa-cart-shopping ms-1"></i>اضافة الي
+                  السلة</a
+                >
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
     </div>
   </div>
 </section>
+
+<section class="category-of-products">
+  <div class="title">
+    <h6>فئات المنتجات</h6>
+  </div>
+  <div class="container-fluid">
+    <owl-carousel-o *ngIf="serviceProduct.length" [options]="categoryOptions">
+      <ng-template carouselSlide *ngFor="let item of serviceProduct">
+        <div class="box">
+          <div class="picture">
+            <img [src]="item.image" class="img-fluid" alt="" />
+          </div>
+          <div class="caption">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <button class="btn btn-outline-dark">
+              <a routerLink="/user/store">اكتشف قطع غيار السيارات</a>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</section>
+
 <section class="brands">
   <div class="container">
     <div class="row align-items-center">
@@ -67,6 +137,44 @@
     </div>
   </div>
 </section>
+
+<section class="about-brand">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box">
+          <div class="title">
+            <h6>علامات تجارية للمنتجات</h6>
+          </div>
+          <div class="quote">
+            <img src="assets/img/quote.png" class="img-fluid" alt="" />
+          </div>
+          <owl-carousel-o
+            *ngIf="aboutBrands.length"
+            [options]="aboutBrandsOptions"
+          >
+            <ng-template carouselSlide *ngFor="let item of aboutBrands">
+              <h4>{{ item.desc }}</h4>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="col-md-6">
+        @if (aboutcover) {
+          <div class="picture">
+            <img
+              [src]="aboutcover"
+              class="img-fluid"
+              alt="about-Brand"
+            />
+          </div>
+
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="shop-now">
   <div class="layout-animation">
     <video autoplay muted loop playsiline>
@@ -86,3 +194,180 @@
     </div>
   </div>
 </section>
+
+<section class="discont-products">
+  <div class="container">
+    <div class="title">
+      <h6>منتجات مع خصومات شهرية</h6>
+      <h4>عروض المنتجات <span>الخاصة</span></h4>
+    </div>
+    <div class="row row-store">
+      <owl-carousel-o
+        *ngIf="discountProducts?.length"
+        [options]="customOptions"
+      >
+        <ng-template carouselSlide *ngFor="let item of discountProducts">
+          <div class="box-store">
+            <div class="picture-store">
+              <img [src]="item.image" class="img-fluid" alt="" />
+              <div class="icons-store">
+                <div class="fav-icon">
+                  <i
+                    class="fa-regular fa-heart"
+                    (click)="favouritBtn(item)"
+                    [ngClass]="{ active: isFavourite(item) }"
+                  ></i>
+                  <a *ngIf="isFavourite(item)" routerLink="/user/wishlist"
+                    >تصفح قائمة الرغبات</a
+                  >
+                </div>
+                <i
+                  class="fa-solid fa-check compare"
+                  (click)="compareBtn(item)"
+                ></i>
+                <i
+                  class="fa-solid fa-magnifying-glass"
+                  (click)="showModel(item.id)"
+                ></i>
+              </div>
+            </div>
+            <div class="caption-store">
+              <h4>{{ item.name }}</h4>
+              <p>{{ item.category }}</p>
+            </div>
+            <div class="price-cart-store">
+              <h6 class="d-flex justify-content-between gap-1">
+                <span>ج.م</span>{{ item.price }}
+              </h6>
+              <button class="btn btn-outline-danger" (click)="cart(item)">
+                <a
+                  ><i class="fa-solid fa-cart-shopping ms-1"></i>اضافة الي
+                  السلة</a
+                >
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+
+<!-- Modal: Wishlist Added -->
+<div
+  class="modal fade"
+  id="wishlistModal"
+  tabindex="-1"
+  aria-labelledby="wishlistModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content wishlist-modal">
+      <div class="modal-body text-center">
+        <div class="icon mb-3">
+          <i class="fa-solid fa-heart-circle-check"></i>
+        </div>
+        <h5 class="mb-3">تم إضافة المنتج إلى قائمة رغباتك ❤️</h5>
+        <p class="mb-4">يمكنك الآن عرض جميع المنتجات المفضلة لديك من هنا</p>
+        <a routerLink="/user/wishlist" class="btn btn-danger">
+          <i class="fa-solid fa-list me-2"></i>
+          عرض صفحة قائمة رغباتك
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Modal: تمت الإضافة إلى المقارنة -->
+<div
+  class="modal fade"
+  id="compareModal"
+  tabindex="-1"
+  aria-labelledby="compareModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content compare-modal">
+      <div class="modal-body text-center">
+        <div class="icon-circle">
+          <i class="fa-solid fa-car-side"></i>
+        </div>
+        <h5 class="mt-3 text-light">تم إضافة المنتج إلى المقارنة</h5>
+        <p class="text-secondary small mb-3">يمكنك عرض ومقارنة التفاصيل الآن</p>
+        <a routerLink="/user/product-compare" class="btn btn-primary w-100">
+          عرض صفحة المقارنة
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- المودال الخاص بالعرض السريع -->
+<div
+  class="modal-quicklook"
+  id="modal-quicklook"
+  [ngClass]="quicklook ? 'd-flex' : 'd-none'"
+>
+  <div class="modal-box">
+    <button class="btn btn-danger close" (click)="showModel()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    @if (modelData) {
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="modal-info">
+            <h3>{{ modelData.name }}</h3>
+            <p class="rating">⭐⭐⭐⭐☆</p>
+            <h6 class="d-flex justify-content-end gap-1"><span>ج.م</span> {{ modelData.price }}</h6>
+            <p class="desc">{{ modelData.description }}</p>
+
+            <div class="counter">
+              <button (click)="decrease()">-</button>
+              <span>{{ modelData.quntity }}</span>
+              <button (click)="increase()">+</button>
+            </div>
+            <div class="btns">
+              <div class="extra-icons">
+                <i (click)="compareBtn(modelData)" class="fa-solid fa-check compare"></i>
+                <i
+                  class="fa-regular fa-heart"
+                  (click)="favouritBtn(modelData)"
+                  [ngClass]="{ active: isFavourite(modelData) }"
+                ></i>
+                <a
+                  class="mes"
+                  *ngIf="isFavourite(modelData)"
+                  routerLink="/user/wishlist"
+                  >تصفح قائمة الرغبات</a
+                >
+              </div>
+              <button class="btn btn-danger" (click)="cart(modelData)">
+                إضافة إلى السلة
+              </button>
+            </div>
+
+            <p class="info-note">🛒 ٢٠ شخص أضافوا هذا المنتج إلى عربة التسوق</p>
+            <div class="product-meta">
+              <p>
+                <strong>{{ modelData.marka }} :الماركة</strong>
+              </p>
+              <p>
+                <strong>{{ modelData.code }} :كود المنتج </strong>
+              </p>
+              <p>
+                <strong>المتوفر: {{ modelData.count }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="modal-image">
+            <img [src]="modelData.image" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

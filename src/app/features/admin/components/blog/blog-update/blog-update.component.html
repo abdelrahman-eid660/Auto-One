@@ -1,1 +1,58 @@
-<p>blog-update works!</p>
+<div class="blog-update container mt-5 p-4 rounded shadow-lg">
+  <h2 class="text-center mb-4 text-warning fw-bold">🚗 تعديل المدونة</h2>
+
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit(id)" class="p-3 bg-dark text-light rounded">
+    <div class="mb-3">
+      <label class="form-label text-warning">العنوان</label>
+      <input
+        type="text"
+        formControlName="title"
+        class="form-control bg-secondary text-light border-0"
+        placeholder="اكتب عنوان المدونة" />
+      <small *ngIf="blogForm.get('title')?.invalid && blogForm.get('title')?.touched" class="text-danger">
+        العنوان مطلوب
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label text-warning">الوصف</label>
+      <textarea
+        formControlName="description"
+        rows="4"
+        class="form-control bg-secondary text-light border-0"
+        placeholder="اكتب وصف المدونة..."></textarea>
+      <small *ngIf="blogForm.get('description')?.invalid && blogForm.get('description')?.touched" class="text-danger">
+        الوصف مطلوب
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label text-warning">رابط الصورة</label>
+      <input
+        type="text"
+        formControlName="image"
+        class="form-control bg-secondary text-light border-0"
+        placeholder="ضع رابط الصورة هنا" />
+      <small *ngIf="blogForm.get('image')?.invalid && blogForm.get('image')?.touched" class="text-danger">
+        الصورة مطلوبة
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label text-warning">تاريخ النشر</label>
+      <input
+        type="date"
+        formControlName="date"
+        class="form-control bg-secondary text-light border-0" />
+      <small *ngIf="blogForm.get('date')?.invalid && blogForm.get('date')?.touched" class="text-danger">
+        التاريخ مطلوب
+      </small>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-warning px-5 fw-bold" [disabled]="blogForm.invalid">
+        💾 حفظ التعديلات
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,79 @@
-<p>pricing-update works!</p>
+<div class="subscription-form card shadow p-4 rounded-4 bg-light">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0 text-primary fw-bold">تعديل باقة</h4>
+    <button class="btn btn-outline-secondary" (click)="onCancel()">إلغاء</button>
+  </div>
+
+    <form [formGroup]="pricingForm" (ngSubmit)="update()" class="row g-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-semibold">اسم الباقة</label>
+        <input id="name" type="text" formControlName="name" class="form-control form-control-lg" placeholder="مثال: الباقة الذهبية" />
+        @if (controls['name'].touched && controls['name'].invalid) {
+          <div class="text-danger small">
+            @if (controls['name'].errors?.['required']) { <div>من فضلك أدخل اسم الباقة</div> }
+            @if (controls['name'].errors?.['minlength']) { <div>اسم الباقة قصير جداً</div> }
+          </div>
+        }
+      </div>
+
+      <!-- السعر -->
+      <div class="col-md-6">
+        <label for="price" class="form-label fw-semibold">السعر (EGP)</label>
+        <input id="price" type="number" formControlName="price" class="form-control form-control-lg" placeholder="مثال: 1500" />
+        @if (controls['price'].touched && controls['price'].invalid) {
+          <div class="text-danger small">
+            @if (controls['price'].errors?.['required']) { <div>من فضلك أدخل السعر</div> }
+          </div>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <label for="duration" class="form-label fw-semibold">المدة</label>
+        <select id="duration" formControlName="duration" class="form-select form-select-lg">
+          <option value="" disabled>اختر المدة</option>
+          <option value="3 شهور">3 شهور</option>
+          <option value="6 شهور">6 شهور</option>
+          <option value="12 شهر">12 شهر</option>
+        </select>
+        @if (controls['duration'].touched && controls['duration'].invalid) {
+          <div class="text-danger small">
+            <div>من فضلك اختر المدة</div>
+          </div>
+        }
+      </div>
+
+      <div class="col-12">
+        <label for="features" class="form-label fw-semibold">مميزات الباقة (سطر لكل ميزة)</label>
+        <textarea id="features" rows="5" formControlName="features" class="form-control form-control-lg" placeholder="اكتب ميزة في كل سطر"></textarea>
+        @if (controls['features'].touched && controls['features'].invalid) {
+          <div class="text-danger small">
+            <div>من فضلك أدخل مميزات الباقة</div>
+          </div>
+        }
+      </div>
+
+      <div class="col-12">
+        <div class="card p-3 bg-white">
+          <h6 class="mb-2">معاينة المميزات</h6>
+          @if (pricingForm.get('features')?.value) {
+            <ul class="mb-0">
+              @for (f of pricingForm.get('features')?.value.split('\n'); track f) {
+                @if (f.trim()) {
+                  <li>• {{ f }}</li>
+                }
+              }
+            </ul>
+          } @else {
+            <div class="text-muted">لا توجد مميزات للحظة</div>
+          }
+        </div>
+      </div>
+
+      <div class="col-12 text-center mt-3">
+        <button type="submit" class="btn btn-primary px-4" [disabled]="pricingForm.invalid">
+          حفظ التعديلات
+        </button>
+        <button type="button" class="btn btn-outline-secondary ms-2" (click)="onCancel()">إلغاء</button>
+      </div>
+    </form>
+</div>

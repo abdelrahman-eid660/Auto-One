@@ -1,1 +1,47 @@
-<p>blog-create works!</p>
+<div class="blog-create p-4">
+  <h3 class="text-warning fw-bold mb-4">📰 إنشاء مدونة جديدة</h3>
+
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" class="card p-4 shadow-sm">
+
+    <div class="mb-3">
+      <label class="form-label">📌 عنوان المدونة</label>
+      <input type="text" formControlName="title" class="form-control" placeholder="اكتب عنوان المدونة..." />
+      <div *ngIf="blogForm.get('title')?.invalid && blogForm.get('title')?.touched" class="text-danger small">
+        العنوان مطلوب ويجب أن يكون أكثر من 5 أحرف.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">📝 وصف المدونة</label>
+      <textarea formControlName="description" rows="5" class="form-control" placeholder="اكتب وصفًا مختصرًا للمدونة..."></textarea>
+      <div *ngIf="blogForm.get('description')?.invalid && blogForm.get('description')?.touched" class="text-danger small">
+        الوصف مطلوب ويجب أن يكون أكثر من 10 أحرف.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">🖼️ صورة المدونة</label>
+      <input type="text" class="form-control" formControlName="image" />
+      <div *ngIf="blogForm.get('image')?.invalid && blogForm.get('image')?.touched" class="text-danger small">
+        الصورة مطلوبة.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">📅 تاريخ النشر</label>
+      <input type="date" formControlName="date" class="form-control" />
+      <div *ngIf="blogForm.get('date')?.invalid && blogForm.get('date')?.touched" class="text-danger small">
+        برجاء اختيار تاريخ النشر.
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <button type="submit" class="btn btn-warning px-4" [disabled]="blogForm.invalid">
+        🚀 نشر المدونة
+      </button>
+      <button type="button" class="btn btn-outline-secondary px-4" routerLink="/admin/blog-list">
+        🔙 الرجوع للقائمة
+      </button>
+    </div>
+  </form>
+</div>

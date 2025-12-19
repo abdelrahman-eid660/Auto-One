@@ -24,7 +24,7 @@ export class AdminUpdateComponent {
   updateAdmins(){
     this.adminForm = this.fb.group({
       name : ["",[Validators.required,Validators.minLength(3),Validators.maxLength(50)]],
-      email : ["",[Validators.required,Validators.minLength(3),Validators.maxLength(50)]],
+      email : ["",[Validators.required,Validators.minLength(3),Validators.maxLength(50),Validators.email]],
       phone : ["",[Validators.required,Validators.minLength(8),Validators.maxLength(20)]],
       role : ["",[Validators.required]],
       password : ["",[Validators.required,Validators.minLength(6),Validators.maxLength(50)]],

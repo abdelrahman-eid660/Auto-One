@@ -1,1 +1,197 @@
-<p>services works!</p>
+<!-- main title  -->
+<div class="container-fulid">
+  <div class="banner-title">
+    <div class="banner-content">
+      <div class="banner-caption">
+        <h4>الخدمات</h4>
+        <div class="position">
+          <h6>الخدمات</h6>
+          <span><<</span>
+          <h6>الرئيسية</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="services">
+  <div class="container">
+    <div class="title text-center">
+      <h6>خدماتنا الشائعة</h6>
+      <h4>خدمات السيارات <span>الشائعة</span></h4>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          @for (item of ServicesData; track $index) {
+          <div class="col-md-6" data-aos="fade-up"
+     data-aos-easing="ease-in-sine">
+            <div class="box">
+              <div class="picture">
+                <img [src]="item.image" class="img-fluid" alt="" />
+              </div>
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+              <button class="btn btn-outline-danger">
+                <a routerLink="/user/contact">اطلب الان</a>
+              </button>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-left"
+     data-aos-easing="ease-in-sine">
+        <div class="slide">
+          <div class="picture">
+            <img src="assets/img/service/s5.jpg" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-work">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5"  data-aos="fade-left"
+     data-aos-easing="ease-in-sine">
+        <div class="title">
+          <h6>عملية قطع غيار السيارات</h6>
+          <h4>كيف <span>يعمل</span>؟</h4>
+          <p>
+            صناعة قطع غيار السيارات تعمل من خلال توفير المكونات الأساسية
+            للمركبات إلى ورش الصيانة والمستهلكين الأفراد على حد سواء. عندما
+            يحتاج السيارة إلى صيانة أو إصلاح، يقوم الفنيون بتشخيص المشكلة وتحديد
+            الأجزاء المحددة المطلوبة، سواء كانت للمحرك، أو المكابح، أو التعليق،
+            أو أنظمة أخرى.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 me-auto" data-aos="fade-right"
+     data-aos-easing="ease-in-sine">
+        <div class="steps">
+          <div class="box">
+            <div class="logo">
+              <i class="fas fa-list-check"></i>
+            </div>
+            <div class="info">
+              <h4>فحص المشاكل</h4>
+              <p>سوف نقوم بتحليل مشاكل سيارتك</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="logo fa-shop">
+              <i class="fa-solid fa-shop"></i>
+            </div>
+            <div class="info">
+              <h4>ابحث عن قطع غيار السيارات</h4>
+              <p>ابحث عن منتجات قطع غيار السيارات واطلبها بسهولة</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="logo">
+              <i class="fa-solid fa-truck fa-flip-horizontal"></i>
+            </div>
+            <div class="info">
+              <h4>استلم المنتجات</h4>
+              <p>توصيل سريع للمنتجات إلى موقعك</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <div class="title text-center">
+      <h6>خدماتنا الشائعه</h6>
+      <h4>اْسعار <span>الخدمات</span></h4>
+    </div>
+    <div class="row">
+      @for (item of pricingData; track $index) {
+      <div class="col-md-3" data-aos="fade-up"
+     data-aos-duration="1000">
+        <div class="box">
+          <div class="title">
+            <h5>{{item.name}}</h5>
+          </div>
+          <div class="cost">
+            <h6>{{item.price}} جنية<span>/{{item.duration}}</span></h6>
+            <p>فقط</p>
+          </div>
+          <div class="features">
+            @for (feature of item.features; track $index) {
+              <p>{{feature}}</p>
+            }
+          </div>
+          <div class="order">
+            <button class="btn" (click)="cart(item.id)">
+              <a>اطلب الآن</a>
+            </button>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="shop-now">
+  <div class="layout-animation">
+    <video autoplay muted loop playsiline>
+      <source src="assets/img/layout/layout.mp4" />
+    </video>
+  </div>
+  <div class="container">
+    <div class="title">
+      <h6>ابدأ التسوق مع أفضل الخصومات</h6>
+      <h4>هل اْنت مستعد للحصول علي <span>اْفضل سيارة </span>وقطع غيار لسيارتك؟</h4>
+    </div>
+    <div class="btns">
+      <button class="btn">
+        <a routerLink="/user/store">استكشف السيارات وقطع الغيار</a>
+      </button>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </div>
+</section>
+<div class="modal fade modallogin" id="loginRequiredModal" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content premium-modal">
+
+      <div class="modal-header border-0 justify-content-center">
+        <h5 class="modal-title text-white fw-bold d-flex align-items-center">
+          <i class="fa-solid fa-car-side me-2"></i> دخول المستخدم
+        </h5>
+      </div>
+
+      <div class="modal-body text-center text-white">
+
+        <div class="car-icon-box mb-3">
+          <i class="fa-solid fa-car-burst"></i>
+        </div>
+
+        <h4 class="fw-bold mb-2">مرحبًا بك في عالم السيارات</h4>
+        <p class="text-light opacity-75 mb-4 fs-6">
+          يجب عليك تسجيل الدخول لمتابعة التصفح والاستفادة من جميع المميزات.
+        </p>
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-light flex-fill py-2" (click)="goToLogin()">
+            تسجيل الدخول
+          </button>
+
+          <button class="btn btn-warning flex-fill py-2 fw-bold" (click)="goToRegister()">
+            إنشاء حساب جديد
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

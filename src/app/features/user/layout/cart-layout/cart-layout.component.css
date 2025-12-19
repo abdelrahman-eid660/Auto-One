@@ -1,0 +1,111 @@
+.nav-cart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+}
+.nav-cart ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin: 30px 0;
+}
+.nav-cart li {
+  list-style: none;
+  font-size: 30px;
+}
+.nav-cart li a {
+  text-decoration: none;
+  color: gray !important;
+  cursor: pointer;
+}
+.nav-cart li a.active {
+  color: black !important;
+}
+.nav-cart li a.active span {
+  background-color: black;
+}
+.nav-cart li a span{
+  margin-left: 10px;
+  padding: 5px 20px;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: gray;
+}
+@media (max-width:768px) {
+.nav-cart ul {
+  gap: 5px;
+}
+.nav-cart li {
+  font-size: 12px;
+  margin: 0 5px;
+}
+.nav-cart li a span{
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+}
+.cart-container .text-muted {
+  color: #6c757d !important;
+}
+.premium-modal {
+  background: linear-gradient(135deg, #1c1c1c, #2c2c2c);
+  border-radius: 18px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* خلفية دخان سيارات */
+.premium-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../../../../../public/assets/img/about\ us/about_us3.jpg") center/cover;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.modal-body,
+.modal-header {
+  position: relative;
+  z-index: 2;
+}
+
+.car-icon-box {
+  font-size: 60px;
+  color: #ffc107;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    white-space: nowrap !important;
+    min-width: 140px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

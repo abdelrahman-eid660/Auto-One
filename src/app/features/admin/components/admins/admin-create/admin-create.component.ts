@@ -19,7 +19,7 @@ export class AdminCreateComponent {
   createAdmins(){
     this.adminForm = this.fb.group({
       name : ["",[Validators.required,Validators.minLength(3),Validators.maxLength(50)]],
-      email : ["",[Validators.required,Validators.minLength(3),Validators.maxLength(50)]],
+      email : ["",[Validators.required,Validators.minLength(3),Validators.maxLength(50),Validators.email]],
       phone : ["",[Validators.required,Validators.minLength(8),Validators.maxLength(20)]],
       role : ["",[Validators.required]],
       password : ["",[Validators.required,Validators.minLength(6),Validators.maxLength(50)]],
@@ -29,11 +29,12 @@ export class AdminCreateComponent {
     return this.adminForm.controls
   }
   onSubmit(){
+    localStorage.setItem('admin',JSON.stringify(this.adminForm.value))
     this.adminsServ.post(this.adminForm.value).subscribe((data)=>{
       this.toster.success("","تم اضافة مشرف بنجاح",{
         timeOut:3000
       })
-      this.router.navigateByUrl("/admin/admin-list")
+      this.router.navigateByUrl("/admin/admin-login")
     })
   }
 }

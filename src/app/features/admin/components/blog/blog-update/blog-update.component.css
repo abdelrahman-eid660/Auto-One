@@ -1,0 +1,15 @@
+.blog-update {
+  max-width: 700px;
+  background-color: #1e1e1e;
+  border: 2px solid #ffcc00;
+}
+
+.blog-update input:focus,
+.blog-update textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #ffcc00;
+}
+
+.btn-warning:hover {
+  background-color: #ffc107d9;
+}

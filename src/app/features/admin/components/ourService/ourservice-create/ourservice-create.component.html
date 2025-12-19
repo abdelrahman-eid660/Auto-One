@@ -1,1 +1,52 @@
-<p>ourservice-create works!</p>
+<div class="service-create container mt-1 p-4 rounded shadow-lg">
+  <h2 class="text-center mb-4 text-warning fw-bold">➕ إضافة خدمة جديدة</h2>
+
+  <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" class="bg-dark text-light p-4 rounded">
+
+    <div class="mb-3">
+      <label for="title" class="form-label text-warning">اسم الخدمة</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+        placeholder="مثلاً: صيانة المحرك"
+      />
+      <div *ngIf="serviceForm.get('title')?.invalid && serviceForm.get('title')?.touched" class="text-danger small">
+        هذا الحقل مطلوب
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label text-warning">الوصف</label>
+      <textarea
+        id="description"
+        class="form-control"
+        formControlName="description"
+        placeholder="اكتب وصفاً مختصراً للخدمة"
+        rows="3"
+      ></textarea>
+      <div *ngIf="serviceForm.get('description')?.invalid && serviceForm.get('description')?.touched" class="text-danger small">
+        هذا الحقل مطلوب
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label text-warning">رابط الصورة</label>
+      <input
+        id="image"
+        type="text"
+        class="form-control"
+        formControlName="image"
+        placeholder="أدخل رابط الصورة"
+      />
+      <div *ngIf="serviceForm.get('image')?.invalid && serviceForm.get('image')?.touched" class="text-danger small">
+        هذا الحقل مطلوب
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100 fw-bold mt-3" [disabled]="serviceForm.invalid">
+      💾 حفظ الخدمة
+    </button>
+  </form>
+</div>

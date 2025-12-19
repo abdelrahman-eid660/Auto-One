@@ -1,1 +1,43 @@
-<p>ourservice-update works!</p>
+<div class="service-update container mt-1 p-4 rounded shadow-lg">
+  <h2 class="text-center mb-4 text-warning fw-bold">✏️ تعديل الخدمة</h2>
+
+  <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" class="bg-dark text-light p-4 rounded">
+
+    <div class="mb-3">
+      <label for="title" class="form-label text-warning">اسم الخدمة</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+        placeholder="اكتب اسم الخدمة"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label text-warning">الوصف</label>
+      <textarea
+        id="description"
+        class="form-control"
+        formControlName="description"
+        placeholder="اكتب وصف الخدمة"
+        rows="6"
+      ></textarea>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="image" class="form-label text-warning">رابط الصورة</label>
+      <input
+        id="image"
+        type="text"
+        class="form-control"
+        formControlName="image"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100 fw-bold mt-3" [disabled]="serviceForm.invalid">
+      💾 تحديث الخدمة
+    </button>
+  </form>
+</div>

@@ -1,1 +1,88 @@
-<p>product-compare works!</p>
+<!-- main title  -->
+<div class="container-fulid">
+  <div class="banner-title">
+    <div class="banner-content">
+      <div class="banner-caption">
+        <h4>مقارنة المنتجات</h4>
+        <div class="position">
+          <h6>مقارنة المنتجات</h6>
+          <span><<</span>
+          <h6>الرئيسية</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="compareProducts">
+  <div class="container">
+    @if (compareProductsData.length > 0) {
+    <div class="compare-container table-responsive my-4">
+      <table
+        class="table table-bordered text-center align-middle compare-table"
+        dir="rtl"
+      >
+        <thead>
+          <tr>
+            <th class="fixed-col feature-title">المنتج</th>
+            <th
+              *ngFor="let p of compareProductsData; let i = index"
+              class="product-title"
+            >
+              <img [src]="p.image" class="product-img mb-2" alt="Car" />
+              <div class="product-name">
+                <h6>{{ p.name }}</h6>
+                <button class="btn btn-outline-danger" (click)="cart(p)">
+                  <a routerLink="/user/cart"
+                    ><i class="fa-solid fa-cart-shopping ms-1"></i>اضافة الي
+                    السلة</a
+                  >
+                </button>
+                <button class="btn close" (click)="remove(i)">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+              </div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="fixed-col feature-title">السعر</td>
+            <td *ngFor="let p of compareProductsData" class="value-cell">
+              {{ p.price }} ج.م
+            </td>
+          </tr>
+
+          <tr>
+            <td class="fixed-col feature-title">الإمكانيات</td>
+            <td *ngFor="let p of compareProductsData" class="value-cell">
+              <p>{{ p.description }}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="fixed-col feature-title">الماركة</td>
+            <td *ngFor="let p of compareProductsData" class="value-cell">
+              {{ p.marka }}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="fixed-col feature-title">الحالة</td>
+            <td *ngFor="let p of compareProductsData" class="value-cell">
+              <span class="badge bg-success" *ngIf="p.count > 0">متاح</span>
+              <span class="badge bg-danger" *ngIf="p.count <= 0">تم البيع</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    } @else {
+    <h2 class="text-danger text-center">
+      لا توجد لديك اي منتجات للمقارنة حاليا
+    </h2>
+    }
+  </div>
+</section>
