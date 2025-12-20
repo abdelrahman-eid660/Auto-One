@@ -51,6 +51,10 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+## to try DashBoard and Profile 
+email:abdelrhman@gmail.com
+password:123456
+Note⚠️⚠️⚠️:becouse i closed all http methods expct "GET"
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
