@@ -87,11 +87,6 @@ export class CustomersListComponent {
         );
     });
   }
-  rm(){
-    this.AllData_Customer.forEach((item : any)=>{
-      this.customerServ.delete(item.id).subscribe()
-    })
-  }
   getOrder(orderID: string) {
     return this.products.filter((p: any) => p.orderID === orderID);
   }
